@@ -360,8 +360,25 @@ body{
 	-webkit-transition: opacity .4s ease;
 	opacity: 0.5;
 }
-.task.passive .circle-wrapper{ display: none; }
+/* ----------------------- */
+/* ??? */
+.sortable-placeholder{
+	box-shadow: inset 0px 2px 0px 0px rgba(0,0,0,0.1), inset 0px -2px 0px 0px rgba(0,0,0,0.1);
+}
+/* ----------------------- */
+/* Circle */
+.task.passive .circle-wrapper{ 
+	opacity: 0.25;
+	transition: opacity .2s ease;
+	-webkit-transition: opacity .2s ease;
+}
+.task.passive .circle-wrapper:hover{
+	opacity: 0.75;
+	transition: opacity .2s ease;
+	-webkit-transition: opacity .2s ease;
+}
 .task .circle-wrapper{
+	cursor: pointer;
 	z-index: 10;
 	top: 11px;
 	left: 10px;
@@ -369,7 +386,15 @@ body{
 	width: 27px; /* Set the size of the progress bar */
 	height: 29px;
 	position: absolute; /* Enable clipping */
-/*	clip: rect(0px, 32px, 34px, 16px); /* Hide half of the progress bar */*/
+/*	clip: rect(0px, 32px, 34px, 16px); /* Hide half of the progress bar */
+	transition: opacity .2s ease;
+	-webkit-transition: opacity .2s ease;
+}
+.task .circle-wrapper.percent-50{
+	clip: rect(0px, 32px, 32px, 16px); /* Hide half of the progress bar */
+}
+.task .circle-wrapper.percent-35{
+	clip: rect(0px, 32px, 22px, 16px); /* Hide half of the progress bar */
 }
 /* Set the sizes of the elements that make up the progress bar */
 .task .circle{
@@ -377,9 +402,8 @@ body{
 	height: 22px;
 	border: 3px solid rgb(255,255,255);
 }
-.sortable-placeholder{
-	box-shadow: inset 0px 2px 0px 0px rgba(0,0,0,0.1), inset 0px -2px 0px 0px rgba(0,0,0,0.1);
-}
+/* ----------------------- */
+/* Time */
 .task .time{
 	cursor: pointer;
 	position: absolute;
@@ -422,7 +446,6 @@ body{
 .budget:before{
 	content: "";
 	height: 5px;
-	width: 100px;
 	background: rgba(0,0,0,0.2);
 	position: absolute;
 	left: 0px;
@@ -433,7 +456,6 @@ body{
 }
 .open .budget:before{
 	height: 100%;
-	z-index: 1;
 	transition: height .2s ease;
 	-webkit-transition: height .2s ease;
 }
