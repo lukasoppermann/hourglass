@@ -184,12 +184,13 @@ body{
 	top: 17px;
 	left: 225px;
 }
-.task.open .project{
+.task.open .project, .task.open .attachments{
 	display: block;
 }
 .task .attachments{
 	position: absolute;
 	overflow: visible;
+	display: none;
 	top: 10px;
 	right: 0;
 	width: 30px;
