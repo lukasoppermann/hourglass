@@ -424,7 +424,8 @@ body{
 	z-index: 3;
 }
 .note{
-	padding: 15px 0 5px 40px;
+	margin-right: 40px;
+	padding: 15px 0 15px 15px;
 }
 .subtasks .subtask, .subtask-archive{
 	padding: 5px 0;
