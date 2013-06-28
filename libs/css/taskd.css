@@ -306,6 +306,8 @@ body{
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	position: relative;
+	transition: height .4s ease;
+	-webkit-transition: height .4s ease;
 }
 .task.open .head{
 	width: 100%;
@@ -313,6 +315,8 @@ body{
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	position: relative;
+	transition: height .4s ease;
+	-webkit-transition: height .4s ease;
 }
 .task .body{
 	overflow: hidden;
@@ -374,18 +378,28 @@ body{
 .task .time{
 	cursor: pointer;
 	position: absolute;
-	right: 40px;
-	top: 17px;
-	height: 18px;
-	opacity: 0.7;
+	right: 8px;
+	top: 14px;
+	border-radius: 20px;
+	padding: 3px 7px;
+	color: rgba(255,255,255,.7);
+	cursor: pointer;
+	transition: background .2s ease, color .4s ease, top .2s ease;
+	-webkit-transition: background .2s ease, color .4s ease, top .2s ease;
+}
+.task .time:hover{
+	background: rgba(0,0,0,0.2);
+	color: rgba(255,255,255,1);
+	transition: background .2s ease, color .4s ease;
+	-webkit-transition: background .2s ease, color .4s ease;
 }
 .task.open .time{
-	right: 40px;
-	top: auto;
-	bottom: 2px;
+	top: 38px;
 	height: 18px;
 	opacity: 0.7;
 	z-index: 2;
+	transition: top .2s ease;
+	-webkit-transition: top .2s ease;
 }
 .budget{
 	display: none;

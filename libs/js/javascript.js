@@ -42,7 +42,7 @@ $(function() {
      };
  });
 // open / close item
-_tasks.on('click','.open-arrow', function()
+_tasks.on('click','.head', function()
 {
 	var item = $(this).parents('.task');
 	
