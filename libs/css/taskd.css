@@ -3,6 +3,8 @@
 }
 body{ 
 	background: rgb(100,140,160); 
+	background-image: url("../../bg2.jpg");
+	background-position: top right;
 	font-family: "Helvetica", "Arial", Sans-serif;
 }
 #mac_menu{
