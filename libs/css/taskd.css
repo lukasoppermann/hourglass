@@ -271,7 +271,7 @@ body{
 .archive .count, .subtask-archive .count{
 	z-index: 10;
 	position: absolute;
-	right: 38px;
+	right: 7px;
 	top: 12px;
 	padding: 5px 7px;
 	border-radius: 20px;
