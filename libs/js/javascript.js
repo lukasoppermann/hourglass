@@ -16,9 +16,10 @@ $(function() {
 		 distance: 60,
 		 items: '.task',
 		 start: function(event, ui) {
+			 open = false;
 			 if(ui.item.hasClass('open'))
 			 {
-					ui.helper.find('.body').parent().removeClass('open');
+					ui.helper.find('.body').parent().removeClass('open').addClass('fast-close');
 					open = true;
 				}
 			 ui.helper.height(ui.helper.find('.head').height());
@@ -28,7 +29,7 @@ $(function() {
 			 colors(baseColor);
 			 if(open === true)
 			 {
-			 	ui.item.find('.body').parent().addClass('open');
+			 	ui.item.find('.body').parent().addClass('open').removeClass('fast-close');
 			 }
 		 }
    });
