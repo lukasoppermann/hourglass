@@ -174,8 +174,8 @@ body{
 	z-index: 3;
 }
 .task .project{
-	display: none;
-	opacity: 0.5;
+/*	display: none;*/
+	opacity: 0;
 	overflow: hidden;
 	width: 140px;
 	height: 18px;
@@ -183,6 +183,13 @@ body{
 	font-weight: normal;
 	top: 17px;
 	left: 225px;
+	transition: opacity .4s ease;
+	-webkit-transition: opacity .4s ease;
+}
+.task.open .project{
+	opacity: 0.5;
+	transition: opacity .4s ease;
+	-webkit-transition: opacity .4s ease;
 }
 .task.open .project, .task.open .attachments{
 	display: block;
@@ -306,8 +313,8 @@ body{
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	position: relative;
-	transition: height .4s ease;
-	-webkit-transition: height .4s ease;
+	transition: height .2s ease;
+	-webkit-transition: height .2s ease;
 }
 .task.open .head{
 	width: 100%;
@@ -315,8 +322,8 @@ body{
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	position: relative;
-	transition: height .4s ease;
-	-webkit-transition: height .4s ease;
+	transition: height .2s ease;
+	-webkit-transition: height .2s ease;
 }
 .task .body{
 	overflow: hidden;
@@ -395,40 +402,53 @@ body{
 	-webkit-transition: background .2s ease, color .4s ease;
 }
 .task.open .time{
+	position: absolute;
 	top: 46px;
 	z-index: 2;
 	background: rgba(0,0,0,0);
-	transition: top .2s ease, background .2s ease, color .4s ease, top .2s ease;
-	-webkit-transition: top .2s ease, background .2s ease, color .4s ease, top .2s ease;
+	transition: background .2s ease, color .4s ease, top .2s ease;
+	-webkit-transition: background .2s ease, color .4s ease, top .2s ease;
 }
 .budget{
-	display: none;
-}
-.open .budget{
-	width: 100%;
 	display: block;
+	width: 100%;
 	height: 25px;
 	position: absolute;
 	bottom: 0;
 }
-.open .budget:before{
+.budget:before{
 	content: "";
-	height: 100%;
+	height: 5px;
 	width: 100px;
 	background: rgba(0,0,0,0.2);
 	position: absolute;
 	left: 0px;
 	bottom: 0px;
 	z-index: 1;
+	transition: height .2s ease;
+	-webkit-transition: height .2s ease;
+}
+.open .budget:before{
+	height: 100%;
+	z-index: 1;
+	transition: height .2s ease;
+	-webkit-transition: height .2s ease;
 }
 .budget .content{
-	display: block;
+	opacity: 0;
 	height: 18px;
 	padding-left: 15px;
 	position: absolute;
 	bottom: 2px;
 	left: 45px;
 	z-index: 3;
+	transition: opacity .3s ease;
+	-webkit-transition: opacity .3s ease;
+}
+.open .budget .content{
+	opacity: 1;
+	transition: opacity .4s ease .1s;
+	-webkit-transition: opacity .4s ease .1s;
 }
 .budget .icon{
 	height: 18px;
