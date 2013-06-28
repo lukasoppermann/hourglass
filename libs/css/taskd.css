@@ -163,31 +163,23 @@ body{
 }
 .task h5, .archive h5{
 	float: left;
-/*	width: 500px;*/
 }
 .task .task-heading, .archive .task-heading{
-/*	overflow: hidden;
-	width: 175px;*/
 	float: left;
 	height: 18px;
-/*	position: absolute;*/
+	position: relative;
 	margin-top: 17px;
 	margin-left: 45px;
-/*	margin-right: 10px;*/
-	z-index: 3;
+	z-index: 99;
 }
 .task .project{
-/*	display: none;*/
 	opacity: 0;
 	overflow: hidden;
 	width: 140px;
 	height: 18px;
 	float: left;
 	margin: 17px 0 0 3px;
-/*	position: absolute;*/
 	font-weight: normal;
-/*	top: 17px;
-	left: 225px;*/
 	transition: opacity .4s ease;
 	-webkit-transition: opacity .4s ease;
 }
@@ -415,13 +407,18 @@ body{
 	transition: background .2s ease, color .4s ease, top .2s ease;
 	-webkit-transition: background .2s ease, color .4s ease, top .2s ease;
 }
+/* ----------------------- */
+/* budget */
 .budget{
 	display: block;
 	width: 100%;
-	height: 25px;
+	height: 27px;
 	position: absolute;
 	bottom: 0;
 }
+.budget.none:before{ width: 0; }
+.budget.percent-30:before{ width: 30%; }
+.budget.percent-90:before{ width: 90%; }
 .budget:before{
 	content: "";
 	height: 5px;
@@ -463,10 +460,14 @@ body{
 	bottom: 0;
 	z-index: 3;
 }
+/* ----------------------- */
+/* Note */
 .note{
 	margin-right: 40px;
 	padding: 15px 0 15px 15px;
 }
+/* ----------------------- */
+/* Subtasks */
 .subtasks .subtask, .subtask-archive{
 	padding: 5px 0;
 }
@@ -478,7 +479,6 @@ body{
 	position: relative;
 	height: 0px;
 	width: 100%;
-/*	position: absolute;*/
 	margin-top: 10px;
 	float: left;
 	bottom: 0;
@@ -517,9 +517,7 @@ body{
 }
 .subtask{
 	position: relative;
-/*	float: left;*/
 	width: 100%;
-/*	height: ;*/
 }
 .subtasks .subtask .checkbox{
 	position: absolute;
