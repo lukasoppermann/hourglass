@@ -23,6 +23,7 @@ $(function() {
 		 containment: "parent",
 		 distance: 60,
 		 items: '.task',
+		 handle: ".head",
 		 start: function(event, ui) {
 			 open = false;
 			 if(ui.item.hasClass('open'))

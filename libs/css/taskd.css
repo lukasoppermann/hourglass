@@ -200,12 +200,13 @@ body{
 	display: block;
 }
 .task .attachments{
-	position: absolute;
+/*	position: absolute;*/
 	overflow: visible;
 	display: none;
-	top: 10px;
-	right: 0;
+	float: right;
+/*	right: 0;*/
 	width: 30px;
+	margin: 5px 0 0px;
 	list-style: none;
 }
 .task .attachments .file{
@@ -341,7 +342,7 @@ body{
 	position: relative;
 	display: block;
 	height: auto;
-	max-height: 200px;
+	max-height: 300px;
 	font-weight: normal;
 	transition: max-height 1.5s ease;
 	-webkit-transition: max-height 1.5s ease;
@@ -468,7 +469,6 @@ body{
 }
 .subtasks .subtask, .subtask-archive{
 	padding: 5px 0;
-	position: relative;
 }
 .subtasks .subtask.checked{
 	text-decoration: line-through;
@@ -476,8 +476,22 @@ body{
 }
 .subtask-archive{
 	position: relative;
+	height: 0px;
+	width: 100%;
+/*	position: absolute;*/
+	margin-top: 10px;
+	float: left;
+	bottom: 0;
+	opacity: 0;
+	display: block;
+	transition: opacity .2s ease;
+	-webkit-transition: opacity .2s ease;
+}
+.open .subtask-archive{
 	height: 30px;
-	margin-top: 10px
+	opacity: 1;
+	transition: opacity .2s ease;
+	-webkit-transition: opacity .2s ease;
 }
 .subtask-archive .count{
 	top: 7px;
@@ -497,9 +511,15 @@ body{
 }
 .subtasks{
 	padding-left: 45px;
-	margin-right: 30px;
+	margin: 0 30px 0px 0;
 	position: relative;
 	display: block;
+}
+.subtask{
+	position: relative;
+/*	float: left;*/
+	width: 100%;
+/*	height: ;*/
 }
 .subtasks .subtask .checkbox{
 	position: absolute;
