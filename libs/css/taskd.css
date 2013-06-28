@@ -165,7 +165,7 @@ body{
 }
 .task .task-heading, .archive .task-heading{
 	overflow: hidden;
-	width: 250px;
+	width: 175px;
 	height: 18px;
 	position: absolute;
 	top: 17px;
@@ -173,10 +173,83 @@ body{
 	margin-right: 10px;
 	z-index: 3;
 }
+.task .project{
+	display: none;
+	opacity: 0.5;
+	overflow: hidden;
+	width: 140px;
+	height: 18px;
+	position: absolute;
+	font-weight: normal;
+	top: 17px;
+	left: 225px;
+}
+.task.open .project{
+	display: block;
+}
+.task .attachments{
+	position: absolute;
+	overflow: visible;
+	top: 10px;
+	right: 0;
+	width: 30px;
+	list-style: none;
+}
+.task .attachments .file{
+	display: block;
+	position: relative;
+	overflow: visible;
+	width: 10px;
+	height: 10px;
+	margin: 0 7px;
+	padding: 3px;
+	cursor: pointer;
+}
+.task .attachments .file .text{
+	opacity: 0;
+	white-space:nowrap;
+	display: none;
+	position: absolute;
+	top: 0px;
+	right: 0;
+	height: 12px;
+	padding: 2px 7px 2px 7px;
+	border-radius: 10px;
+	width: auto;
+	color: rgb(255,255,255);
+	background: rgb(55,108,156);
+	color: ;
+	font-size: 12px;
+	z-index: 3;
+	transition: opacity .4s ease;
+	-webkit-transition: opacity .4s ease;
+}
+.task .attachments .file:hover .text{
+	opacity: 1.0;
+	display: block;
+	transition: opacity .4s ease;
+	-webkit-transition: opacity .4s ease;
+}
+.task .attachments .file .icon{
+	position: relative;
+	display: block;
+	height: 10px;
+	width: 10px;
+	border-radius: 10px;
+	z-index: 1;
+	background: rgba(255,255,255,0.5);
+	transition: background .4s ease,;
+	-webkit-transition: background .4s ease;
+}
+.task .attachments .file:hover .icon{
+	background: rgba(255,255,255,0);
+	transition: background .4s ease,;
+	-webkit-transition: background .4s ease;
+}
 .task, .archive{
 	background: rgb(52,152,220);
-	font-size: 16px;
-	line-height: 16px;
+	font-size: 15px;
+	line-height: 15px;
 	font-weight: normal;
 	position: relative;
 }
@@ -229,7 +302,13 @@ body{
 .task .head{
 	width: 100%;
 	height: 50px;
-/*	padding: 18px 10px;*/
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	position: relative;
+}
+.task.open .head{
+	width: 100%;
+	height: 70px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	position: relative;
@@ -249,14 +328,6 @@ body{
 	font-weight: normal;
 	transition: max-height 1.5s ease;
 	-webkit-transition: max-height 1.5s ease;
-}
-.task .time{
-	cursor: pointer;
-	position: absolute;
-	right: 40px;
-	top: 17px;
-	height: 18px;
-	opacity: 0.7;
 }
 .task .open-arrow{ 
 	position: absolute;
@@ -299,10 +370,62 @@ body{
 .sortable-placeholder{
 	box-shadow: inset 0px 2px 0px 0px rgba(0,0,0,0.1), inset 0px -2px 0px 0px rgba(0,0,0,0.1);
 }
-.note{
-	padding: 5px 0 5px 40px;
+.task .time{
+	cursor: pointer;
+	position: absolute;
+	right: 40px;
+	top: 17px;
+	height: 18px;
+	opacity: 0.7;
 }
-.subtasks .subtask, .budget, .subtask-archive{
+.task.open .time{
+	right: 40px;
+	top: auto;
+	bottom: 2px;
+	height: 18px;
+	opacity: 0.7;
+	z-index: 2;
+}
+.budget{
+	display: none;
+}
+.open .budget{
+	width: 100%;
+	display: block;
+	height: 25px;
+	position: absolute;
+	bottom: 0;
+}
+.open .budget:before{
+	content: "";
+	height: 100%;
+	width: 100px;
+	background: rgba(0,0,0,0.2);
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	z-index: 1;
+}
+.budget .content{
+	display: block;
+	height: 18px;
+	padding-left: 15px;
+	position: absolute;
+	bottom: 2px;
+	left: 45px;
+	z-index: 3;
+}
+.budget .icon{
+	height: 18px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 3;
+}
+.note{
+	padding: 15px 0 5px 40px;
+}
+.subtasks .subtask, .subtask-archive{
 	padding: 5px 0;
 	position: relative;
 }
@@ -331,8 +454,9 @@ body{
 	z-index: 5;
 	color: rgba(255,255,255,0.5);
 }
-.subtasks, .budget{
+.subtasks{
 	padding-left: 45px;
+	margin-right: 30px;
 	position: relative;
 	display: block;
 }
@@ -343,15 +467,6 @@ body{
 	height: 16px;
 	width: 16px;
 	border-radius: 5px;
-	border: 2px solid rgb(255,255,255);
-}
-.budget .checkbox{
-	position: absolute;
-	left: 10px;
-	top: 5px;
-	height: 13px;
-	width: 13px;
-	border-radius: 4px;
 	border: 2px solid rgb(255,255,255);
 }
 
