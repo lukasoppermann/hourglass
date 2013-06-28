@@ -163,16 +163,17 @@ body{
 }
 .task h5, .archive h5{
 	float: left;
-	width: 500px;
+/*	width: 500px;*/
 }
 .task .task-heading, .archive .task-heading{
-	overflow: hidden;
-	width: 175px;
+/*	overflow: hidden;
+	width: 175px;*/
+	float: left;
 	height: 18px;
-	position: absolute;
-	top: 17px;
-	left: 45px;
-	margin-right: 10px;
+/*	position: absolute;*/
+	margin-top: 17px;
+	margin-left: 45px;
+/*	margin-right: 10px;*/
 	z-index: 3;
 }
 .task .project{
@@ -181,10 +182,12 @@ body{
 	overflow: hidden;
 	width: 140px;
 	height: 18px;
-	position: absolute;
+	float: left;
+	margin: 17px 0 0 3px;
+/*	position: absolute;*/
 	font-weight: normal;
-	top: 17px;
-	left: 225px;
+/*	top: 17px;
+	left: 225px;*/
 	transition: opacity .4s ease;
 	-webkit-transition: opacity .4s ease;
 }

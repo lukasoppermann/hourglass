@@ -5,6 +5,14 @@ var _tasks = $('.tasks'),
 // run colors function
 colors(baseColor);
 
+_task.find('.task-heading h5').each(function(){
+	var text = $(this).text();
+	if( text.length > 23 )
+	{
+		$(this).text(text.substring(0,23).trim()+'...');
+	}
+});
+
 // sortable
 $(function() {
 	var open = false;
