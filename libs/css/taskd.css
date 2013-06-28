@@ -509,6 +509,10 @@ body{
 	transition: opacity .2s ease;
 	-webkit-transition: opacity .2s ease;
 }
+.subtask-archive.empty, .open .subtask-archive.empty{
+	height: 0px;
+	opacity: 0;
+}
 .open .subtask-archive{
 	height: 30px;
 	opacity: 1;
