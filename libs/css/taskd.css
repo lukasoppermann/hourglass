@@ -25,30 +25,61 @@ body{
 	border-color: transparent transparent rgb(50,50,50) transparent;/* color needed for arrow top */
 	border-radius: 5px;
 	margin: 20px 0 5px -200px;
-	padding-bottom: 50px;
+/*	padding-bottom: 50px;*/
 	box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
-}
-#chrome:after{
-	z-index: 1;
-	top: 60px;
-	content: "";
-	display: block;
-	position: absolute;
-	height: calc(100% - 110px);
-	height: -webkit-calc(100% - 110px);
-	width: 100%;
-	background: rgba(75,75,75,0.8);
 }
 #chrome:before{
 	content: "";
 	display: block;
 	position: absolute;
 	border-style: solid;
-	border-width: 10px;
-	border-color: transparent transparent inherit transparent;
-	top: -20px;
+	border-width: 12px;
+	border-color: transparent transparent rgb(235,235,235) transparent;
+	top: -21px;
 	left: 50%;
-	margin-left: -5px;
+	margin-left: -7px;
+	z-index: 18;
+}
+#chrome:after{
+	content: "";
+	display: none;
+	position: absolute;
+	border-style: solid;
+	border-width: 16px;
+	border-color: transparent transparent rgb(100,100,100) transparent;
+	top: -26px;
+	left: 50%;
+	margin-left: -11px;
+	z-index: 14;
+}
+/* ----------------------- */
+/* head */
+#chrome_head{
+	position: relative;
+	height: 44px;
+	width: 100%;
+	left: 0;
+	z-index: 15;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	background-color: rgb(200,200,200);
+	background-image: -webkit-linear-gradient(top, rgb(220,220,220), rgb(180,180,180));
+	background-image: linear-gradient(top, rgb(220,220,220), rgb(180,180,180));
+	background-color: rgb(235,235,235);
+	background-image: -webkit-linear-gradient(top, rgb(235,235,235), rgb(200,200,200));
+	background-image: linear-gradient(top, rgb(235,235,235), rgb(200,200,200));
+	box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.15);
+/*	border: 1px solid rgb(100,100,100);*/
+/*	border-width: 1px 1px 0 1px;*/
+}
+#chrome_head .current{
+	top: 6px;
+}
+#chrome_head .task-count{
+	padding: 14px;
+}
+.footer{
+	display: none;
 }
 /* ----------------------- */
 /* footer */
@@ -77,14 +108,14 @@ body{
 	font-weight: bold;
 	text-shadow: rgb(255,255,255) 0px 1px 0px;
 }
-.footer .current{
+.current{
 	top: 8px;
 	left: 8px;
 	position: absolute;
 	width: 64px;
 	height: 66px;
 }
-.footer .current .current-tasks{
+.current .current-tasks{
 	position: absolute;
 	left: 13px;
 	top: 10px;
@@ -92,13 +123,13 @@ body{
 	font-weight: bold;
 	text-shadow: rgb(255,255,255) 0px 1px 0px;
 }
-.footer .circle-wrapper{
+.circle-wrapper{
 	width: 32px; /* Set the size of the progress bar */
 	height: 34px;
 /*	clip: rect(0px, 32px, 34px, 16px); /* Hide half of the progress bar */*/
 }
 /* Set the sizes of the elements that make up the progress bar */
-.footer .circle{
+.circle{
 	clip: rect(0px, 66px, 64px, 0px);
 	box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.8);
 }
@@ -130,18 +161,8 @@ body{
 	padding-bottom: 50px;
 	color: rgb(255,255,255);
 }
-.tasks lh:before{
-	content: "";
-	display: block;
-	position: absolute;
-	border-style: solid;
-	border-width: 10px;
-	border-color: transparent transparent rgba(75,75,75,0.4) transparent;
-	top: -20px;
-	left: 50%;
-	margin-left: -5px;
-}
 .tasks lh{
+	position: relative;
 	text-align: center;
 	display: block;
 	width: 100%;
@@ -149,7 +170,6 @@ body{
 	font-size: 20px;
 	line-height: 20px;
 	padding: 20px;
-	background: rgba(75,75,75,0.4);
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;	
 	box-sizing: border-box;
@@ -269,6 +289,8 @@ body{
 	width: 100%;
 	height: 50px; 
 	color: rgba(255,255,255,0.5);
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 .archive .count, .subtask-archive .count{
 	z-index: 10;
@@ -281,6 +303,10 @@ body{
 	height: 16px;
 	text-align: center;
 	background: rgba(0,0,0,0.15);
+}
+.archive:before, .archive:after{
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 .archive:before, .subtask-archive:before{
 	content: "";
