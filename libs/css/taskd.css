@@ -252,6 +252,10 @@ body{
 	transition: background .4s ease,;
 	-webkit-transition: background .4s ease;
 }
+.task .attachments .file.empty .icon{
+	background: rgba(255,255,255,0);
+	line-height: 9px;
+}
 .task, .archive{
 	background: rgb(52,152,220);
 	font-size: 15px;
@@ -383,10 +387,10 @@ body{
 	top: 11px;
 	left: 10px;
 	display: block;
-	width: 27px; /* Set the size of the progress bar */
+	width: 29px; /* Set the size of the progress bar */
 	height: 29px;
 	position: absolute; /* Enable clipping */
-/*	clip: rect(0px, 32px, 34px, 16px); /* Hide half of the progress bar */
+	clip: rect(0px, 29px, 34px, 0px); /* Hide half of the progress bar */
 	transition: opacity .2s ease;
 	-webkit-transition: opacity .2s ease;
 }
@@ -554,7 +558,16 @@ body{
 	border-radius: 5px;
 	border: 2px solid rgb(255,255,255);
 }
-
+.subtasks .subtask.empty .checkbox, .subtasks .subtask.empty .checkbox:hover{
+	border: none;
+	font-size: 20px;
+	line-height: 20px;
+	left: -28px;
+	color: rgba(255,255,255,0.5);
+}
+.subtasks .subtask.empty .checkbox:hover:before, .subtasks .subtask.empty .checkbox:hover:after{
+	display: none;
+}
 /* ----------------------- */
 /* checkbox */
 .checkbox{
