@@ -6,6 +6,11 @@ body{
 	background-image: url("../../bg2.jpg");
 	background-position: top right;
 	font-family: "Helvetica", "Arial", Sans-serif;
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
 }
 #mac_menu{
 	background-color: rgb(200,200,200);
@@ -24,7 +29,7 @@ body{
 	background: rgb(50,50,50);
 	border-color: transparent transparent rgb(50,50,50) transparent;/* color needed for arrow top */
 	border-radius: 5px;
-	margin: 20px 0 5px -200px;
+	margin: 20px 0 25px -200px;
 /*	padding-bottom: 50px;*/
 	box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
 }
@@ -68,7 +73,7 @@ body{
 	background-color: rgb(235,235,235);
 	background-image: -webkit-linear-gradient(top, rgb(235,235,235), rgb(200,200,200));
 	background-image: linear-gradient(top, rgb(235,235,235), rgb(200,200,200));
-	box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.15);
+	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.15);
 /*	border: 1px solid rgb(100,100,100);*/
 /*	border-width: 1px 1px 0 1px;*/
 }
@@ -80,6 +85,19 @@ body{
 }
 .footer{
 	display: none;
+}
+#chrome_head .add-task{
+	font-size: 30px;
+	position: absolute;
+	right: 15px;
+	top: 6px;
+	color: rgb(85,85,85);
+	font-weight: bold;
+	text-shadow: rgb(255,255,255) 0px 1px 0px;
+}
+#chrome_head .circle{
+	clip: rect(0px, 66px, 64px, 0px);
+	box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.8);
 }
 /* ----------------------- */
 /* footer */
@@ -129,10 +147,6 @@ body{
 /*	clip: rect(0px, 32px, 34px, 16px); /* Hide half of the progress bar */*/
 }
 /* Set the sizes of the elements that make up the progress bar */
-.circle{
-	clip: rect(0px, 66px, 64px, 0px);
-	box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.8);
-}
 /* ----------------------- */
 /* circle */
 .circle-wrapper{
@@ -161,21 +175,49 @@ body{
 	padding-bottom: 50px;
 	color: rgb(255,255,255);
 }
+/* ----------------------- */
+/* tasks head */
 .tasks lh{
 	position: relative;
 	text-align: center;
 	display: block;
 	width: 100%;
-	height: 60px;
+	height: 50px;
 	font-size: 20px;
 	line-height: 20px;
-	padding: 20px;
+	padding: 15px;
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;	
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
+	box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.3);
+	z-index: 10;
 }
-
+.tasks lh .projects{
+	opacity: 0.5;
+	height: 4px;
+	width: 26px;
+	background-color: rgb(255,255,255);
+	display: block;
+	position: absolute;
+	top: 23px;
+	left: 12px;
+	z-index: 99;
+}
+.tasks lh .projects:before, .tasks lh .projects:after{
+	height: 4px;
+	width: 26px;
+	background-color: rgb(255,255,255);
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: -7px;
+}
+.tasks lh .projects:after{
+	top: 7px;
+}
+/* ----------------------- */
+/* tasks items */
 .tasks h5, .archive h5{
 	z-index: 5;
 	display: inline-block;
@@ -191,6 +233,7 @@ body{
 	margin-top: 17px;
 	margin-left: 45px;
 	z-index: 99;
+	text-shadow: rgba(0,0,0,0.15) 0px 1px 1px;
 }
 .task .project{
 	opacity: 0;
@@ -308,7 +351,7 @@ body{
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 }
-.archive:before, .subtask-archive:before{
+.archive:before{
 	content: "";
 	z-index: 2;
 	display: block;
@@ -320,7 +363,7 @@ body{
 	background: rgba(100,100,100,0.5);
 	background: rgba(70,70,70,1);
 }
-.archive:after, .subtask-archive:after{
+.archive:after{
 	content: "";
 	z-index: 1;
 	display: block;
@@ -366,6 +409,7 @@ body{
 	display: block;
 	height: auto;
 	max-height: 300px;
+	padding-bottom: 10px;
 	font-weight: normal;
 	transition: max-height 1.5s ease;
 	-webkit-transition: max-height 1.5s ease;
@@ -553,8 +597,16 @@ body{
 .subtask-archive .count{
 	top: 7px;
 }
-.subtask-archive:before, .subtask-archive:after{
-	opacity: 0.2;
+.subtask-archive:before{
+	content: "";
+	z-index: 2;
+	display: block;
+	top: 0;
+	left: 0;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: rgba(70,70,70,0.1);
 }
 .subtask-archive .subtask-content{
 	position: absolute;
@@ -564,7 +616,7 @@ body{
 }	
 .subtask-archive .subtask-content, .subtask-archive .count{
 	z-index: 5;
-	color: rgba(255,255,255,0.5);
+	color: rgba(255,255,255,0.65);
 }
 .subtasks{
 	padding-left: 45px;

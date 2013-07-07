@@ -81,13 +81,13 @@ _tasks.on('click', '.subtask .checkbox', function(){
 		// add class
 		_item.addClass('checked');
 		// animate item
-		var archiveOff = _archive.offset();
-		var itemOff = _item.offset();
-		var moveTop = archiveOff.top - itemOff.top;
-		_item.css({'position':'absolute','top':itemOff.top}).after('<li class="subtask-hide" style="display: block; height:'+_item.outerHeight()+'px" />').animate({'top':'+='+moveTop, 'opacity':0}, 500);
-		// animate hide task space
-		$('.subtask-hide').animate({'height':0}, 500, function(){
-			$(this).remove();
-		});
+		// var archiveOff = _archive.offset();
+		// var itemOff = _item.offset();
+		// var moveTop = archiveOff.top - itemOff.top;
+		// _item.css({'position':'absolute','top':itemOff.top}).after('<li class="subtask-hide" style="display: block; height:'+_item.outerHeight()+'px" />').animate({'top':'+='+moveTop, 'opacity':0}, 500);
+		// // animate hide task space
+		// $('.subtask-hide').animate({'height':0}, 500, function(){
+		// 	$(this).remove();
+		// });
 	}
 });
