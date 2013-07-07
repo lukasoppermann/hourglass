@@ -81,13 +81,27 @@ _tasks.on('click', '.subtask .checkbox', function(){
 		// add class
 		_item.addClass('checked');
 		// animate item
-		// var archiveOff = _archive.offset();
-		// var itemOff = _item.offset();
-		// var moveTop = archiveOff.top - itemOff.top;
-		// _item.css({'position':'absolute','top':itemOff.top}).after('<li class="subtask-hide" style="display: block; height:'+_item.outerHeight()+'px" />').animate({'top':'+='+moveTop, 'opacity':0}, 500);
-		// // animate hide task space
-		// $('.subtask-hide').animate({'height':0}, 500, function(){
-		// 	$(this).remove();
-		// });
 	}
+});
+// Open settings
+_tasks.on('click', '.settings', function(){
+	var _settings = $('.project-settings');
+	_settings.toggleClass('active');
+});
+// Open settings
+_tasks.on('click', '.projects', function(){
+	var head = $('#chrome_head').find('.task-count');
+	$('.tasks').toggleClass('active');
+	
+	if( $('.tasks').hasClass('active') )
+	{
+		head.text(head.data('tasks'));
+		$('.settings-small').toggleClass('active');
+	}
+	else
+	{
+		head.text(head.data('projects'));
+		$('.settings-small').toggleClass('active');
+	}
+	
 });

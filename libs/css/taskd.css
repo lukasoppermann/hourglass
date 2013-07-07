@@ -11,6 +11,7 @@ body{
 	width: 100%;
 	height: 100%;
 	min-height: 100%;
+	overflow-y: scroll;
 }
 #mac_menu{
 	background-color: rgb(200,200,200);
@@ -42,20 +43,8 @@ body{
 	border-color: transparent transparent rgb(235,235,235) transparent;
 	top: -21px;
 	left: 50%;
-	margin-left: -7px;
+	margin-left: -12px;
 	z-index: 18;
-}
-#chrome:after{
-	content: "";
-	display: none;
-	position: absolute;
-	border-style: solid;
-	border-width: 16px;
-	border-color: transparent transparent rgb(100,100,100) transparent;
-	top: -26px;
-	left: 50%;
-	margin-left: -11px;
-	z-index: 14;
 }
 /* ----------------------- */
 /* head */
@@ -80,11 +69,24 @@ body{
 #chrome_head .current{
 	top: 6px;
 }
+.full-circle{
+	position: absolute;
+	top: 6px;
+	left: 8px;
+	width: 32px;
+	height: 32px;
+	border: 3px solid rgb(100,100,100);
+	border-radius: 32px;
+	box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.8);
+	color: rgb(85,85,85);
+	font-weight: bold;
+	text-shadow: rgb(255,255,255) 0px 1px 0px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 7px 9px;
+}
 #chrome_head .task-count{
 	padding: 14px;
-}
-.footer{
-	display: none;
 }
 #chrome_head .add-task{
 	font-size: 30px;
@@ -95,48 +97,15 @@ body{
 	font-weight: bold;
 	text-shadow: rgb(255,255,255) 0px 1px 0px;
 }
-#chrome_head .circle{
-	clip: rect(0px, 66px, 64px, 0px);
-	box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.8);
-}
-/* ----------------------- */
-/* footer */
-.footer{
-	position: absolute;
-	height: 50px;
-	width: 100%;
-	left: 0;
-	z-index: 15;
-	border-bottom-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	background-color: rgb(200,200,200);
-	background-image: -webkit-linear-gradient(top, rgb(220,220,220), rgb(180,180,180));
-	background-image: linear-gradient(top, rgb(220,220,220), rgb(180,180,180));
-	box-shadow: 0px -2px 0px 0px rgba(0,0,0,0.15);
-}
 .task-count{
 	height: 50px;
-	padding: 18px;
+	padding: 20px;
 	font-size: 14px;
 	line-height: 14px;
 	text-align: center;
+	display: block;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	color: rgb(85,85,85);
-	font-weight: bold;
-	text-shadow: rgb(255,255,255) 0px 1px 0px;
-}
-.current{
-	top: 8px;
-	left: 8px;
-	position: absolute;
-	width: 32px;
-	height: 32px;
-}
-.current .current-tasks{
-	position: absolute;
-	left: 13px;
-	top: 10px;
 	color: rgb(85,85,85);
 	font-weight: bold;
 	text-shadow: rgb(255,255,255) 0px 1px 0px;
@@ -146,7 +115,49 @@ body{
 	height: 34px;
 /*	clip: rect(0px, 32px, 34px, 16px); /* Hide half of the progress bar */*/
 }
-/* Set the sizes of the elements that make up the progress bar */
+.circle-wrapper.small{
+	width: 16px; /* Set the size of the progress bar */
+	height: 16px;
+	position: relative;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0%);
+	transform: translate(-50%, 0%);
+	display: block;
+	z-index: 999;
+}
+.small .circle{
+	left: 50%;
+	top: 4px;
+	-webkit-transform: translate(-50%, 0%);
+	transform: translate(-50%, 0%);
+	width: 12px;
+	height: 12px;
+	border: 2px solid rgb(100,100,100);
+	box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.5);
+	border-radius: 16px;
+	position: absolute;
+	clip: rect(0px, 26px, 26px, 0px);
+}
+.settings-small{
+	display: none;
+	position: absolute;
+	top: 6px;
+	right: 150px;
+	font-size: 20px;
+	width: 24px;
+	height: 24px;
+	border: 2px dashed rgb(100,100,100);
+	border-radius: 20px;
+	-webkit-box-shadow: inset 0 0 0 5px rgb(100,100,100);
+	box-shadow: inset 0 0 0 5px rgb(100,100,100);
+	opacity: 1;
+	cursor: pointer;
+	transform: scale(0.5);
+	-webkit-transform: scale(0.5);
+}
+.active.settings-small{
+	display: block;
+}
 /* ----------------------- */
 /* circle */
 .circle-wrapper{
@@ -168,12 +179,25 @@ body{
 	clip: rect(0px, 66px, 64px, 0px);
 }
 /* ----------------------- */
+/* Form GUI */
+.label{
+	opacity: 0.5;
+	padding-right: 5px;
+}
+/* ----------------------- */
 /* tasks */
 .tasks{
+	width: 100%;
+	height: 0;
+	float: left;
 	position: relative;
+	overflow: hidden;
 	z-index: 10;
 	padding-bottom: 50px;
 	color: rgb(255,255,255);
+}
+.tasks.active{
+	height: auto;
 }
 /* ----------------------- */
 /* tasks head */
@@ -194,6 +218,43 @@ body{
 	z-index: 10;
 }
 .tasks lh h5{ display: inline-block; }
+.project-time{
+	opacity: 0.5;
+	font-size: 16px;
+}
+.project-settings{
+	float: left;
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	max-height: 0px;
+	overflow: hidden;
+	background: rgba(0,0,0,0.1);
+	color: rgb(255,255,255);
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	transition: max-height .5s ease;
+	-webkit-transition: max-height .5s ease;
+}
+.project-settings h5{
+	padding: 10px 15px;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 15px;
+	opacity: 0.5;
+	background: rgba(0,0,0,0.1);
+} 
+.settings-item{
+	padding: 15px 15px;
+	font-size: 15px;
+	line-height: 15px;
+}
+.project-settings.active{
+	max-height: 300px;
+	transition: max-height .5s ease;
+	-webkit-transition: max-height .5s ease;
+}
 .tasks lh .projects{
 	display: block;
 	height: 50px;
@@ -493,10 +554,10 @@ body{
 	transition: opacity .2s ease;
 	-webkit-transition: opacity .2s ease;
 }
-.task .circle-wrapper.percent-50{
+.circle-wrapper.percent-50{
 	clip: rect(0px, 32px, 32px, 16px); /* Hide half of the progress bar */
 }
-.task .circle-wrapper.percent-35{
+.circle-wrapper.percent-35{
 	clip: rect(0px, 32px, 22px, 16px); /* Hide half of the progress bar */
 }
 /* Set the sizes of the elements that make up the progress bar */
@@ -712,45 +773,4 @@ body{
 	transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg); /* IE 9 */
 	-webkit-transform: rotate(-45deg);
-}
-/* ----------------------- */
-/* arrows */
-.arrow{
-	position: absolute;
-	overflow: visible;
-	height: 15px;
-	width: 15px;
-}
-.arrow.down, .open-arrow .arrow{
-	transform: rotate(90deg);
-	-ms-transform: rotate(90deg); /* IE 9 */
-	-webkit-transform: rotate(90deg);
-}
-.arrow.up, .open .open-arrow .arrow{
-	transform: rotate(-90deg);
-	-ms-transform: rotate(-90deg); /* IE 9 */
-	-webkit-transform: rotate(-90deg);
-}
-.arrow:before, .arrow:after{
-	position: absolute;
-	content: "";
-	display: block;
-	height: 10px;
-	width: 3px;
-	left: 6px;
-	top: 6px;
-	z-index: 2;
-	background: rgb(255,255,255);
-}
-.arrow:before{
-	top: 0;
-	transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg); /* IE 9 */
-	-webkit-transform: rotate(-45deg);
-}
-.arrow:after{
-	bottom: 0;
-	transform: rotate(45deg);
-	-ms-transform: rotate(45deg); /* IE 9 */
-	-webkit-transform: rotate(45deg);
 }
