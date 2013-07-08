@@ -8,7 +8,784 @@
 	<meta name="language" content="en" />
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
 	<link rel="stylesheet" type="text/css" href="./libs/css/reset.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="./libs/css/taskd.css" media="screen" />
+	<style type="text/css" media="screen">
+	*:focus{
+		outline: none;
+	}
+	body{ 
+		background: rgb(100,140,160); 
+		background-image: url("bg2.jpg");
+		background-position: top right;
+		font-family: "Helvetica", "Arial", Sans-serif;
+		position: relative;
+		float: left;
+		width: 100%;
+		height: 100%;
+		min-height: 100%;
+		overflow-y: scroll;
+	}
+	#mac_menu{
+		background-color: rgb(200,200,200);
+		background-image: -webkit-linear-gradient(top, rgb(225,225,225), rgb(180,180,180));
+		background-image: linear-gradient(top, rgb(225,225,225), rgb(180,180,180));
+		width: 100%;
+		height: 25px;
+		box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.25);
+	}
+	#chrome{
+		position: absolute;
+		top: 20px;
+		left: 50%;
+		display: block;
+		width: 400px;
+		background: rgb(50,50,50);
+		border-color: transparent transparent rgb(50,50,50) transparent;/* color needed for arrow top */
+		border-radius: 5px;
+		margin: 20px 0 25px -200px;
+	/*	padding-bottom: 50px;*/
+		box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+	}
+	#chrome:before{
+		content: "";
+		display: block;
+		position: absolute;
+		border-style: solid;
+		border-width: 12px;
+		border-color: transparent transparent rgb(235,235,235) transparent;
+		top: -21px;
+		left: 50%;
+		margin-left: -12px;
+		z-index: 18;
+	}
+	/* ----------------------- */
+	/* head */
+	#chrome_head{
+		position: relative;
+		height: 44px;
+		width: 100%;
+		left: 0;
+		z-index: 15;
+		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+		background-color: rgb(200,200,200);
+		background-image: -webkit-linear-gradient(top, rgb(220,220,220), rgb(180,180,180));
+		background-image: linear-gradient(top, rgb(220,220,220), rgb(180,180,180));
+		background-color: rgb(235,235,235);
+		background-image: -webkit-linear-gradient(top, rgb(235,235,235), rgb(200,200,200));
+		background-image: linear-gradient(top, rgb(235,235,235), rgb(200,200,200));
+		box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.15);
+	/*	border: 1px solid rgb(100,100,100);*/
+	/*	border-width: 1px 1px 0 1px;*/
+	}
+	#chrome_head .current{
+		top: 6px;
+	}
+	.full-circle{
+		position: absolute;
+		top: 6px;
+		left: 8px;
+		width: 32px;
+		height: 32px;
+		border: 3px solid rgb(100,100,100);
+		border-radius: 32px;
+		box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.8);
+		color: rgb(85,85,85);
+		font-weight: bold;
+		text-shadow: rgb(255,255,255) 0px 1px 0px;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		padding: 7px 9px;
+	}
+	#chrome_head .task-count{
+		padding: 14px;
+	}
+	#chrome_head .add-task{
+		font-size: 30px;
+		position: absolute;
+		right: 15px;
+		top: 6px;
+		color: rgb(85,85,85);
+		font-weight: bold;
+		text-shadow: rgb(255,255,255) 0px 1px 0px;
+	}
+	.task-count{
+		height: 50px;
+		padding: 20px;
+		font-size: 14px;
+		line-height: 14px;
+		text-align: center;
+		display: block;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		color: rgb(85,85,85);
+		font-weight: bold;
+		text-shadow: rgb(255,255,255) 0px 1px 0px;
+	}
+	.circle-wrapper{
+		width: 32px; /* Set the size of the progress bar */
+		height: 34px;
+	/*	clip: rect(0px, 32px, 34px, 16px); /* Hide half of the progress bar */*/
+	}
+	.circle-wrapper.small{
+		width: 16px; /* Set the size of the progress bar */
+		height: 16px;
+		position: relative;
+		left: 50%;
+		-webkit-transform: translate(-50%, 0%);
+		transform: translate(-50%, 0%);
+		display: block;
+		z-index: 999;
+	}
+	.small .circle{
+		left: 50%;
+		top: 4px;
+		-webkit-transform: translate(-50%, 0%);
+		transform: translate(-50%, 0%);
+		width: 12px;
+		height: 12px;
+		border: 2px solid rgb(100,100,100);
+		box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.5);
+		border-radius: 16px;
+		position: absolute;
+		clip: rect(0px, 26px, 26px, 0px);
+	}
+	.settings-small{
+		display: none;
+		position: absolute;
+		top: 6px;
+		right: 150px;
+		font-size: 20px;
+		width: 24px;
+		height: 24px;
+		border: 2px dashed rgb(100,100,100);
+		border-radius: 20px;
+		-webkit-box-shadow: inset 0 0 0 5px rgb(100,100,100);
+		box-shadow: inset 0 0 0 5px rgb(100,100,100);
+		opacity: 1;
+		cursor: pointer;
+		transform: scale(0.5);
+		-webkit-transform: scale(0.5);
+	}
+	.active.settings-small{
+		display: block;
+	}
+	/* ----------------------- */
+	/* circle */
+	.circle-wrapper{
+		z-index: 10;
+		top: 0;
+		display: block;
+		width: 32px; /* Set the size of the progress bar */
+		height: 34px;
+		position: absolute; /* Enable clipping */
+	/*	clip: rect(0px, 36px, 34px, 16px); /* Hide half of the progress bar */*/
+	}
+	/* Set the sizes of the elements that make up the progress bar */
+	.circle{
+		width: 27px;
+		height: 27px;
+		border: 3px solid rgb(100,100,100);
+		border-radius: 16px;
+		position: absolute;
+		clip: rect(0px, 66px, 64px, 0px);
+	}
+	/* ----------------------- */
+	/* Form GUI */
+	.label{
+		opacity: 0.5;
+		padding-right: 5px;
+	}
+	/* ----------------------- */
+	/* tasks */
+	.tasks{
+		width: 100%;
+		height: 0;
+		float: left;
+		position: relative;
+		overflow: hidden;
+		z-index: 10;
+		padding-bottom: 50px;
+		color: rgb(255,255,255);
+	}
+	.tasks.active{
+		height: auto;
+	}
+	/* ----------------------- */
+	/* tasks head */
+	.tasks lh{
+		position: relative;
+		text-align: center;
+		display: block;
+		width: 100%;
+		height: 50px;
+		font-size: 20px;
+		line-height: 20px;
+		padding: 15px;
+		border-top-right-radius: 5px;
+		border-top-left-radius: 5px;	
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	/*	box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.3);*/
+		z-index: 10;
+	}
+	.tasks lh h5{ display: inline-block; }
+	.project-time{
+		opacity: 0.5;
+		font-size: 16px;
+	}
+	.project-settings{
+		float: left;
+		position: relative;
+		display: block;
+		width: 100%;
+		height: auto;
+		max-height: 0px;
+		overflow: hidden;
+		background: rgba(0,0,0,0.1);
+		color: rgb(255,255,255);
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		transition: max-height .5s ease;
+		-webkit-transition: max-height .5s ease;
+	}
+	.project-settings h5{
+		padding: 10px 15px;
+		font-weight: normal;
+		font-size: 15px;
+		line-height: 15px;
+		opacity: 0.5;
+		background: rgba(0,0,0,0.1);
+	} 
+	.settings-item{
+		padding: 15px 15px;
+		font-size: 15px;
+		line-height: 15px;
+	}
+	.project-settings.active{
+		max-height: 300px;
+		transition: max-height .5s ease;
+		-webkit-transition: max-height .5s ease;
+	}
+	.tasks lh .projects{
+		display: block;
+		height: 50px;
+		width: 50px;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		cursor: pointer;
+	}
+	.tasks lh .projects .icon{
+		opacity: 0.5;
+		height: 10px;
+		width: 26px;
+		border-color: rgb(255,255,255);
+		border-style: solid;
+		border-width: 4px 0;
+		display: block;
+		position: absolute;
+		top: 16px;
+		left: 12px;
+		z-index: 999;
+	}
+	.tasks lh .projects .icon:before{
+		height: 4px;
+		width: 26px;
+		background-color: rgb(255,255,255);
+		display: block;
+		position: absolute;
+		left: 0px;
+		top: 3px;
+		pointer-events: none;
+	}
+	.tasks lh .projects:hover .icon, .settings:hover{
+		opacity: 1.0;	
+	}
+	.settings{
+		position: absolute;
+		top: 13px;
+		right: 12px;
+		display: block;
+		font-size: 20px;
+		width: 20px;
+		height: 20px;
+		border: 2px dashed rgb(255,255,255);
+		border-radius: 20px;
+		-webkit-box-shadow: inset 0 0 0 4px rgb(255,255,255);
+		box-shadow: inset 0 0 0 4px rgb(255,255,255);
+		opacity: 0.5;
+		cursor: pointer;
+	}
+	/* ----------------------- */
+	/* tasks items */
+	.tasks h5, .archive h5{
+		z-index: 5;
+		display: inline-block;
+		font-weight: normal;
+	}
+	.task h5, .archive h5{
+		float: left;
+	}
+	.task .task-heading, .archive .task-heading{
+		float: left;
+		height: 18px;
+		position: relative;
+		margin-top: 17px;
+		margin-left: 45px;
+		z-index: 99;
+		text-shadow: rgba(0,0,0,0.15) 0px 1px 1px;
+	}
+	.task .project{
+		opacity: 0;
+		overflow: hidden;
+		width: 140px;
+		height: 18px;
+		float: left;
+		margin: 17px 0 0 3px;
+		font-weight: normal;
+		transition: opacity .4s ease;
+		-webkit-transition: opacity .4s ease;
+	}
+	.task.open .project{
+		opacity: 0.5;
+		transition: opacity .4s ease;
+		-webkit-transition: opacity .4s ease;
+	}
+	.task.open .project, .task.open .attachments{
+		display: block;
+	}
+	.task .attachments{
+	/*	position: absolute;*/
+		overflow: visible;
+		display: none;
+		float: right;
+	/*	right: 0;*/
+		width: 30px;
+		margin: 5px 0 0px;
+		list-style: none;
+	}
+	.task .attachments .file{
+		display: block;
+		position: relative;
+		overflow: visible;
+		width: 10px;
+		height: 10px;
+		margin: 0 7px;
+		padding: 3px;
+		cursor: pointer;
+	}
+	.task .attachments .file .text{
+		opacity: 0;
+		white-space:nowrap;
+		display: none;
+		position: absolute;
+		top: 0px;
+		right: 0;
+		height: 12px;
+		padding: 2px 7px 2px 7px;
+		border-radius: 10px;
+		width: auto;
+		color: rgb(255,255,255);
+		background: rgb(55,108,156);
+		color: ;
+		font-size: 12px;
+		z-index: 3;
+		transition: opacity .4s ease;
+		-webkit-transition: opacity .4s ease;
+	}
+	.task .attachments .file:hover .text{
+		opacity: 1.0;
+		display: block;
+		transition: opacity .4s ease;
+		-webkit-transition: opacity .4s ease;
+	}
+	.task .attachments .file .icon{
+		position: relative;
+		display: block;
+		height: 10px;
+		width: 10px;
+		border-radius: 10px;
+		z-index: 1;
+		background: rgba(255,255,255,0.5);
+		transition: background .4s ease,;
+		-webkit-transition: background .4s ease;
+	}
+	.task .attachments .file:hover .icon{
+		background: rgba(255,255,255,0);
+		transition: background .4s ease,;
+		-webkit-transition: background .4s ease;
+	}
+	.task .attachments .file.empty .icon{
+		background: rgba(255,255,255,0);
+		line-height: 9px;
+	}
+	.task, .archive{
+		background: rgb(52,152,220);
+		font-size: 15px;
+		line-height: 15px;
+		font-weight: normal;
+		position: relative;
+	}
+	.archive{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 50px; 
+		color: rgba(255,255,255,0.5);
+		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	.archive .count, .subtask-archive .count{
+		z-index: 10;
+		position: absolute;
+		right: 7px;
+		top: 12px;
+		padding: 5px 7px;
+		border-radius: 20px;
+		min-width: 30px;
+		height: 16px;
+		text-align: center;
+		background: rgba(0,0,0,0.15);
+	}
+	.archive:before, .archive:after{
+		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	.archive:before{
+		content: "";
+		z-index: 2;
+		display: block;
+		top: 0;
+		left: 0;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background: rgba(100,100,100,0.5);
+		background: rgba(70,70,70,1);
+	}
+	.archive:after{
+		content: "";
+		z-index: 1;
+		display: block;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background: rgba(0,0,0,0.3);
+	}
+	.ui-sortable-helper{
+		padding: 10px;
+		margin: -10px 0 0 -10px;
+		box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+	}
+	.task .head{
+		width: 100%;
+		height: 50px;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		position: relative;
+		transition: height .2s ease;
+		-webkit-transition: height .2s ease;
+	}
+	.task.open .head{
+		width: 100%;
+		height: 70px;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		position: relative;
+		transition: height .2s ease;
+		-webkit-transition: height .2s ease;
+	}
+	.task .body{
+		overflow: hidden;
+		max-height: 0px;
+		background: rgba(0,0,0,0.1);
+		transition: max-height .5s ease;
+		-webkit-transition: max-height .5s ease;
+	}
+	.task.open .body{
+		position: relative;
+		display: block;
+		height: auto;
+		max-height: 300px;
+		padding-bottom: 10px;
+		font-weight: normal;
+		transition: max-height 1.5s ease;
+		-webkit-transition: max-height 1.5s ease;
+	}
+	.task .open-arrow{ 
+		position: absolute;
+		right: 0px;
+		top: 0px;
+		width: 30px;
+		height: 50px;
+		display: block;
+		cursor: pointer;
+	}
+	.task .open-arrow .arrow{
+		opacity: 0;
+		top: 17px;
+		left: 7px;
+	}
+	.task:hover .open-arrow .arrow{
+		transition: opacity .4s ease;   
+		-webkit-transition: opacity .4s ease;
+		transition: opacity .4s ease;   
+		-webkit-transition: opacity .4s ease;
+		opacity: 0.5;
+	}
+	/* ----------------------- */
+	/* ??? */
+	.sortable-placeholder{
+		box-shadow: inset 0px 2px 0px 0px rgba(0,0,0,0.1), inset 0px -2px 0px 0px rgba(0,0,0,0.1);
+	}
+	/* ----------------------- */
+	/* Circle */
+	.task.passive .circle-wrapper{ 
+		opacity: 0.25;
+		transition: opacity .2s ease;
+		-webkit-transition: opacity .2s ease;
+	}
+	.task.passive .circle-wrapper:hover{
+		opacity: 0.75;
+		transition: opacity .2s ease;
+		-webkit-transition: opacity .2s ease;
+	}
+	.task .circle-wrapper{
+		cursor: pointer;
+		z-index: 10;
+		top: 11px;
+		left: 10px;
+		display: block;
+		width: 29px; /* Set the size of the progress bar */
+		height: 29px;
+		position: absolute; /* Enable clipping */
+		clip: rect(0px, 29px, 34px, 0px); /* Hide half of the progress bar */
+		transition: opacity .2s ease;
+		-webkit-transition: opacity .2s ease;
+	}
+	.circle-wrapper.percent-50{
+		clip: rect(0px, 32px, 32px, 16px); /* Hide half of the progress bar */
+	}
+	.circle-wrapper.percent-35{
+		clip: rect(0px, 32px, 22px, 16px); /* Hide half of the progress bar */
+	}
+	/* Set the sizes of the elements that make up the progress bar */
+	.task .circle{
+		width: 22px;
+		height: 22px;
+		border: 3px solid rgb(255,255,255);
+	}
+	/* ----------------------- */
+	/* Time */
+	.task .time{
+		cursor: pointer;
+		position: absolute;
+		right: 8px;
+		top: 14px;
+		border-radius: 20px;
+		padding: 3px 7px;
+		color: rgba(255,255,255,.7);
+		background: rgba(0,0,0,0);
+		cursor: pointer;
+		transition: background .2s ease, color .4s ease, top .2s ease;
+		-webkit-transition: background .2s ease, color .4s ease, top .2s ease;
+	}
+	.task .time:hover, .task.open .time:hover{
+		background: rgba(0,0,0,0.2);
+		color: rgba(255,255,255,1);
+		transition: background .2s ease, color .4s ease;
+		-webkit-transition: background .2s ease, color .4s ease;
+	}
+	.task.open .time{
+		position: absolute;
+		top: 46px;
+		z-index: 2;
+		background: rgba(0,0,0,0);
+		transition: background .2s ease, color .4s ease, top .2s ease;
+		-webkit-transition: background .2s ease, color .4s ease, top .2s ease;
+	}
+	/* ----------------------- */
+	/* budget */
+	.budget{
+		display: block;
+		width: 100%;
+		height: 27px;
+		position: absolute;
+		bottom: 0;
+	}
+	.budget.none:before{ width: 0; }
+	.budget.percent-30:before{ width: 30%; }
+	.budget.percent-90:before{ width: 90%; }
+	.budget:before{
+		content: "";
+		height: 5px;
+		background: rgba(0,0,0,0.1);
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+		z-index: 1;
+		transition: height .2s ease;
+		-webkit-transition: height .2s ease;
+	}
+	.open .budget:before, .active .budget:before{
+		background: rgba(0,0,0,0.2);
+	}
+	.open .budget:before{
+		height: 100%;
+		transition: height .2s ease;
+		-webkit-transition: height .2s ease;
+	}
+	.budget .content{
+		opacity: 0;
+		height: 18px;
+		padding-left: 15px;
+		position: absolute;
+		bottom: 2px;
+		left: 45px;
+		z-index: 3;
+		transition: opacity .3s ease;
+		-webkit-transition: opacity .3s ease;
+	}
+	.open .budget .content{
+		opacity: 1;
+		transition: opacity .4s ease .1s;
+		-webkit-transition: opacity .4s ease .1s;
+	}
+	.budget .icon{
+		height: 18px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: 3;
+	}
+	/* ----------------------- */
+	/* Note */
+	.note{
+		margin-right: 40px;
+		padding: 15px 0 15px 15px;
+	}
+	/* ----------------------- */
+	/* Subtasks */
+	.subtasks .subtask, .subtask-archive{
+		padding: 5px 0;
+	}
+	.subtasks .subtask.checked{
+		text-decoration: line-through;
+		opacity: 0.5;
+	}
+	.subtask-archive{
+		position: relative;
+		height: 0px;
+		width: 100%;
+		margin-top: 10px;
+		float: left;
+		bottom: 0;
+		opacity: 0;
+		display: block;
+		transition: opacity .2s ease;
+		-webkit-transition: opacity .2s ease;
+	}
+	.subtask-archive.empty, .open .subtask-archive.empty{
+		height: 0px;
+		opacity: 0;
+	}
+	.open .subtask-archive{
+		height: 30px;
+		opacity: 1;
+		transition: opacity .2s ease;
+		-webkit-transition: opacity .2s ease;
+	}
+	.subtask-archive .count{
+		top: 7px;
+	}
+	.subtask-archive:before{
+		content: "";
+		z-index: 2;
+		display: block;
+		top: 0;
+		left: 0;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background: rgba(70,70,70,0.1);
+	}
+	.subtask-archive .subtask-content{
+		position: absolute;
+		height: 14px;
+		left: 45px;
+		top: 13px;
+	}	
+	.subtask-archive .subtask-content, .subtask-archive .count{
+		z-index: 5;
+		color: rgba(255,255,255,0.65);
+	}
+	.subtasks{
+		padding-left: 45px;
+		margin: 0 30px 0px 0;
+		position: relative;
+		display: block;
+	}
+	.subtask{
+		position: relative;
+		width: 100%;
+	}
+	.subtasks .subtask .checkbox{
+		position: absolute;
+		left: -31px;
+		top: 4px;
+		height: 16px;
+		width: 16px;
+		border-radius: 5px;
+		border: 2px solid rgb(255,255,255);
+	}
+	.subtasks .subtask.empty .checkbox, .subtasks .subtask.empty .checkbox:hover{
+		border: none;
+		font-size: 20px;
+		line-height: 20px;
+		left: -28px;
+		color: rgba(255,255,255,0.5);
+	}
+	.subtasks .subtask.empty .checkbox:hover:before, .subtasks .subtask.empty .checkbox:hover:after{
+		display: none;
+	}
+	/* ----------------------- */
+	/* checkbox */
+	.checkbox{
+		position: absolute;
+		overflow: visible;
+		cursor: pointer;
+	}
+	.checkbox:hover:before, .checkbox:hover:after, .checked .checkbox:after, .checked .checkbox:before{
+		display: block;
+	}
+	.checkbox:before, .checkbox:after{
+		position: absolute;
+		content: "";
+		display: none;
+		height: 12px;
+		width: 3px;
+		left: 8px;
+		top: 6px;
+		z-index: 2;
+		background: rgb(255,255,255);
+	}
+	.checkbox:before{
+		top: 2px;
+		transform: rotate(45deg);
+		-ms-transform: rotate(45deg); /* IE 9 */
+		-webkit-transform: rotate(45deg);
+	}
+	.checkbox:after{
+		top: 7px;
+		left: 3px;
+		height: 4px;
+		transform: rotate(-45deg);
+		-ms-transform: rotate(-45deg); /* IE 9 */
+		-webkit-transform: rotate(-45deg);
+	}
+	</style>
 	<title>Taskd</title>
 </head>
 <body>
