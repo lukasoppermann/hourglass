@@ -88,7 +88,7 @@ _tasks.on('click', '.settings', function(){
 	var _settings = $('.project-settings');
 	_settings.toggleClass('active');
 });
-// Open settings
+// Open task
 _tasks.on('click', '.projects', function(){
 	var head = $('#chrome_head').find('.task-count');
 	$('.tasks').toggleClass('active');
