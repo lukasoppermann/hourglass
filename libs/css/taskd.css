@@ -230,6 +230,19 @@ body{
 	cursor: pointer;
 }
 /* ----------------------- */
+/* wrapper */
+.wrapper{
+	display: none;
+}
+.wrapper.active{ display: block; }
+/* ----------------------- */
+/* view empty */
+.view-empty{
+	display: none;
+}
+.view-empty.active{ display: block; }
+
+/* ----------------------- */
 /* Form GUI */
 .label{
 	opacity: 0.5;
