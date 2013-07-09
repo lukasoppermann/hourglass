@@ -120,12 +120,9 @@ body{
 	box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.5);
 }
 .head-title.active{ display:block; }
-.circle-wrapper{
-	width: 32px; /* Set the size of the progress bar */
-	height: 34px;
-/*	clip: rect(0px, 32px, 34px, 16px); /* Hide half of the progress bar */*/
-}
-.circle-wrapper.small{
+/* ----------------------- */
+/* small circle */
+.small-circle-wrapper{
 	cursor: pointer;
 	width: 16px; /* Set the size of the progress bar */
 	height: 16px;
@@ -136,7 +133,7 @@ body{
 	display: block;
 	z-index: 999;
 }
-.small .circle{
+.small-circle{
 	left: 50%;
 	top: 4px;
 	-webkit-transform: translate(-50%, 0%);
@@ -249,25 +246,32 @@ body{
 	background-color: rgb(255,255,255);
 }
 /* ----------------------- */
-/* circle */
-.circle-wrapper{
-	z-index: 10;
-	top: 0;
+/* play & pause icon */
+.play-pause .icon{
 	display: block;
-	width: 32px; /* Set the size of the progress bar */
-	height: 34px;
-	position: absolute; /* Enable clipping */
-/*	clip: rect(0px, 36px, 34px, 16px); /* Hide half of the progress bar */*/
-}
-/* Set the sizes of the elements that make up the progress bar */
-.circle{
-	width: 27px;
-	height: 27px;
-	border: 3px solid rgb(100,100,100);
-	border-radius: 16px;
+	border-color: transparent transparent  transparent rgb(255,255,255);
+	border-style: solid;
+	border-width: 6px;
+	border-radius: 2px;
+	height: 0;
+	width: 0;
 	position: absolute;
-	clip: rect(0px, 66px, 64px, 0px);
-	cursor: pointer;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -2px;
+}
+.circle-wrapper.active .play-pause .icon{
+	display: block;
+	border-color: rgb(255,255,255);
+	border-style: solid;
+	border-width: 0 3px 0 3px;
+	border-radius: 0px;
+	height: 10px;
+	width: 2px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -4px;
 }
 /* ----------------------- */
 /* wrapper */
@@ -331,28 +335,31 @@ body{
 }
 .group lh.item{ display: none; }
 .group lh.item.active{ display: block; }
+
+.group li.item{ display: none; }
+.group li.item.active{ display: block; }
 /* ----------------------- */
 /* colors */
 .blue .item{ background-color: hsl(205,65%,50%); }
-.blue .item:nth-child(2n){ background-color: hsl(205,65%,47%); }
+.blue .item:nth-child(2n){ background-color: hsl(205,65%,53%); }
 
 .turquoise .item{ background-color: hsl(175,60%,40%); }
-.turquoise .item:nth-child(2n){ background-color: hsl(175,60%,37%); }
+.turquoise .item:nth-child(2n){ background-color: hsl(175,60%,43%); }
 
 .green .item{ background-color: hsl(155,80%,40%); }
-.green .item:nth-child(2n){ background-color: hsl(155,80%,37%); }
+.green .item:nth-child(2n){ background-color: hsl(155,80%,43%); }
 
 .yellow .item{ background-color: hsl(47,100%,47%); }
-.yellow .item:nth-child(2n){ background-color: hsl(47,100%,44%); }
+.yellow .item:nth-child(2n){ background-color: hsl(47,100%,50%); }
 
 .orange .item{ background-color: hsl(25,100%,55%); }
-.orange .item:nth-child(2n){ background-color: hsl(25,100%,52%); }
+.orange .item:nth-child(2n){ background-color: hsl(25,100%,58%); }
 
 .red .item{ background-color: hsl(6,55%,50%); }
-.red .item:nth-child(2n){ background-color: hsl(6,55%,47%); }
+.red .item:nth-child(2n){ background-color: hsl(6,55%,53%); }
 
 .purple .item{ background-color: hsl(290,25%,50%); }
-.purple .item:nth-child(2n){ background-color: hsl(290,25%,47%); }
+.purple .item:nth-child(2n){ background-color: hsl(290,25%,53%); }
 /* ----------------------- */
 /* item */
 .item{
@@ -371,6 +378,41 @@ body{
 .item .title{
 	display: inline-block;
 	padding: 17px 0;
+}
+/* ----------------------- */
+/* circle */
+.circle-wrapper{
+	position: relative;
+	float: left;
+	display: block;
+	width: 50px;
+	height: 50px;
+	opacity: 0.5;
+}
+.circle-wrapper.active{
+	opacity: 1.0;
+}
+/* ----------------------- */
+/* circle */
+.circle{
+	z-index: 10;
+	top: 8px;
+	left: 8px;
+	display: block;
+	width: 32px; /* Set the size of the progress bar */
+	height: 34px;
+	position: absolute; /* Enable clipping */
+/*	clip: rect(0px, 36px, 34px, 16px); /* Hide half of the progress bar */*/
+}
+/* Set the sizes of the elements that make up the progress bar */
+.circle-half{
+	width: 27px;
+	height: 27px;
+	border: 3px solid rgb(255,255,255);
+	border-radius: 16px;
+	position: absolute;
+	clip: rect(0px, 66px, 64px, 0px);
+	cursor: pointer;
 }
 /* ----------------------- */
 /* Form GUI */
