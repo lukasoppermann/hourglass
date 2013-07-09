@@ -21,6 +21,24 @@ $('#chrome_head').on('click', '.head-projects', function(){
 	$('#projects_view').addClass('active').siblings('.wrapper').removeClass('active');
 });
 //---------------------
+// clickable title
+$('#head_projects').on('click', function(){
+	
+	if( $(this).find('.title').hasClass('active') )
+	{
+		$(this).find('.title').removeClass('active');
+		
+		$('#projects_view').find('.view-content').find('lh').removeClass('active');
+	}
+	else
+	{
+		$(this).find('.title').addClass('active');
+		
+		$('#projects_view').find('.view-content').find('lh').addClass('active');
+	}
+	
+});
+//---------------------
 // projects connected groups
 	$('#projects_view').find('.view-content').sortable({
 		placeholder: "project-sort-placeholder",

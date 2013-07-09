@@ -113,7 +113,7 @@ body{
 	color: rgb(85,85,85);
 	cursor: pointer;
 }
-.head-title.clickable .title:hover{
+.head-title.clickable .title:hover, .head-title.clickable .title.active{
 	background: rgb(125,125,125);
 	color: rgb(255,255,255);
 	text-shadow: rgba(0,0,0,0.5) 0px 1px 0px;
@@ -187,7 +187,7 @@ body{
 	transform: scale(0.5);
 	-webkit-transform: scale(0.5);
 }
-.head-title.clickable .title:hover .settings-small{
+.head-title.clickable .title:hover .settings-small, .head-title.clickable .title.active .settings-small{
 	border: 2px dashed rgb(255,255,255);
 	-webkit-box-shadow: inset 0 0 0 5px rgb(255,255,255);
 	box-shadow: inset 0 0 0 5px rgb(255,255,255);
@@ -329,6 +329,8 @@ body{
 	float: left;
 	height: 50px;
 }
+.group lh.item{ display: none; }
+.group lh.item.active{ display: block; }
 /* ----------------------- */
 /* colors */
 .blue .item{ background-color: hsl(205,65%,50%); }
