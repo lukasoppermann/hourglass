@@ -29,16 +29,16 @@
 	<!-- Application Chrome (TOP) -->
 
 		<div id="chrome_head">
-			<div class="head-projects"><div class="project-icon"></div></div>
-			<div class="full-circle active">3</div>
+			<div class="head-projects active"><div class="project-icon"></div></div>
+			<div class="full-circle">3</div>
 			
-			<div class="head-title" id="head_search">4 Results</div>
+			<div class="head-title" id="head_search"><div class="title">4 Results</div></div>
 
-			<div class="head-title" id="head_today">4 Tasks</div>
+			<div class="head-title" id="head_today"><div class="title">4 Tasks</div></div>
 			
 			<div class="head-title active clickable" id="head_projects"><div class="title">Taskd<div class="settings-small"></div></div></div>
 
-			<div class="head-title" id="head_tasks">12 Tasks</div>
+			<div class="head-title" id="head_tasks"><div class="title">12 Tasks</div></div>
 			
 			<div class="add-task">+</div>
 		</div>
@@ -46,9 +46,9 @@
 		<!-- ######################## -->
 		<!-- Search View -->
 
-		<div class="wrapper active" id="search_view">
+		<div class="wrapper" id="search_view">
 			
-			<div class="view-empty">
+			<div class="view-empty active">
 				<p class="tip">You can search for</p>
 			</div>
 			
@@ -59,7 +59,7 @@
 
 		<div class="wrapper" id="today_view">
 			
-			<div class="view-empty">
+			<div class="view-empty active">
 				<p class="tip">Add items to your today list by </p>
 			</div>
 			
@@ -68,14 +68,71 @@
 		<!-- ######################## -->
 		<!-- Projects View -->
 
-		<div id="projects_view">
+		<div class="wrapper active" id="projects_view">
+			
+			<div class="view-empty">
+				<p class="tip">Add a project and sort it into a group</p>
+			</div>
+			
+			<div class="view-content active">
+				
+				<ul class="group blue" data-color="blue">
+					<lh class="item">
+						<div class="icon white"><div class="drag"></div></div>
+						<div class="title">drag group to organize</div>
+					</lh>
+				</ul>
+				
+				<ul class="group turquoise" data-color="turquoise">
+					<lh class="item">
+						<div class="icon white"><div class="drag"></div></div>
+						<div class="title">drag group to organize</div>
+					</lh>
+				</ul>
+				
+				<ul class="group green" data-color="green">
+					<lh class="item">
+						<div class="icon white"><div class="drag"></div></div>
+						<div class="title">drag group to organize</div>
+					</lh>
+				</ul>
+				
+				<ul class="group yellow" data-color="yellow">
+					<lh class="item">
+						<div class="icon white"><div class="drag"></div></div>
+						<div class="title">drag group to organize</div>
+					</lh>
+				</ul>
+				
+				<ul class="group orange" data-color="orange">
+					<lh class="item">
+						<div class="icon white"><div class="drag"></div></div>
+						<div class="title">drag group to organize</div>
+					</lh>
+				</ul>
+				
+				<ul class="group red" data-color="red">
+					<lh class="item">
+						<div class="icon white"><div class="drag"></div></div>
+						<div class="title">drag group to organize</div>
+					</lh>
+				</ul>
+				
+				<ul class="group purple" data-color="purple">
+					<lh class="item">
+						<div class="icon white"><div class="drag"></div></div>
+						<div class="title">drag group to organize</div>
+					</lh>
+				</ul>
+				
+			</div>
 			
 		</div>
 
 		<!-- ######################## -->
 		<!-- Task View -->
 		
-		<div id="task_view">
+		<div class="wrapper" id="task_view">
 		
 			<div class="project-settings">
 				<div class="settings-item"><span class="label">$/h</span>50</div>
@@ -278,5 +335,5 @@
 <script type="text/javascript" charset="utf-8" src="./libs/js/jquery.min-2.0.2.js"></script>
 <script type="text/javascript" charset="utf-8" src="./libs/js/colors.js"></script>
 <script type="text/javascript" charset="utf-8" src="./libs/js/jquery-ui-1.10.3.custom.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="./libs/js/javascript.js"></script>
+<script type="text/javascript" charset="utf-8" src="./libs/js/newjs.js"></script>
 </html>
