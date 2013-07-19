@@ -23,7 +23,9 @@ $('#chrome_head').on('click', '.head-projects', function(){
 //---------------------
 // clickable title
 $('#head_projects').on('click', function(){
-	
+
+	$('#chrome').toggleClass('title-active title-passive');
+
 	if( $(this).find('.title').hasClass('active') )
 	{
 		$(this).find('.title').removeClass('active');
