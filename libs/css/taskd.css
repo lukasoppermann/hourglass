@@ -322,6 +322,8 @@ body{
 }
 .group:first-child{ margin-top: 0; }
 .group:last-child{ margin-bottom: 0; }
+.group.empty{ margin: 0; }
+
 
 .group.ui-sortable-helper .item{
 	margin: -10px 0 0 -10px;
@@ -379,6 +381,10 @@ body{
 	display: inline-block;
 	padding: 17px 0;
 }
+.item .time{ 
+	float: right;
+	padding: 17px 10px;
+}
 /* ----------------------- */
 /* circle */
 .circle-wrapper{
@@ -420,6 +426,22 @@ body{
 	opacity: 0.5;
 	padding-right: 5px;
 }
+.handle{
+	display: inline-block;
+	opacity: 0.5;
+	padding-right: 0px;
+}
+h5{
+	display: inline-block;
+	font-size: 18px;
+	font-weight: normal;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+/* ----------------------- */
+/* project */
+.project-heading{ float: left; } 
+
 /* ----------------------- */
 /* tasks */
 .tasks{
@@ -450,7 +472,6 @@ body{
 	border-top-left-radius: 5px;	
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
-/*	box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.3);*/
 	z-index: 10;
 }
 .tasks lh h5{ display: inline-block; }
