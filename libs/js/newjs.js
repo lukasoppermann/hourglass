@@ -28,14 +28,14 @@ $('#head_projects').on('click', function(){
 	
 	if( $('#chrome').hasClass('title-active') )
 	{
-		$('#projects_view').find('.group').sortable("destroy");
+		$('#projects_view').find('.view-content').sortable("destroy");
 		//---------------------
 		// projects connected groups
 		$('#projects_view').find('.view-content').sortable({
 			placeholder: "project-sort-placeholder",
 			forcePlaceholderSize: "forcePlaceholderSize",
 			axis: "y",
-			containment: "parent",
+			containment: ".view-content",
 			distance: 5,
 			items: '.group',
 			sort: function(){
@@ -55,18 +55,18 @@ $('#head_projects').on('click', function(){
 		
 		//---------------------
 		// sort projects
-		$('#projects_view').find('.group').sortable({
+		$('#projects_view').find('.view-content').sortable({
 			placeholder: "project-sort-placeholder",
 			forcePlaceholderSize: "forcePlaceholderSize",
 			axis: "y",
-			containment: "parent",
+			containment: ".view-content",
 			distance: 5,
 			items: '.item',
 			sort: function(){
 			$(window).on("keydown", function( event ){
 				if(event.keyCode == 27)
 				{
-					$('#projects_view').find('.group').sortable( "cancel" );
+					$('#projects_view').find('.view-content').sortable( "cancel" );
 				}
 			});
 			}
@@ -80,18 +80,18 @@ $('#head_projects').on('click', function(){
 // sort projects
 if( $('#chrome').hasClass('title-passive') )
 {
-	$('#projects_view').find('.group').sortable({
+	$('#projects_view').find('.view-content').sortable({
 		placeholder: "project-sort-placeholder",
 		forcePlaceholderSize: "forcePlaceholderSize",
 		axis: "y",
-		containment: "parent",
+		containment: ".view-content",
 		distance: 5,
 		items: '.item',
 		sort: function(){
 		$(window).on("keydown", function( event ){
 			if(event.keyCode == 27)
 			{
-				$('#projects_view').find('.group').sortable( "cancel" );
+				$('#projects_view').find('.view-content').sortable( "cancel" );
 			}
 		});
 		}
