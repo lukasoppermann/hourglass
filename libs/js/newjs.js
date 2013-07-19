@@ -25,41 +25,79 @@ $('#chrome_head').on('click', '.head-projects', function(){
 $('#head_projects').on('click', function(){
 
 	$('#chrome').toggleClass('title-active title-passive');
-
-	if( $(this).find('.title').hasClass('active') )
+	
+	if( $('#chrome').hasClass('title-active') )
 	{
-		$(this).find('.title').removeClass('active');
+		$('#projects_view').find('.group').sortable("destroy");
+		//---------------------
+		// projects connected groups
+		$('#projects_view').find('.view-content').sortable({
+			placeholder: "project-sort-placeholder",
+			forcePlaceholderSize: "forcePlaceholderSize",
+			axis: "y",
+			containment: "parent",
+			distance: 5,
+			items: '.group',
+			sort: function(){
+				$(window).on("keydown", function( event ){
+					if(event.keyCode == 27)
+					{
+						$('#projects_view').find('.view-content').sortable( "cancel" );
+					}
+				});
+			}
+		});
 		
-		$('#projects_view').find('.view-content').find('lh').removeClass('active');
-		$('#projects_view').find('.view-content').find('li').addClass('active');
 	}
 	else
 	{
-		$(this).find('.title').addClass('active');
+		$('#projects_view').find('.view-content').sortable("destroy");
 		
-		$('#projects_view').find('.view-content').find('lh').addClass('active');
-		$('#projects_view').find('.view-content').find('li').removeClass('active');
+		//---------------------
+		// sort projects
+		$('#projects_view').find('.group').sortable({
+			placeholder: "project-sort-placeholder",
+			forcePlaceholderSize: "forcePlaceholderSize",
+			axis: "y",
+			containment: "parent",
+			distance: 5,
+			items: '.item',
+			sort: function(){
+			$(window).on("keydown", function( event ){
+				if(event.keyCode == 27)
+				{
+					$('#projects_view').find('.group').sortable( "cancel" );
+				}
+			});
+			}
+		});	
+			
 	}
 	
 });
+
 //---------------------
-// projects connected groups
-$('#projects_view').find('.view-content').sortable({
-	placeholder: "project-sort-placeholder",
-	forcePlaceholderSize: "forcePlaceholderSize",
-	axis: "y",
-	containment: "parent",
-	distance: 5,
-	items: '.group',
-	sort: function(){
-	$(window).on("keydown", function( event ){
-		if(event.keyCode == 27)
-		{
-			$('#projects_view').find('.view-content').sortable( "cancel" );
+// sort projects
+if( $('#chrome').hasClass('title-passive') )
+{
+	$('#projects_view').find('.group').sortable({
+		placeholder: "project-sort-placeholder",
+		forcePlaceholderSize: "forcePlaceholderSize",
+		axis: "y",
+		containment: "parent",
+		distance: 5,
+		items: '.item',
+		sort: function(){
+		$(window).on("keydown", function( event ){
+			if(event.keyCode == 27)
+			{
+				$('#projects_view').find('.group').sortable( "cancel" );
+			}
+		});
 		}
 	});
-	}
-});
+}
+
 //---------------------
 // play pause
 $('.circle-wrapper').on('click', function()
