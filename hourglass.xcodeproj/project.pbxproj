@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F10BEDC1816DA0B0000C3A6 /* HGMenuBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F10BEDB1816DA0B0000C3A6 /* HGMenuBarController.m */; };
+		4F10BEE11816EE090000C3A6 /* HGBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F10BEE01816EE090000C3A6 /* HGBackgroundView.m */; };
+		4F10BEE51817047A0000C3A6 /* HGPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F10BEE31817047A0000C3A6 /* HGPanelController.m */; };
+		4F10BEE61817047A0000C3A6 /* HGPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F10BEE41817047A0000C3A6 /* HGPanel.xib */; };
 		4F7E5F61180AECC7003E54A8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7E5F60180AECC7003E54A8 /* Cocoa.framework */; };
 		4F7E5F6B180AECC7003E54A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E5F69180AECC7003E54A8 /* InfoPlist.strings */; };
 		4F7E5F6D180AECC7003E54A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F6C180AECC7003E54A8 /* main.m */; };
@@ -19,6 +23,8 @@
 		4F7E5F84180AECC7003E54A8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7E5F60180AECC7003E54A8 /* Cocoa.framework */; };
 		4F7E5F8C180AECC7003E54A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E5F8A180AECC7003E54A8 /* InfoPlist.strings */; };
 		4F7E5F8E180AECC7003E54A8 /* hourglassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F8D180AECC7003E54A8 /* hourglassTests.m */; };
+		4F7E5F9D180AF0E8003E54A8 /* HGPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F9C180AF0E8003E54A8 /* HGPanel.m */; };
+		4F7E5FA0180AF3DD003E54A8 /* HGStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F10BEDA1816DA0B0000C3A6 /* HGMenuBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGMenuBarController.h; sourceTree = "<group>"; };
+		4F10BEDB1816DA0B0000C3A6 /* HGMenuBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGMenuBarController.m; sourceTree = "<group>"; };
+		4F10BEDE1816EAF80000C3A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4F10BEDF1816EE090000C3A6 /* HGBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGBackgroundView.h; sourceTree = "<group>"; };
+		4F10BEE01816EE090000C3A6 /* HGBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGBackgroundView.m; sourceTree = "<group>"; };
+		4F10BEE21817047A0000C3A6 /* HGPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGPanelController.h; sourceTree = "<group>"; };
+		4F10BEE31817047A0000C3A6 /* HGPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGPanelController.m; sourceTree = "<group>"; };
+		4F10BEE41817047A0000C3A6 /* HGPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HGPanel.xib; sourceTree = "<group>"; };
 		4F7E5F5D180AECC7003E54A8 /* hourglass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hourglass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F7E5F60180AECC7003E54A8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4F7E5F63180AECC7003E54A8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -44,7 +58,6 @@
 		4F7E5F70180AECC7003E54A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		4F7E5F72180AECC7003E54A8 /* HGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGAppDelegate.h; sourceTree = "<group>"; };
 		4F7E5F73180AECC7003E54A8 /* HGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HGAppDelegate.m; sourceTree = "<group>"; };
-		4F7E5F76180AECC7003E54A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4F7E5F79180AECC7003E54A8 /* hourglass.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hourglass.xcdatamodel; sourceTree = "<group>"; };
 		4F7E5F7B180AECC7003E54A8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4F7E5F81180AECC7003E54A8 /* hourglassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hourglassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +65,10 @@
 		4F7E5F89180AECC7003E54A8 /* hourglassTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hourglassTests-Info.plist"; sourceTree = "<group>"; };
 		4F7E5F8B180AECC7003E54A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4F7E5F8D180AECC7003E54A8 /* hourglassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hourglassTests.m; sourceTree = "<group>"; };
+		4F7E5F9B180AF0E8003E54A8 /* HGPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGPanel.h; sourceTree = "<group>"; };
+		4F7E5F9C180AF0E8003E54A8 /* HGPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGPanel.m; sourceTree = "<group>"; };
+		4F7E5F9E180AF3DD003E54A8 /* HGStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGStatusItemView.h; sourceTree = "<group>"; };
+		4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStatusItemView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +134,9 @@
 		4F7E5F66180AECC7003E54A8 /* hourglass */ = {
 			isa = PBXGroup;
 			children = (
-				4F7E5F72180AECC7003E54A8 /* HGAppDelegate.h */,
-				4F7E5F73180AECC7003E54A8 /* HGAppDelegate.m */,
-				4F7E5F75180AECC7003E54A8 /* MainMenu.xib */,
+				4F7E5F97180AECD9003E54A8 /* Model */,
+				4F7E5F99180AECF1003E54A8 /* View */,
+				4F7E5F9A180AECFB003E54A8 /* Controller */,
 				4F7E5F7B180AECC7003E54A8 /* Images.xcassets */,
 				4F7E5F78180AECC7003E54A8 /* hourglass.xcdatamodeld */,
 				4F7E5F67180AECC7003E54A8 /* Supporting Files */,
@@ -155,6 +172,41 @@
 				4F7E5F8A180AECC7003E54A8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4F7E5F97180AECD9003E54A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4F7E5F99180AECF1003E54A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F7E5F75180AECC7003E54A8 /* MainMenu.xib */,
+				4F10BEE41817047A0000C3A6 /* HGPanel.xib */,
+				4F7E5F9B180AF0E8003E54A8 /* HGPanel.h */,
+				4F7E5F9C180AF0E8003E54A8 /* HGPanel.m */,
+				4F10BEDF1816EE090000C3A6 /* HGBackgroundView.h */,
+				4F10BEE01816EE090000C3A6 /* HGBackgroundView.m */,
+				4F7E5F9E180AF3DD003E54A8 /* HGStatusItemView.h */,
+				4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4F7E5F9A180AECFB003E54A8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4F7E5F72180AECC7003E54A8 /* HGAppDelegate.h */,
+				4F7E5F73180AECC7003E54A8 /* HGAppDelegate.m */,
+				4F10BEDA1816DA0B0000C3A6 /* HGMenuBarController.h */,
+				4F10BEDB1816DA0B0000C3A6 /* HGMenuBarController.m */,
+				4F10BEE21817047A0000C3A6 /* HGPanelController.h */,
+				4F10BEE31817047A0000C3A6 /* HGPanelController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +288,7 @@
 			files = (
 				4F7E5F6B180AECC7003E54A8 /* InfoPlist.strings in Resources */,
 				4F7E5F7C180AECC7003E54A8 /* Images.xcassets in Resources */,
+				4F10BEE61817047A0000C3A6 /* HGPanel.xib in Resources */,
 				4F7E5F71180AECC7003E54A8 /* Credits.rtf in Resources */,
 				4F7E5F77180AECC7003E54A8 /* MainMenu.xib in Resources */,
 			);
@@ -257,8 +310,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F7E5F6D180AECC7003E54A8 /* main.m in Sources */,
+				4F10BEDC1816DA0B0000C3A6 /* HGMenuBarController.m in Sources */,
+				4F7E5FA0180AF3DD003E54A8 /* HGStatusItemView.m in Sources */,
+				4F10BEE11816EE090000C3A6 /* HGBackgroundView.m in Sources */,
 				4F7E5F74180AECC7003E54A8 /* HGAppDelegate.m in Sources */,
+				4F10BEE51817047A0000C3A6 /* HGPanelController.m in Sources */,
 				4F7E5F7A180AECC7003E54A8 /* hourglass.xcdatamodeld in Sources */,
+				4F7E5F9D180AF0E8003E54A8 /* HGPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +358,7 @@
 		4F7E5F75180AECC7003E54A8 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4F7E5F76180AECC7003E54A8 /* Base */,
+				4F10BEDE1816EAF80000C3A6 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -469,6 +527,7 @@
 				4F7E5F93180AECC7003E54A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F7E5F94180AECC7003E54A8 /* Build configuration list for PBXNativeTarget "hourglassTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +536,7 @@
 				4F7E5F96180AECC7003E54A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

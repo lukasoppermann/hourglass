@@ -7,18 +7,59 @@
 //
 
 #import "HGAppDelegate.h"
+#import "HGStatusItemView.h"
 
 @implementation HGAppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize panelController = _panelController;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    // Insert code here to initialize your application
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-value"
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [self setMenuBarController:[[HGMenuBarController alloc] init]];
 }
 
+- (IBAction)togglePanel:(id)sender {
+    self.menuBarController.hasActiveIcon = !self.menuBarController.hasActiveIcon;
+    
+    self.panelController.hasActivePanel = self.menuBarController.hasActiveIcon;
+
+    //    [[self menuBarController] setHasActiveIcon: ![[self menuBarController] hasActiveIcon]];
+//    [[self panelController] setHasActivePanel: [[self menuBarController] hasActiveIcon]];
+}
+
+void *kContextActivePanel = &kContextActivePanel;
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == kContextActivePanel) {
+        [[self menuBarController] setHasActiveIcon: [[self panelController] hasActivePanel]];
+    }
+    else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+- (HGPanelController *)panelController {
+    if (_panelController == nil) {
+        _panelController = [[HGPanelController alloc] initWithDelegate:self];
+        [_panelController addObserver:self forKeyPath:@"hasActivePanel" options:0 context:kContextActivePanel];
+    }
+    return _panelController;
+}
+
+- (HGStatusItemView *)statusItemViewForPanelController:(HGPanelController *)controller {
+    return [[self menuBarController] statusItemView];
+}
+
+
+
+
+#pragma clang diagnostic pop
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "hg.hourglass" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory
 {
