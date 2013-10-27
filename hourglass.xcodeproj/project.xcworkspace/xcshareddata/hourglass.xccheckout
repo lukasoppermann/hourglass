@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E6118D50-EBF2-4FEB-A5CF-AD8F51082733</string>
+	<key>IDESourceControlProjectName</key>
+	<string>hourglass</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AC845F3F-719D-49C7-8470-0597F011870C</key>
+		<string>https://github.com/lukasoppermann/hourglass.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>hourglass.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AC845F3F-719D-49C7-8470-0597F011870C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/lukasoppermann/hourglass.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AC845F3F-719D-49C7-8470-0597F011870C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AC845F3F-719D-49C7-8470-0597F011870C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>hourglass</string>
+		</dict>
+	</array>
+</dict>
+</plist>
