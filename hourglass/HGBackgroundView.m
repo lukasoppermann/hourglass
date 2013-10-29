@@ -48,7 +48,7 @@
     [path curveToPoint:NSMakePoint(outerLeft, innerBottom) controlPoint1:bottomLeftControlPoint controlPoint2:bottomLeftControlPoint];
     [path lineToPoint:NSMakePoint(outerLeft, innerTop)];
     [path curveToPoint:NSMakePoint(innerLeft, outerTop) controlPoint1:topLeftControlPoint controlPoint2:topLeftControlPoint];
-    [path lineToPoint:NSMakePoint((outerRight/2) - (_triangle/2), outerTop)];
+    [path lineToPoint:NSMakePoint(outerRight/2 - TRIANGLE_WIDTH/2,outerTop)];
     [path closePath]; // drawing left arm of triangle
     
     [NSGraphicsContext saveGraphicsState];

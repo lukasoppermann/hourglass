@@ -20,7 +20,7 @@
 @implementation HGPanelController
 
 - (id)initWithDelegate:(id<HGPanelControllerDelegate>)delegate {
-    self = [super initWithWindowNibName:@"Panel"];
+    self = [super initWithWindowNibName:@"HGPanel"];
     if (self != nil) {
         _delegate = delegate;
     }
@@ -64,6 +64,24 @@
     
     return statusRect;
 }
+
+- (void)setHasActivePanel:(BOOL)flag
+{
+    if (_hasActivePanel != flag)
+    {
+        _hasActivePanel = flag;
+        
+        if (_hasActivePanel)
+        {
+            [self openPanel];
+        }
+        else
+        {
+            [self closePanel];
+        }
+    }
+}
+
 
 - (void)windowWillClose:(NSNotification *)notification {
     [self setHasActivePanel:NO];
@@ -131,8 +149,7 @@
     [[panel animator] setFrame:panelRect display:YES];
     [[panel animator] setAlphaValue:1];
     [NSAnimationContext endGrouping];
-    
-    // first responder field: [panel performSelector:@selector(makeFirstResponder:) withObject:[self FIELDNAME] afterDelay:openDuration];
+
 }
 
 - (void)closePanel {

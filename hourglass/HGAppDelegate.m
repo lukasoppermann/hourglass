@@ -15,22 +15,10 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize panelController = _panelController;
+@synthesize menuBarController = _menuBarController;
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-value"
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [self setMenuBarController:[[HGMenuBarController alloc] init]];
-}
-
-- (IBAction)togglePanel:(id)sender {
-    self.menuBarController.hasActiveIcon = !self.menuBarController.hasActiveIcon;
-    
-    self.panelController.hasActivePanel = self.menuBarController.hasActiveIcon;
-
-    //    [[self menuBarController] setHasActiveIcon: ![[self menuBarController] hasActiveIcon]];
-//    [[self panelController] setHasActivePanel: [[self menuBarController] hasActiveIcon]];
-}
 
 void *kContextActivePanel = &kContextActivePanel;
 
@@ -42,6 +30,15 @@ void *kContextActivePanel = &kContextActivePanel;
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [self setMenuBarController:[[HGMenuBarController alloc] init]];
+}
+
+- (IBAction)togglePanel:(id)sender {
+    [[self menuBarController] setHasActiveIcon: ![[self menuBarController] hasActiveIcon]];
+    [[self panelController] setHasActivePanel: [[self menuBarController] hasActiveIcon]];
 }
 
 - (HGPanelController *)panelController {
