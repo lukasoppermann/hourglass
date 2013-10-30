@@ -130,6 +130,7 @@
     
     NSTimeInterval openDuration = OPEN_DURATION;
     
+    // For testing
     NSEvent *currentEvent = [NSApp currentEvent];
     if ([currentEvent type] == NSLeftMouseDown) {
         NSUInteger clearFlags = ([currentEvent modifierFlags] & NSDeviceIndependentModifierFlagsMask); // @Jan

@@ -18,5 +18,4 @@
 @property (nonatomic, strong, readonly) HGStatusItemView *statusItemView;
 @property (nonatomic) BOOL hasActiveIcon;
 
-
 @end

@@ -12,7 +12,7 @@
 #define STROKE_OPACITY 1.0f
 
 #define LINE_THICKNESS 1.0f
-#define CORNER_RADIUS 6.0f
+#define CORNER_RADIUS 12.0f
 
 @implementation HGBackgroundView
 
@@ -50,6 +50,9 @@
     [path curveToPoint:NSMakePoint(innerLeft, outerTop) controlPoint1:topLeftControlPoint controlPoint2:topLeftControlPoint];
     [path lineToPoint:NSMakePoint(outerRight/2 - TRIANGLE_WIDTH/2,outerTop)];
     [path closePath]; // drawing left arm of triangle
+
+    [[NSColor colorWithDeviceWhite:1 alpha:FILL_OPACITY] setFill];
+    [path fill];
     
     [NSGraphicsContext saveGraphicsState];
     
