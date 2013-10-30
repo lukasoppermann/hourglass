@@ -27,7 +27,7 @@
 }
 
 - (void)setHasActiveIcon:(BOOL)flag {
-    [[self statusItemView] setIsHighlighted:flag];
+    [[self statusItemView] setHighlighted:flag];
 }
 
 @end

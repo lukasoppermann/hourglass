@@ -104,10 +104,12 @@
     self.backgroundView.triangle = panelX; // @Jan: why is a setter method not possible (i.e. setTriangle)
     
     NSRect buttonRect = [[self buttonadd] frame];
-    buttonRect.size.width = 25.0;
+    buttonRect.size.width = 40.0;
     buttonRect.size.height = buttonRect.size.width;
-    buttonRect.origin.x = NSMaxX([[self backgroundView] bounds]) - buttonRect.size.width * 2;
-    buttonRect.origin.y = NSHeight([[self backgroundView] bounds]) - TRIANGLE_HEIGHT - buttonRect.size.height;
+    buttonRect.origin.x = NSMaxX([[self backgroundView] bounds]) - buttonRect.size.width * 1.5;
+    buttonRect.origin.y = NSMaxY([[self backgroundView] bounds]) - TRIANGLE_HEIGHT - buttonRect.size.height * 1.5;
+
+    [[self buttonadd] setFrame:buttonRect];
 }
 
 - (void)cancelOperation:(id)sender {

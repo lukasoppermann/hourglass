@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong, readonly) NSStatusItem *statusItem;
 @property (nonatomic, readonly) NSRect globalRect;
-@property (nonatomic) BOOL isHighlighted;
+@property (nonatomic, setter = setHighlighted:) BOOL isHighlighted;
 @property (nonatomic) SEL action;
 @property (nonatomic, unsafe_unretained) id target;
 

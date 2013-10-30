@@ -22,12 +22,10 @@
 
 
 
-@interface HGPanelController : NSWindowController <NSWindowDelegate> {
-    BOOL _hasActivePanel;
-}
+@interface HGPanelController : NSWindowController <NSWindowDelegate>
 
 @property (nonatomic, unsafe_unretained) IBOutlet HGBackgroundView *backgroundView;
-@property (unsafe_unretained) IBOutlet NSButton *buttonadd;
+@property (nonatomic, unsafe_unretained) IBOutlet NSButton *buttonadd;
 
 
 @property (nonatomic) BOOL hasActivePanel;
