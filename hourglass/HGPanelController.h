@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "HGBackgroundView.h"
 #import "HGStatusItemView.h"
+#import "HGTableViewController.h"
 
 @class HGPanelController;
 
@@ -22,18 +23,26 @@
 
 
 
-@interface HGPanelController : NSWindowController <NSWindowDelegate>
+@interface HGPanelController : NSWindowController <NSWindowDelegate> {
+    IBOutlet NSTableView *HGTableView;
+    NSMutableArray *tasks;
+}
 
 @property (nonatomic, unsafe_unretained) IBOutlet HGBackgroundView *backgroundView;
 @property (nonatomic, unsafe_unretained) IBOutlet NSButton *buttonadd;
+@property (nonatomic, unsafe_unretained) IBOutlet NSScrollView *tableView;
 
 
 @property (nonatomic) BOOL hasActivePanel;
 @property (nonatomic, unsafe_unretained, readonly) id<HGPanelControllerDelegate> delegate;
 
 - (id) initWithDelegate:(id<HGPanelControllerDelegate>)delegate;
+- (NSColor*)colorForIndex:(NSInteger)index;
 
 - (void)openPanel;
 - (void)closePanel;
+
+- (IBAction)buttonAdd:(id)sender;
+- (IBAction)buttonDelete:(id)sender;
 
 @end

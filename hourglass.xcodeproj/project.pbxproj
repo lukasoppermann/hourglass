@@ -11,6 +11,8 @@
 		4F10BEE11816EE090000C3A6 /* HGBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F10BEE01816EE090000C3A6 /* HGBackgroundView.m */; };
 		4F10BEE51817047A0000C3A6 /* HGPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F10BEE31817047A0000C3A6 /* HGPanelController.m */; };
 		4F10BEE61817047A0000C3A6 /* HGPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F10BEE41817047A0000C3A6 /* HGPanel.xib */; };
+		4F68A84618265C20009E8FE7 /* HGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F68A84518265C20009E8FE7 /* HGTableViewController.m */; };
+		4F68A8491826A308009E8FE7 /* HGTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F68A8481826A308009E8FE7 /* HGTask.m */; };
 		4F7E5F61180AECC7003E54A8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7E5F60180AECC7003E54A8 /* Cocoa.framework */; };
 		4F7E5F6B180AECC7003E54A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E5F69180AECC7003E54A8 /* InfoPlist.strings */; };
 		4F7E5F6D180AECC7003E54A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F6C180AECC7003E54A8 /* main.m */; };
@@ -46,6 +48,10 @@
 		4F10BEE21817047A0000C3A6 /* HGPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGPanelController.h; sourceTree = "<group>"; };
 		4F10BEE31817047A0000C3A6 /* HGPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGPanelController.m; sourceTree = "<group>"; };
 		4F10BEE41817047A0000C3A6 /* HGPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HGPanel.xib; sourceTree = "<group>"; };
+		4F68A84418265C20009E8FE7 /* HGTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGTableViewController.h; sourceTree = "<group>"; };
+		4F68A84518265C20009E8FE7 /* HGTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGTableViewController.m; sourceTree = "<group>"; };
+		4F68A8471826A308009E8FE7 /* HGTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGTask.h; sourceTree = "<group>"; };
+		4F68A8481826A308009E8FE7 /* HGTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGTask.m; sourceTree = "<group>"; };
 		4F7E5F5D180AECC7003E54A8 /* hourglass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hourglass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F7E5F60180AECC7003E54A8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4F7E5F63180AECC7003E54A8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -177,6 +183,8 @@
 		4F7E5F97180AECD9003E54A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F68A8471826A308009E8FE7 /* HGTask.h */,
+				4F68A8481826A308009E8FE7 /* HGTask.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -205,6 +213,8 @@
 				4F10BEDB1816DA0B0000C3A6 /* HGMenuBarController.m */,
 				4F10BEE21817047A0000C3A6 /* HGPanelController.h */,
 				4F10BEE31817047A0000C3A6 /* HGPanelController.m */,
+				4F68A84418265C20009E8FE7 /* HGTableViewController.h */,
+				4F68A84518265C20009E8FE7 /* HGTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -315,6 +325,8 @@
 				4F10BEE11816EE090000C3A6 /* HGBackgroundView.m in Sources */,
 				4F7E5F74180AECC7003E54A8 /* HGAppDelegate.m in Sources */,
 				4F10BEE51817047A0000C3A6 /* HGPanelController.m in Sources */,
+				4F68A84618265C20009E8FE7 /* HGTableViewController.m in Sources */,
+				4F68A8491826A308009E8FE7 /* HGTask.m in Sources */,
 				4F7E5F7A180AECC7003E54A8 /* hourglass.xcdatamodeld in Sources */,
 				4F7E5F9D180AF0E8003E54A8 /* HGPanel.m in Sources */,
 			);

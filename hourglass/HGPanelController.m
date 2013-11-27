@@ -10,6 +10,8 @@
 #import "HGStatusItemView.h"
 #import "HGMenuBarController.h"
 #import "HGBackgroundView.h"
+#import "HGTableViewController.h"
+#import "HGTask.h"
 
 #define POPUP_HEIGHT 600
 #define PANEL_WIDTH 400
@@ -100,16 +102,26 @@
     
     CGFloat statusX = roundf(NSMidX(statusRect));
     CGFloat panelX = statusX - NSMinX(panelRect);
+    CGFloat maxX = NSMaxX([[self backgroundView] bounds]);
+    CGFloat maxY = NSMaxY([[self backgroundView] bounds]);
     
     self.backgroundView.triangle = panelX; // @Jan: why is a setter method not possible (i.e. setTriangle)
     
     NSRect buttonRect = [[self buttonadd] frame];
     buttonRect.size.width = 40.0;
     buttonRect.size.height = buttonRect.size.width;
-    buttonRect.origin.x = NSMaxX([[self backgroundView] bounds]) - buttonRect.size.width * 1.5;
-    buttonRect.origin.y = NSMaxY([[self backgroundView] bounds]) - TRIANGLE_HEIGHT - buttonRect.size.height * 1.5;
+    buttonRect.origin.x = maxX - buttonRect.size.width * 1.5;
+    buttonRect.origin.y = maxY - TRIANGLE_HEIGHT - buttonRect.size.height * 1.5;
 
     [[self buttonadd] setFrame:buttonRect];
+    
+    NSRect tableRect = [[self tableView] frame];
+    tableRect.size.width = maxX;
+    tableRect.size.height = maxY - TRIANGLE_HEIGHT - buttonRect.size.height * 2;
+    tableRect.origin.x = self.backgroundView.frame.origin.x;
+    tableRect.origin.y = self.backgroundView.frame.origin.y;
+    
+    [[self tableView] setFrame:tableRect];
 }
 
 - (void)cancelOperation:(id)sender {
@@ -164,6 +176,56 @@
     dispatch_after(dispatch_walltime(NULL, NSEC_PER_SEC * CLOSE_DURATION * 2), dispatch_get_main_queue(), ^{
         [[self window] orderOut:nil];
     });
+}
+
+- (NSColor*)colorForIndex:(NSInteger) index {
+    NSInteger itemCount = [tasks count] - 1;
+    float val = (((float)index / (float)itemCount) * 0.8);
+    return [NSColor colorWithSRGBRed:1.0 green: val blue:0 alpha:1.0];
+}
+
+- (void)tableView:(NSTableView *)tableView
+    didAddRowView:(NSTableRowView *)rowView
+           forRow:(NSInteger)row {
+    rowView.backgroundColor = [self colorForIndex:row];
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return [tasks count];
+}
+
+- (NSView *)tableView:(NSTableView *)tableView
+   viewForTableColumn:(NSTableColumn *)tableColumn
+                  row:(NSInteger)row {
+    NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"MainCell" owner:self];
+    cellView.textField.stringValue = [[tasks objectAtIndex:row] tasklabel];
+    
+    return cellView;
+}
+
+- (void)tableView:(NSTableView *)tableView
+   setObjectValue:(id)object
+   forTableColumn:(NSTableColumn *)tableColumn
+              row:(NSInteger)row {
+    HGTask *task = [tasks objectAtIndex:row];
+    NSString *identifier = [tableColumn identifier];
+    [task setValue:object forKey:identifier];
+}
+
+- (IBAction)buttonAdd:(id)sender {
+    if (tasks == nil) {
+        tasks = [NSMutableArray new];
+    }
+    [tasks addObject:[[HGTask alloc] init]];
+    [HGTableView reloadData];
+}
+
+- (IBAction)buttonDelete:(id)sender {
+    NSInteger row = [HGTableView rowForView:sender];
+    [HGTableView abortEditing];
+    if (row != -1)
+        [tasks removeObjectAtIndex:row];
+    [HGTableView reloadData];
 }
 
 @end
