@@ -34,7 +34,6 @@ $('#head_projects').on('click', function(){
 		$('#projects_view').find('.view-content').sortable({
 			placeholder: "project-sort-placeholder",
 			forcePlaceholderSize: "forcePlaceholderSize",
-			axis: "y",
 			containment: ".view-content",
 			distance: 5,
 			items: '.group',
@@ -58,7 +57,6 @@ $('#head_projects').on('click', function(){
 		$('#projects_view').find('.view-content').sortable({
 			placeholder: "project-sort-placeholder",
 			forcePlaceholderSize: "forcePlaceholderSize",
-			axis: "y",
 			containment: ".view-content",
 			distance: 5,
 			items: '.item',
@@ -83,7 +81,6 @@ if( $('#chrome').hasClass('title-passive') )
 	$('#projects_view').find('.view-content').sortable({
 		placeholder: "project-sort-placeholder",
 		forcePlaceholderSize: "forcePlaceholderSize",
-		axis: "y",
 		containment: ".view-content",
 		distance: 5,
 		items: '.item',
