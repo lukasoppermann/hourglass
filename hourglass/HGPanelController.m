@@ -181,12 +181,36 @@
 - (NSColor*)colorForIndex:(NSInteger) index {
     NSInteger itemCount = [_tasks count];
     float val = 0;
-    // blue
     // we need an array with all colors (values Hue, Stauration, Brightness and a key which object is changed (for some colors its hue))
     // than we need to change the object to change (Hue or Brightness) like it does it not in the if condition
     // afterwards we add all the values to the NSColor
     // to get the right hue form my specs take the clor (in demo 205) and devide by 360
-
+    // array e.g. (php syntax)
+    /* colors[blue] = array(
+                    hue = 0.57,
+                    saturation = 0.67,
+                    brightness = 0.63,
+                    change = 'brightness'
+    )
+    
+     val[hue] = colors[blue][hue];
+     val[saturation] = colors[blue][saturation];
+     val[brightness] = colors[blue][brightness];
+     // in the if condition we need
+    
+     if(...){
+        val[colors[blue][change]] = colors[blue][colors[blue][change]] + ((0.1/itemCount)*(index*(3)));
+     }
+     and in at the bottom we need
+     
+     return [NSColor     colorWithDeviceHue: val[hue]
+     saturation: val[saturation]
+     brightness: val[brightness]
+     alpha: 1
+     ];
+     
+    */
+    // blue
     float brightness = 0.63;
 
     if( itemCount < 11 )
