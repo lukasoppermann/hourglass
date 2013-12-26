@@ -180,15 +180,41 @@
 
 - (NSColor*)colorForIndex:(NSInteger) index {
     NSInteger itemCount = [_tasks count];
-    float val = ((((float)index) / (float)itemCount));
-    return [NSColor colorWithDeviceHue:0.24 saturation:1 brightness:val alpha:1]; //colorWithSRGBRed:1.0 green: val blue:0 alpha:1.0];
+    float val = 0;
+    // blue
+    // we need an array with all colors (values Hue, Stauration, Brightness and a key which object is changed (for some colors its hue))
+    // than we need to change the object to change (Hue or Brightness) like it does it not in the if condition
+    // afterwards we add all the values to the NSColor
+    // to get the right hue form my specs take the clor (in demo 205) and devide by 360
+
+    float brightness = 0.63;
+
+    if( itemCount < 11 )
+    {
+        val = brightness + ((0.1/10)*(index*3));
+    }
+    else
+    {
+        val = brightness + ((0.1/itemCount)*(index*(3)));
+    }
+    // NSLog(@"%f", val);
+    
+    return [NSColor     colorWithDeviceHue: 0.57
+                                saturation: 0.67
+                                brightness: val
+                                     alpha: 1
+           ];
+        
+        
+        //colorWithSRGBRed:1.0 green: val blue:0 alpha:1.0];
+
 }
 
 - (void)tableView:(NSTableView *)tableView
     didAddRowView:(NSTableRowView *)rowView
            forRow:(NSInteger)row {
     rowView.backgroundColor = [self colorForIndex:row];
-    NSLog(@"color is %@ and row is %li", rowView.backgroundColor, (long)row);
+    //NSLog(@"color is %@ and row is %li", rowView.backgroundColor, (long)row);
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
