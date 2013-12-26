@@ -10,11 +10,9 @@
 
 @implementation HGTask
 
-@synthesize tasklabel;
-
 -(id) init {
     if(self = [super init]) {
-        tasklabel = @"tasklabel";
+        _tasklabel = @"tasklabel";
     }
     return self;
 }

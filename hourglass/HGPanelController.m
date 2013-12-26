@@ -108,7 +108,7 @@
     self.backgroundView.triangle = panelX; // @Jan: why is a setter method not possible (i.e. setTriangle)
     
     NSRect buttonRect = [[self buttonadd] frame];
-    buttonRect.size.width = 40.0;
+    buttonRect.size.width = 50.0;
     buttonRect.size.height = buttonRect.size.width;
     buttonRect.origin.x = maxX - buttonRect.size.width * 1.5;
     buttonRect.origin.y = maxY - TRIANGLE_HEIGHT - buttonRect.size.height * 1.5;
@@ -119,7 +119,7 @@
     tableRect.size.width = maxX;
     tableRect.size.height = maxY - TRIANGLE_HEIGHT - buttonRect.size.height * 2;
     tableRect.origin.x = self.backgroundView.frame.origin.x;
-    tableRect.origin.y = self.backgroundView.frame.origin.y;
+    tableRect.origin.y = self.backgroundView.frame.origin.y + 10;
     
     [[self tableView] setFrame:tableRect];
 }
@@ -179,26 +179,27 @@
 }
 
 - (NSColor*)colorForIndex:(NSInteger) index {
-    NSInteger itemCount = [tasks count] - 1;
-    float val = (((float)index / (float)itemCount) * 0.8);
-    return [NSColor colorWithSRGBRed:1.0 green: val blue:0 alpha:1.0];
+    NSInteger itemCount = [_tasks count];
+    float val = ((((float)index) / (float)itemCount));
+    return [NSColor colorWithDeviceHue:0.24 saturation:1 brightness:val alpha:1]; //colorWithSRGBRed:1.0 green: val blue:0 alpha:1.0];
 }
 
 - (void)tableView:(NSTableView *)tableView
     didAddRowView:(NSTableRowView *)rowView
            forRow:(NSInteger)row {
     rowView.backgroundColor = [self colorForIndex:row];
+    NSLog(@"color is %@ and row is %li", rowView.backgroundColor, (long)row);
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [tasks count];
+    return [_tasks count];
 }
 
 - (NSView *)tableView:(NSTableView *)tableView
    viewForTableColumn:(NSTableColumn *)tableColumn
                   row:(NSInteger)row {
     NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"MainCell" owner:self];
-    cellView.textField.stringValue = [[tasks objectAtIndex:row] tasklabel];
+    cellView.textField.stringValue = [[_tasks objectAtIndex:row] tasklabel];
     
     return cellView;
 }
@@ -207,16 +208,31 @@
    setObjectValue:(id)object
    forTableColumn:(NSTableColumn *)tableColumn
               row:(NSInteger)row {
-    HGTask *task = [tasks objectAtIndex:row];
-    NSString *identifier = [tableColumn identifier];
-    [task setValue:object forKey:identifier];
+    HGTask *task = [_tasks objectAtIndex:row];
+    [task setValue:object forKey:[tableColumn identifier]];
 }
 
 - (IBAction)buttonAdd:(id)sender {
-    if (tasks == nil) {
-        tasks = [NSMutableArray new];
+    if (_tasks == nil) {
+        _tasks = [NSMutableArray new];
     }
-    [tasks addObject:[[HGTask alloc] init]];
+    
+//    //Draw border on click
+//    NSRect borderRect = [[self buttonadd] frame];
+//    NSBezierPath *borderPath = [NSBezierPath bezierPath];
+//    [borderPath moveToPoint:NSMakePoint(borderRect.origin.x, borderRect.origin.x)];
+//    [borderPath lineToPoint:NSMakePoint(borderRect.origin.x + borderRect.size.width, borderRect.origin.y)];
+//    [borderPath lineToPoint:NSMakePoint(borderRect.origin.x + borderRect.size.width, borderRect.origin.y + borderRect.size.height)];
+//    [borderPath lineToPoint:NSMakePoint(borderRect.origin.x, borderRect.origin.y + borderRect.size.height)];
+//    [borderPath closePath];
+////    NSBezierPath *borderPath = [NSBezierPath bezierPathWithRect:NSMakeRect(0, 0, 100, 100)];//[[self buttonadd] frame]];
+//    [borderPath setLineWidth:10];
+//    [[NSColor blackColor] setStroke];
+//    [borderPath stroke];
+////    [NSGraphicsContext saveGraphicsState];
+////    [NSGraphicsContext restoreGraphicsState];
+    
+    [_tasks addObject:[[HGTask alloc] init]];
     [HGTableView reloadData];
 }
 
@@ -224,7 +240,7 @@
     NSInteger row = [HGTableView rowForView:sender];
     [HGTableView abortEditing];
     if (row != -1)
-        [tasks removeObjectAtIndex:row];
+        [_tasks removeObjectAtIndex:row];
     [HGTableView reloadData];
 }
 

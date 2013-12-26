@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HGTask : NSObject {
-    NSString *tasklabel;
-}
+@interface HGTask : NSObject
 
 @property (nonatomic, strong, readwrite) NSString *tasklabel;
 

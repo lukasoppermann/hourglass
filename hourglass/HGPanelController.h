@@ -23,14 +23,15 @@
 
 
 
-@interface HGPanelController : NSWindowController <NSWindowDelegate> {
+@interface HGPanelController : NSWindowController <NSWindowDelegate, NSTableViewDataSource, NSTableViewDelegate> {
     IBOutlet NSTableView *HGTableView;
-    NSMutableArray *tasks;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet HGBackgroundView *backgroundView;
 @property (nonatomic, unsafe_unretained) IBOutlet NSButton *buttonadd;
 @property (nonatomic, unsafe_unretained) IBOutlet NSScrollView *tableView;
+@property NSMutableArray *tasks;
+
 
 
 @property (nonatomic) BOOL hasActivePanel;
@@ -45,4 +46,5 @@
 - (IBAction)buttonAdd:(id)sender;
 - (IBAction)buttonDelete:(id)sender;
 
+//@property (strong) IBOutlet NSArrayController *ArrayController;
 @end

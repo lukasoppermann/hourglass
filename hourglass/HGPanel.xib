@@ -27,28 +27,28 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button id="j7V-Pw-r8h">
-                        <rect key="frame" x="212" y="317" width="46" height="43"/>
+                        <rect key="frame" x="218" y="324" width="35" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="+" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EKv-PH-j0T">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <buttonCell key="cell" type="bevel" title="+" bezelStyle="regularSquare" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyDown" inset="2" id="EKv-PH-j0T">
+                            <behavior key="behavior" lightByContents="YES"/>
                             <font key="font" size="20" name="LucidaGrande"/>
                         </buttonCell>
                         <connections>
                             <action selector="buttonAdd:" target="-2" id="win-Rb-38c"/>
                         </connections>
                     </button>
-                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="53" horizontalPageScroll="10" verticalLineScroll="53" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="WiW-Wd-Vg2">
+                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="WiW-Wd-Vg2">
                         <rect key="frame" x="0.0" y="0.0" width="276" height="287"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="d3v-u7-FLb">
                             <rect key="frame" x="0.0" y="0.0" width="276" height="287"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" viewBased="YES" id="Plk-7E-raC">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="Plk-7E-raC">
                                     <rect key="frame" x="0.0" y="0.0" width="291" height="287"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="3"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn identifier="MainCell" width="288" minWidth="40" maxWidth="1000" id="5LO-vd-zWG">
@@ -76,6 +76,9 @@
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <connections>
+                                                                <binding destination="O3R-Gl-xJL" name="value" keyPath="objectValue.tasklabel" id="jia-BR-8uL"/>
+                                                            </connections>
                                                         </textField>
                                                         <button id="TW8-qT-0Xg">
                                                             <rect key="frame" x="211" y="3" width="42" height="38"/>
@@ -102,7 +105,7 @@
                                     </connections>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="IAr-5I-qYJ">
                             <rect key="frame" x="-100" y="-100" width="223" height="15"/>
