@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 hourglass. All rights reserved.
 //
 
-#define TRIANGLE_WIDTH 12
-#define TRIANGLE_HEIGHT 8
+#define TRIANGLE_WIDTH 20
+#define TRIANGLE_HEIGHT 10
 
 @interface HGBackgroundView : NSView
 

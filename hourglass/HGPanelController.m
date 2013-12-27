@@ -57,7 +57,7 @@
     
     if (statusItemView) {
         statusRect = [statusItemView globalRect];
-        statusRect.origin.y = NSMinY(statusRect) - NSHeight(statusRect);
+        statusRect.origin.y = NSMinY(statusRect) - NSHeight(statusRect) - 2 ;
     } else {
         statusRect.size = NSMakeSize(STATUS_ITEM_VIEW_WIDTH, [[NSStatusBar systemStatusBar] thickness]);
         statusRect.origin.x = roundf((NSWidth(screenRect) - NSWidth(statusRect)) / 2);
@@ -108,16 +108,18 @@
     self.backgroundView.triangle = panelX; // @Jan: why is a setter method not possible (i.e. setTriangle)
     
     NSRect buttonRect = [[self buttonadd] frame];
-    buttonRect.size.width = 50.0;
+    buttonRect.size.width = 45.0;
     buttonRect.size.height = buttonRect.size.width;
-    buttonRect.origin.x = maxX - buttonRect.size.width * 1.5;
-    buttonRect.origin.y = maxY - TRIANGLE_HEIGHT - buttonRect.size.height * 1.5;
-
+    buttonRect.origin.x = maxX - buttonRect.size.width;// * 1.5;
+    buttonRect.origin.y = maxY - TRIANGLE_HEIGHT - buttonRect.size.height;// * 1.5;
+    NSLog(@"button width: %f, button height: %f", buttonRect.size.width, buttonRect.size.height);
+    
     [[self buttonadd] setFrame:buttonRect];
+    
     
     NSRect tableRect = [[self tableView] frame];
     tableRect.size.width = maxX;
-    tableRect.size.height = maxY - TRIANGLE_HEIGHT - buttonRect.size.height * 2;
+    tableRect.size.height = maxY - TRIANGLE_HEIGHT - buttonRect.size.height - 10;
     tableRect.origin.x = self.backgroundView.frame.origin.x;
     tableRect.origin.y = self.backgroundView.frame.origin.y + 10;
     
