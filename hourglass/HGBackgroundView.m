@@ -12,7 +12,7 @@
 #define STROKE_OPACITY 1.0f
 
 #define LINE_THICKNESS 1.0f
-#define CORNER_RADIUS 12.0f
+#define CORNER_RADIUS 4.0f
 
 @implementation HGBackgroundView
 
