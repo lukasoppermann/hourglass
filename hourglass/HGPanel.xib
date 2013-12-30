@@ -29,9 +29,9 @@
                     <button id="j7V-Pw-r8h">
                         <rect key="frame" x="218" y="324" width="35" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="+" bezelStyle="regularSquare" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyDown" inset="2" id="EKv-PH-j0T">
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="EKv-PH-j0T">
                             <behavior key="behavior" lightByContents="YES"/>
-                            <font key="font" size="20" name="LucidaGrande"/>
+                            <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
                             <action selector="buttonAdd:" target="-2" id="win-Rb-38c"/>

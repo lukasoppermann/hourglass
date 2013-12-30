@@ -38,6 +38,9 @@
     NSRect panelRect = [[self window] frame];
     panelRect.size.height = POPUP_HEIGHT;
     [[self window] setFrame:panelRect display:NO];
+    
+    [[self buttonadd] setImage:[NSImage imageNamed:@"icon-add-default.png"]];
+    [[self buttonadd] setAlternateImage:[NSImage imageNamed:@"icon-add-pressed.png"]];
 }
 
 - (NSRect)statusRectForWindow:(NSWindow *)window {
@@ -115,7 +118,6 @@
     NSLog(@"button width: %f, button height: %f", buttonRect.size.width, buttonRect.size.height);
     
     [[self buttonadd] setFrame:buttonRect];
-    
     
     NSRect tableRect = [[self tableView] frame];
     tableRect.size.width = maxX;
