@@ -57,7 +57,7 @@
     
     if (statusItemView) {
         statusRect = [statusItemView globalRect];
-        statusRect.origin.y = NSMinY(statusRect) - NSHeight(statusRect);
+        statusRect.origin.y = NSMinY(statusRect) - NSHeight(statusRect) - 2 ;
     } else {
         statusRect.size = NSMakeSize(STATUS_ITEM_VIEW_WIDTH, [[NSStatusBar systemStatusBar] thickness]);
         statusRect.origin.x = roundf((NSWidth(screenRect) - NSWidth(statusRect)) / 2);
@@ -108,16 +108,18 @@
     self.backgroundView.triangle = panelX; // @Jan: why is a setter method not possible (i.e. setTriangle)
     
     NSRect buttonRect = [[self buttonadd] frame];
-    buttonRect.size.width = 50.0;
+    buttonRect.size.width = 45.0;
     buttonRect.size.height = buttonRect.size.width;
-    buttonRect.origin.x = maxX - buttonRect.size.width * 1.5;
-    buttonRect.origin.y = maxY - TRIANGLE_HEIGHT - buttonRect.size.height * 1.5;
-
+    buttonRect.origin.x = maxX - buttonRect.size.width;// * 1.5;
+    buttonRect.origin.y = maxY - TRIANGLE_HEIGHT - buttonRect.size.height;// * 1.5;
+    NSLog(@"button width: %f, button height: %f", buttonRect.size.width, buttonRect.size.height);
+    
     [[self buttonadd] setFrame:buttonRect];
+    
     
     NSRect tableRect = [[self tableView] frame];
     tableRect.size.width = maxX;
-    tableRect.size.height = maxY - TRIANGLE_HEIGHT - buttonRect.size.height * 2;
+    tableRect.size.height = maxY - TRIANGLE_HEIGHT - buttonRect.size.height - 10;
     tableRect.origin.x = self.backgroundView.frame.origin.x;
     tableRect.origin.y = self.backgroundView.frame.origin.y + 10;
     
@@ -180,15 +182,65 @@
 
 - (NSColor*)colorForIndex:(NSInteger) index {
     NSInteger itemCount = [_tasks count];
-    float val = ((((float)index) / (float)itemCount));
-    return [NSColor colorWithDeviceHue:0.24 saturation:1 brightness:val alpha:1]; //colorWithSRGBRed:1.0 green: val blue:0 alpha:1.0];
+    float val = 0;
+    // we need an array with all colors (values Hue, Stauration, Brightness and a key which object is changed (for some colors its hue))
+    // than we need to change the object to change (Hue or Brightness) like it does it not in the if condition
+    // afterwards we add all the values to the NSColor
+    // to get the right hue form my specs take the clor (in demo 205) and devide by 360
+    // array e.g. (php syntax)
+    /* colors[blue] = array(
+                    hue = 0.57,
+                    saturation = 0.67,
+                    brightness = 0.63,
+                    change = 'brightness'
+    )
+    
+     val[hue] = colors[blue][hue];
+     val[saturation] = colors[blue][saturation];
+     val[brightness] = colors[blue][brightness];
+     // in the if condition we need
+    
+     if(...){
+        val[colors[blue][change]] = colors[blue][colors[blue][change]] + ((0.1/itemCount)*(index*(3)));
+     }
+     and in at the bottom we need
+     
+     return [NSColor     colorWithDeviceHue: val[hue]
+     saturation: val[saturation]
+     brightness: val[brightness]
+     alpha: 1
+     ];
+     
+    */
+    // blue
+    float brightness = 0.63;
+
+    if( itemCount < 11 )
+    {
+        val = brightness + ((0.1/10)*(index*3));
+    }
+    else
+    {
+        val = brightness + ((0.1/itemCount)*(index*(3)));
+    }
+    // NSLog(@"%f", val);
+    
+    return [NSColor     colorWithDeviceHue: 0.57
+                                saturation: 0.67
+                                brightness: val
+                                     alpha: 1
+           ];
+        
+        
+        //colorWithSRGBRed:1.0 green: val blue:0 alpha:1.0];
+
 }
 
 - (void)tableView:(NSTableView *)tableView
     didAddRowView:(NSTableRowView *)rowView
            forRow:(NSInteger)row {
     rowView.backgroundColor = [self colorForIndex:row];
-    NSLog(@"color is %@ and row is %li", rowView.backgroundColor, (long)row);
+    //NSLog(@"color is %@ and row is %li", rowView.backgroundColor, (long)row);
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {

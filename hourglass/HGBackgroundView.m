@@ -8,11 +8,11 @@
 
 #import "HGBackgroundView.h"
 
-#define FILL_OPACITY 0.9f
+#define FILL_OPACITY 1.0f
 #define STROKE_OPACITY 1.0f
 
-#define LINE_THICKNESS 1.0f
-#define CORNER_RADIUS 4.0f
+#define LINE_THICKNESS 0.0f
+#define CORNER_RADIUS 8.0f
 
 @implementation HGBackgroundView
 
