@@ -7,12 +7,7 @@
 //
 
 #import "HGBackgroundView.h"
-
-#define FILL_OPACITY 1.0f
-#define STROKE_OPACITY 1.0f
-
-#define LINE_THICKNESS 0.0f
-#define CORNER_RADIUS 8.0f
+#import "HGPanelController.h"
 
 @implementation HGBackgroundView
 
@@ -20,49 +15,38 @@
 {
 	[super drawRect:dirtyRect];
 	
-    NSRect contentRect = NSInsetRect([self bounds], LINE_THICKNESS, LINE_THICKNESS);
+    NSRect navigatorBar = [self bounds];
     NSBezierPath *path = [NSBezierPath bezierPath];
     
     // setting some X and Y cooardinates to use for drawing
-    CGFloat outerTop = NSMaxY(contentRect) - TRIANGLE_HEIGHT; // top border of panel without triangle height
+    CGFloat outerTop = NSMaxY(navigatorBar) - TRIANGLE_HEIGHT; // top border of panel without triangle height
     CGFloat innerTop = outerTop - CORNER_RADIUS; // inner top border of panel without triangle height
-    CGFloat outerBottom = NSMinY(contentRect); // lower bottom
-    CGFloat innerBottom = outerBottom + CORNER_RADIUS; // inner bottom
-    CGFloat outerRight = NSMaxX(contentRect); // outer right hand border
-    CGFloat innerRight = outerRight - CORNER_RADIUS; // inner right hand border
-    CGFloat outerLeft = NSMinX(contentRect); // outer left hand border
-    CGFloat innerLeft = outerLeft + CORNER_RADIUS; // inner left hand border
+    CGFloat Bottom = outerTop - BUTTON_SIZE; // lower bottom
+    CGFloat outerRight = NSMaxX(navigatorBar); // outer right hand border
+    CGFloat outerLeft = NSMinX(navigatorBar); // outer left hand border
     
     NSPoint topRightControlPoint = NSMakePoint(outerRight, outerTop);
     NSPoint topLeftControlPoint = NSMakePoint(outerLeft, outerTop);
-    NSPoint bottomRightControlPoint = NSMakePoint(outerRight, outerBottom);
-    NSPoint bottomLeftControlPoint = NSMakePoint(outerLeft, outerBottom);
     
-    [path moveToPoint:NSMakePoint(_triangle, NSMaxY(contentRect))]; // Starting point at touchpoint with system status bar
+    [path moveToPoint:NSMakePoint(_triangle, NSMaxY(navigatorBar))]; // Starting point at touchpoint with system status bar
     [path lineToPoint:NSMakePoint(_triangle + TRIANGLE_WIDTH / 2, outerTop)]; // draw right arm of the triangle
-    [path lineToPoint:NSMakePoint(innerRight, outerTop)];
+    [path lineToPoint:NSMakePoint(outerRight - CORNER_RADIUS, outerTop)];
     [path curveToPoint:NSMakePoint(outerRight, innerTop) controlPoint1:topRightControlPoint controlPoint2:topRightControlPoint];
-    [path lineToPoint:NSMakePoint(outerRight, innerBottom)];
-    [path curveToPoint:NSMakePoint(innerRight, outerBottom) controlPoint1:bottomRightControlPoint controlPoint2:bottomRightControlPoint];
-    [path lineToPoint:NSMakePoint(innerLeft, outerBottom)];
-    [path curveToPoint:NSMakePoint(outerLeft, innerBottom) controlPoint1:bottomLeftControlPoint controlPoint2:bottomLeftControlPoint];
+    [path lineToPoint:NSMakePoint(outerRight, Bottom)];
+    [path lineToPoint:NSMakePoint(outerLeft, Bottom)];
     [path lineToPoint:NSMakePoint(outerLeft, innerTop)];
-    [path curveToPoint:NSMakePoint(innerLeft, outerTop) controlPoint1:topLeftControlPoint controlPoint2:topLeftControlPoint];
+    [path curveToPoint:NSMakePoint(outerLeft + CORNER_RADIUS, outerTop) controlPoint1:topLeftControlPoint controlPoint2:topLeftControlPoint];
     [path lineToPoint:NSMakePoint(outerRight/2 - TRIANGLE_WIDTH/2,outerTop)];
     [path closePath]; // drawing left arm of triangle
 
-    [[NSColor colorWithDeviceWhite:1 alpha:FILL_OPACITY] setFill];
-    [path fill];
+    NSGradient *fillGradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedRed:(235/255.0) green:(235/255.0) blue:(235/255.0) alpha:1.0] endingColor:[NSColor colorWithCalibratedRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1.0]];
+    [fillGradient drawInBezierPath:path angle:270.0];
     
     [NSGraphicsContext saveGraphicsState];
     
     NSBezierPath *clip = [NSBezierPath bezierPathWithRect:[self bounds]];
     [clip appendBezierPath:path];
     [clip addClip];
-    
-    [path setLineWidth:LINE_THICKNESS * 2];
-    [[NSColor whiteColor] setStroke];
-    [path stroke];
     
     [NSGraphicsContext restoreGraphicsState];
 }

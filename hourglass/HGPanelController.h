@@ -11,6 +11,14 @@
 #import "HGStatusItemView.h"
 #import "HGTableViewController.h"
 
+#define POPUP_HEIGHT 600
+#define PANEL_WIDTH 400
+
+#define OPEN_DURATION .2
+#define CLOSE_DURATION .1
+
+#define BUTTON_SIZE 45.0
+
 @class HGPanelController;
 
 @protocol HGPanelControllerDelegate <NSObject>

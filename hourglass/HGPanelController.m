@@ -9,15 +9,9 @@
 #import "HGPanelController.h"
 #import "HGStatusItemView.h"
 #import "HGMenuBarController.h"
-#import "HGBackgroundView.h"
 #import "HGTableViewController.h"
 #import "HGTask.h"
-
-#define POPUP_HEIGHT 600
-#define PANEL_WIDTH 400
-
-#define OPEN_DURATION .2
-#define CLOSE_DURATION .1
+#import "HGBackgroundView.h"
 
 @implementation HGPanelController
 
@@ -95,6 +89,12 @@
     }
 }
 
+- (void)setupCALayer {
+    CALayer *tableLayer = [CALayer layer];
+    
+    [tableLayer setNeedsDisplay];
+}
+
 - (void)windowDidResize:(NSNotification *)notification {
     NSWindow *panel = [self window];
     NSRect statusRect = [self statusRectForWindow:panel];
@@ -108,7 +108,7 @@
     self.backgroundView.triangle = panelX; // @Jan: why is a setter method not possible (i.e. setTriangle)
     
     NSRect buttonRect = [[self buttonadd] frame];
-    buttonRect.size.width = 45.0;
+    buttonRect.size.width = BUTTON_SIZE;
     buttonRect.size.height = buttonRect.size.width;
     buttonRect.origin.x = maxX - buttonRect.size.width;// * 1.5;
     buttonRect.origin.y = maxY - TRIANGLE_HEIGHT - buttonRect.size.height;// * 1.5;
@@ -119,11 +119,16 @@
     
     NSRect tableRect = [[self tableView] frame];
     tableRect.size.width = maxX;
-    tableRect.size.height = maxY - TRIANGLE_HEIGHT - buttonRect.size.height - 10;
+    tableRect.size.height = maxY - TRIANGLE_HEIGHT - buttonRect.size.height;
     tableRect.origin.x = self.backgroundView.frame.origin.x;
-    tableRect.origin.y = self.backgroundView.frame.origin.y + 10;
+    tableRect.origin.y = maxY - POPUP_HEIGHT;
     
     [[self tableView] setFrame:tableRect];
+    [[self tableView] setWantsLayer:YES];
+    
+    CALayer *tableLayer = [CALayer layer];
+    [tableLayer setCornerRadius:CORNER_RADIUS];
+    [[self tableView] setLayer:tableLayer];
 }
 
 - (void)cancelOperation:(id)sender {
