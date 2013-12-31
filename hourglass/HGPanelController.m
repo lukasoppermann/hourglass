@@ -41,6 +41,8 @@
     
     [[self buttonadd] setImage:[NSImage imageNamed:@"icon-add-default.png"]];
     [[self buttonadd] setAlternateImage:[NSImage imageNamed:@"icon-add-pressed.png"]];
+    [[self buttonlist] setImage:[NSImage imageNamed:@"icon-list-default.png"]];
+    [[self buttonlist] setAlternateImage:[NSImage imageNamed:@"icon-list-pressed.png"]];
 }
 
 - (NSRect)statusRectForWindow:(NSWindow *)window {
@@ -115,9 +117,10 @@
     buttonRect.size.height = buttonRect.size.width;
     buttonRect.origin.x = maxX - buttonRect.size.width;// * 1.5;
     buttonRect.origin.y = maxY - TRIANGLE_HEIGHT - buttonRect.size.height;// * 1.5;
-    NSLog(@"button width: %f, button height: %f", buttonRect.size.width, buttonRect.size.height);
-    
     [[self buttonadd] setFrame:buttonRect];
+    
+    NSRect listButtonRect = NSMakeRect(NSMinX([[self backgroundView] bounds]), buttonRect.origin.y, buttonRect.size.width, buttonRect.size.height) ;
+    [[self buttonlist] setFrame:listButtonRect];
     
     NSRect tableRect = [[self tableView] frame];
     tableRect.size.width = maxX;
@@ -126,11 +129,13 @@
     tableRect.origin.y = maxY - POPUP_HEIGHT;
     
     [[self tableView] setFrame:tableRect];
-    [[self tableView] setWantsLayer:YES];
+
     
-    CALayer *tableLayer = [CALayer layer];
-    [tableLayer setCornerRadius:CORNER_RADIUS];
-    [[self tableView] setLayer:tableLayer];
+    //    [[self tableView] setWantsLayer:YES];
+//    
+//    CALayer *tableLayer = [CALayer layer];
+//    [tableLayer setCornerRadius:CORNER_RADIUS];
+//    [[self tableView] setLayer:tableLayer];
 }
 
 - (void)cancelOperation:(id)sender {
@@ -187,11 +192,11 @@
     });
 }
 
-- (NSColor*)colorForIndex:(NSInteger) index {
+- (NSColor*)colorForIndex:(NSInteger)index {
     NSInteger itemCount = [_tasks count];
     float val = 0;
     // we need an array with all colors (values Hue, Stauration, Brightness and a key which object is changed (for some colors its hue))
-    // than we need to change the object to change (Hue or Brightness) like it does it not in the if condition
+    // than we need to change  the object to change (Hue or Brightness) like it does it not in the if condition
     // afterwards we add all the values to the NSColor
     // to get the right hue form my specs take the clor (in demo 205) and devide by 360
     // array e.g. (php syntax)
@@ -250,17 +255,15 @@
     //NSLog(@"color is %@ and row is %li", rowView.backgroundColor, (long)row);
 }
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [_tasks count];
+- (void)tableView:(NSTableView *)tableView
+ didRemoveRowView:(NSTableRowView *)rowView
+           forRow:(NSInteger)row {
+    rowView.backgroundColor = [self colorForIndex:row];
+    //NSLog(@"color is %@ and row is %li", rowView.backgroundColor, (long)row);
 }
 
-- (NSView *)tableView:(NSTableView *)tableView
-   viewForTableColumn:(NSTableColumn *)tableColumn
-                  row:(NSInteger)row {
-    NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"MainCell" owner:self];
-    cellView.textField.stringValue = [[_tasks objectAtIndex:row] tasklabel];
-    
-    return cellView;
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return [_tasks count];
 }
 
 - (void)tableView:(NSTableView *)tableView
@@ -275,23 +278,8 @@
     if (_tasks == nil) {
         _tasks = [NSMutableArray new];
     }
-    
-//    //Draw border on click
-//    NSRect borderRect = [[self buttonadd] frame];
-//    NSBezierPath *borderPath = [NSBezierPath bezierPath];
-//    [borderPath moveToPoint:NSMakePoint(borderRect.origin.x, borderRect.origin.x)];
-//    [borderPath lineToPoint:NSMakePoint(borderRect.origin.x + borderRect.size.width, borderRect.origin.y)];
-//    [borderPath lineToPoint:NSMakePoint(borderRect.origin.x + borderRect.size.width, borderRect.origin.y + borderRect.size.height)];
-//    [borderPath lineToPoint:NSMakePoint(borderRect.origin.x, borderRect.origin.y + borderRect.size.height)];
-//    [borderPath closePath];
-////    NSBezierPath *borderPath = [NSBezierPath bezierPathWithRect:NSMakeRect(0, 0, 100, 100)];//[[self buttonadd] frame]];
-//    [borderPath setLineWidth:10];
-//    [[NSColor blackColor] setStroke];
-//    [borderPath stroke];
-////    [NSGraphicsContext saveGraphicsState];
-////    [NSGraphicsContext restoreGraphicsState];
-    
-    [_tasks addObject:[[HGTask alloc] init]];
+
+    [_arrayController addObject:[[HGTask alloc] init]];
     [HGTableView reloadData];
 }
 
@@ -301,6 +289,16 @@
     if (row != -1)
         [_tasks removeObjectAtIndex:row];
     [HGTableView reloadData];
+}
+
+- (NSView *)tableView:(NSTableView *)tableView
+   viewForTableColumn:(NSTableColumn *)tableColumn
+                  row:(NSInteger)row {
+    NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"MainCell" owner:self];
+    if (row < [_tasks count]) {
+    cellView.textField.stringValue = [[_tasks objectAtIndex:row] tasklabel];
+    }
+        return cellView;
 }
 
 @end

@@ -37,8 +37,10 @@
 
 @property (nonatomic, unsafe_unretained) IBOutlet HGBackgroundView *backgroundView;
 @property (nonatomic, unsafe_unretained) IBOutlet NSButton *buttonadd;
+@property (nonatomic, unsafe_unretained) IBOutlet NSButton *buttonlist;
 @property (nonatomic, unsafe_unretained) IBOutlet NSScrollView *tableView;
 @property NSMutableArray *tasks;
+@property (strong) IBOutlet NSArrayController *arrayController;
 
 
 

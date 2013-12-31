@@ -8,8 +8,10 @@
         <customObject id="-2" userLabel="File's Owner" customClass="HGPanelController">
             <connections>
                 <outlet property="HGTableView" destination="Plk-7E-raC" id="akg-cL-BT8"/>
+                <outlet property="arrayController" destination="qFp-bB-42K" id="FpZ-7R-Swe"/>
                 <outlet property="backgroundView" destination="wKA-Zt-8dO" id="OCW-39-0WF"/>
                 <outlet property="buttonadd" destination="j7V-Pw-r8h" id="hH9-UH-V2q"/>
+                <outlet property="buttonlist" destination="b8P-qX-6qi" id="jIs-lO-DwD"/>
                 <outlet property="tableView" destination="WiW-Wd-Vg2" id="up7-Hn-FLt"/>
                 <outlet property="window" destination="wBs-lf-xDN" id="XzO-lm-EDR"/>
             </connections>
@@ -37,10 +39,10 @@
                             <action selector="buttonAdd:" target="-2" id="win-Rb-38c"/>
                         </connections>
                     </button>
-                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="WiW-Wd-Vg2">
+                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" id="WiW-Wd-Vg2">
                         <rect key="frame" x="0.0" y="0.0" width="276" height="287"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="d3v-u7-FLb">
+                        <clipView key="contentView" copiesOnScroll="NO" id="d3v-u7-FLb">
                             <rect key="frame" x="0.0" y="0.0" width="276" height="287"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -100,12 +102,13 @@
                                         </tableColumn>
                                     </tableColumns>
                                     <connections>
+                                        <binding destination="qFp-bB-42K" name="content" keyPath="arrangedObjects" id="Mdr-R3-VLQ"/>
                                         <outlet property="dataSource" destination="-2" id="ye3-ZJ-2pO"/>
                                         <outlet property="delegate" destination="-2" id="GaO-Dr-NQ2"/>
                                     </connections>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.18823531270027161" green="0.20784315466880798" blue="0.21568629145622253" alpha="1" colorSpace="deviceRGB"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="IAr-5I-qYJ">
                             <rect key="frame" x="-100" y="-100" width="223" height="15"/>
@@ -116,11 +119,25 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <button id="b8P-qX-6qi">
+                        <rect key="frame" x="4" y="324" width="49" height="49"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="apb-Bv-rxO">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="1eQ-KR-uwd"/>
             </connections>
         </window>
+        <arrayController id="qFp-bB-42K">
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="self.tasks" id="8FY-60-CDe"/>
+            </connections>
+        </arrayController>
+        <userDefaultsController representsSharedInstance="YES" id="QeO-qx-VTJ"/>
     </objects>
 </document>
