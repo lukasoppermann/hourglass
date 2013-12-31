@@ -38,11 +38,6 @@
     NSRect panelRect = [[self window] frame];
     panelRect.size.height = POPUP_HEIGHT;
     [[self window] setFrame:panelRect display:NO];
-    
-    [[self buttonadd] setImage:[NSImage imageNamed:@"icon-add-default.png"]];
-    [[self buttonadd] setAlternateImage:[NSImage imageNamed:@"icon-add-pressed.png"]];
-    [[self buttonlist] setImage:[NSImage imageNamed:@"icon-list-default.png"]];
-    [[self buttonlist] setAlternateImage:[NSImage imageNamed:@"icon-list-pressed.png"]];
 }
 
 - (NSRect)statusRectForWindow:(NSWindow *)window {
@@ -129,9 +124,13 @@
     tableRect.origin.y = maxY - POPUP_HEIGHT;
     
     [[self tableView] setFrame:tableRect];
-
     
-    //    [[self tableView] setWantsLayer:YES];
+    [[self buttonadd] setImage:[NSImage imageNamed:@"icon-add-default.png"]];
+    [[self buttonadd] setAlternateImage:[NSImage imageNamed:@"icon-add-pressed.png"]];
+    [[self buttonlist] setImage:[NSImage imageNamed:@"icon-list-default.png"]];
+    [[self buttonlist] setAlternateImage:[NSImage imageNamed:@"icon-list-pressed.png"]];
+    
+//    [[self tableView] setWantsLayer:YES];
 //    
 //    CALayer *tableLayer = [CALayer layer];
 //    [tableLayer setCornerRadius:CORNER_RADIUS];
@@ -252,33 +251,12 @@
     didAddRowView:(NSTableRowView *)rowView
            forRow:(NSInteger)row {
     rowView.backgroundColor = [self colorForIndex:row];
-    //NSLog(@"color is %@ and row is %li", rowView.backgroundColor, (long)row);
-}
-
-- (void)tableView:(NSTableView *)tableView
- didRemoveRowView:(NSTableRowView *)rowView
-           forRow:(NSInteger)row {
-    rowView.backgroundColor = [self colorForIndex:row];
-    //NSLog(@"color is %@ and row is %li", rowView.backgroundColor, (long)row);
-}
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [_tasks count];
-}
-
-- (void)tableView:(NSTableView *)tableView
-   setObjectValue:(id)object
-   forTableColumn:(NSTableColumn *)tableColumn
-              row:(NSInteger)row {
-    HGTask *task = [_tasks objectAtIndex:row];
-    [task setValue:object forKey:[tableColumn identifier]];
 }
 
 - (IBAction)buttonAdd:(id)sender {
     if (_tasks == nil) {
         _tasks = [NSMutableArray new];
     }
-
     [_arrayController addObject:[[HGTask alloc] init]];
     [HGTableView reloadData];
 }
@@ -287,18 +265,8 @@
     NSInteger row = [HGTableView rowForView:sender];
     [HGTableView abortEditing];
     if (row != -1)
-        [_tasks removeObjectAtIndex:row];
-    [HGTableView reloadData];
-}
-
-- (NSView *)tableView:(NSTableView *)tableView
-   viewForTableColumn:(NSTableColumn *)tableColumn
-                  row:(NSInteger)row {
-    NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"MainCell" owner:self];
-    if (row < [_tasks count]) {
-    cellView.textField.stringValue = [[_tasks objectAtIndex:row] tasklabel];
-    }
-        return cellView;
+        [_arrayController removeObjectAtArrangedObjectIndex:row];
+        [HGTableView reloadData];
 }
 
 @end

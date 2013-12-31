@@ -31,7 +31,7 @@
                     <button id="j7V-Pw-r8h">
                         <rect key="frame" x="218" y="324" width="35" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="EKv-PH-j0T">
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="icon-add-default" imagePosition="only" alignment="center" alternateImage="icon-add-pressed" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="EKv-PH-j0T">
                             <behavior key="behavior" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -122,7 +122,7 @@
                     <button id="b8P-qX-6qi">
                         <rect key="frame" x="4" y="324" width="49" height="49"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="apb-Bv-rxO">
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="icon-list-default" imagePosition="only" alignment="center" alternateImage="icon-list-pressed" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="apb-Bv-rxO">
                             <behavior key="behavior" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -138,6 +138,11 @@
                 <binding destination="-2" name="contentArray" keyPath="self.tasks" id="8FY-60-CDe"/>
             </connections>
         </arrayController>
-        <userDefaultsController representsSharedInstance="YES" id="QeO-qx-VTJ"/>
     </objects>
+    <resources>
+        <image name="icon-add-default" width="45" height="45"/>
+        <image name="icon-add-pressed" width="45" height="45"/>
+        <image name="icon-list-default" width="45" height="45"/>
+        <image name="icon-list-pressed" width="45" height="45"/>
+    </resources>
 </document>
