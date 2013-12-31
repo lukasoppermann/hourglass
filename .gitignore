@@ -1,0 +1,19 @@
+# Project Files #
+#################
+*.tmproj
+*.psd
+*.ai
+*.orig
+_*.*
+_*/
+logs/
+log-
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/*
