@@ -194,6 +194,8 @@
 - (NSColor*)colorForIndex:(NSInteger)index {
     NSInteger itemCount = [_tasks count];
     float val = 0;
+    
+//    NSDictionary *HGBlueColor 
     // we need an array with all colors (values Hue, Stauration, Brightness and a key which object is changed (for some colors its hue))
     // than we need to change  the object to change (Hue or Brightness) like it does it not in the if condition
     // afterwards we add all the values to the NSColor
@@ -257,7 +259,8 @@
     if (_tasks == nil) {
         _tasks = [NSMutableArray new];
     }
-    [_arrayController addObject:[[HGTask alloc] init]];
+    [_arrayController insertObject:[[HGTask alloc] init] atArrangedObjectIndex:0];
+//    [_arrayController addObject:[[HGTask alloc] init]];
     [HGTableView reloadData];
 }
 
