@@ -30,13 +30,15 @@
     [[self statusItem] drawStatusBarBackgroundInRect:dirtyRect withHighlight:[self isHighlighted]];
     
     NSString *content = @"00:00";
-//    NSImage *img = [NSImage imageNamed:@"menu-bar-icon.png"];
-//    [img setSize:NSMakeSize(16,16)];
     NSBundle *bundle = [NSBundle mainBundle];
-    NSImage *statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"menu-bar-icon" ofType:@"png"]];
-//  [statusImage setSize:NSMakeSize(16,16)];
-//  statusHighlightImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"rh" ofType:@"png"]];
-//  [[self statusItem] setImage:statusImage];
+        NSImage *statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"menu-bar-icon" ofType:@"png"]];
+   
+    
+    if( _isHighlighted == TRUE )
+    {
+        statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"menu-bar-icon-highlight" ofType:@"png"]];
+    }
+    
     
     NSFont *msgFont = [NSFont menuBarFontOfSize:0]; //return default size
     
@@ -47,6 +49,8 @@
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     [paraStyle setParagraphStyle:[NSParagraphStyle defaultParagraphStyle]];
+//    [paraStyle setParagraphSpacing: 0.0];
+//    [paraStyle setTailIndent: 0.0];
     [paraStyle setAlignment:NSLeftTextAlignment];
     [paraStyle setLineBreakMode:NSLineBreakByTruncatingTail];
     
@@ -58,8 +62,8 @@
     
     NSSize statusSize = [content sizeWithAttributes:msgAttrs];
     NSRect statusRect = NSMakeRect(0, 0, statusSize.width, statusSize.height);
-    NSRect statusImgRect = NSMakeRect(0, 0, 18, 18);//statusSize.width, statusSize.height);
-    statusRect.origin.x = ([self frame].size.width - statusSize.width) / 2.0; //h margin
+    NSRect statusImgRect = NSMakeRect(0, 0, 18, 18);
+    statusRect.origin.x = 22; //h margin
     statusRect.origin.y = ([self frame].size.height - statusSize.height) / 2.0; //v margin
     statusImgRect.origin.x = 2;
     statusImgRect.origin.y = 1;

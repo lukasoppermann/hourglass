@@ -51,6 +51,7 @@
 		4F7E5FA0180AF3DD003E54A8 /* HGStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */; };
 		4F93ED3E1872273000486056 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F93ED3D1872273000486056 /* QuartzCore.framework */; };
 		FBE991B71876E9B7006D9D11 /* menu-bar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE991B61876E9B7006D9D11 /* menu-bar-icon.png */; };
+		FBE991B918776EDB006D9D11 /* menu-bar-icon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE991B818776EDB006D9D11 /* menu-bar-icon-highlight.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStatusItemView.m; sourceTree = "<group>"; };
 		4F93ED3D1872273000486056 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FBE991B61876E9B7006D9D11 /* menu-bar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bar-icon.png"; path = "../../Interface/_specs/icons/menu-bar-icon.png"; sourceTree = "<group>"; };
+		FBE991B818776EDB006D9D11 /* menu-bar-icon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bar-icon-highlight.png"; path = "../../Interface/_specs/icons/menu-bar-icon-highlight.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		4F4AED5A1872C0DB005127BE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FBE991B818776EDB006D9D11 /* menu-bar-icon-highlight.png */,
 				FBE991B61876E9B7006D9D11 /* menu-bar-icon.png */,
 				4F73FB69187320640004B856 /* icon-add-default.png */,
 				4F73FB6A187320640004B856 /* icon-add-default@2x.png */,
@@ -402,6 +405,7 @@
 				4F73FB88187320640004B856 /* icon-list-default@2x.png in Resources */,
 				4F73FB87187320640004B856 /* icon-list-default.png in Resources */,
 				4F10BEE61817047A0000C3A6 /* HGPanel.xib in Resources */,
+				FBE991B918776EDB006D9D11 /* menu-bar-icon-highlight.png in Resources */,
 				4F7E5F71180AECC7003E54A8 /* Credits.rtf in Resources */,
 				4F7E5F77180AECC7003E54A8 /* MainMenu.xib in Resources */,
 				4F73FB8A187320640004B856 /* icon-list-hover@2x.png in Resources */,
