@@ -29,7 +29,14 @@
 - (void)drawRect:(NSRect)dirtyRect {
     [[self statusItem] drawStatusBarBackgroundInRect:dirtyRect withHighlight:[self isHighlighted]];
     
-    NSString *content = @"hg 00:00";
+    NSString *content = @"00:00";
+//    NSImage *img = [NSImage imageNamed:@"menu-bar-icon.png"];
+//    [img setSize:NSMakeSize(16,16)];
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSImage *statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"menu-bar-icon" ofType:@"png"]];
+//  [statusImage setSize:NSMakeSize(16,16)];
+//  statusHighlightImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"rh" ofType:@"png"]];
+//  [[self statusItem] setImage:statusImage];
     
     NSFont *msgFont = [NSFont menuBarFontOfSize:0]; //return default size
     
@@ -40,7 +47,7 @@
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     [paraStyle setParagraphStyle:[NSParagraphStyle defaultParagraphStyle]];
-    [paraStyle setAlignment:NSCenterTextAlignment];
+    [paraStyle setAlignment:NSLeftTextAlignment];
     [paraStyle setLineBreakMode:NSLineBreakByTruncatingTail];
     
     NSMutableDictionary *msgAttrs = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -51,10 +58,15 @@
     
     NSSize statusSize = [content sizeWithAttributes:msgAttrs];
     NSRect statusRect = NSMakeRect(0, 0, statusSize.width, statusSize.height);
+    NSRect statusImgRect = NSMakeRect(0, 0, 18, 18);//statusSize.width, statusSize.height);
     statusRect.origin.x = ([self frame].size.width - statusSize.width) / 2.0; //h margin
     statusRect.origin.y = ([self frame].size.height - statusSize.height) / 2.0; //v margin
+    statusImgRect.origin.x = 2;
+    statusImgRect.origin.y = 1;
     
     [content drawInRect:statusRect withAttributes:msgAttrs];
+    [statusImage drawInRect:statusImgRect];
+    
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {

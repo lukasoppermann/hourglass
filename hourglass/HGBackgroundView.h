@@ -9,7 +9,7 @@
 #define TRIANGLE_WIDTH 20
 #define TRIANGLE_HEIGHT 10
 
-#define CORNER_RADIUS 6.0f
+#define CORNER_RADIUS 8.0f
 #define FILL_OPACITY 100.0f
 
 @interface HGBackgroundView : NSView

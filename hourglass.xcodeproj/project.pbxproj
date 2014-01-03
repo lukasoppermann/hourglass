@@ -50,6 +50,7 @@
 		4F7E5F9D180AF0E8003E54A8 /* HGPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F9C180AF0E8003E54A8 /* HGPanel.m */; };
 		4F7E5FA0180AF3DD003E54A8 /* HGStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */; };
 		4F93ED3E1872273000486056 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F93ED3D1872273000486056 /* QuartzCore.framework */; };
+		FBE991B71876E9B7006D9D11 /* menu-bar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE991B61876E9B7006D9D11 /* menu-bar-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		4F7E5F9E180AF3DD003E54A8 /* HGStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGStatusItemView.h; sourceTree = "<group>"; };
 		4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStatusItemView.m; sourceTree = "<group>"; };
 		4F93ED3D1872273000486056 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FBE991B61876E9B7006D9D11 /* menu-bar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bar-icon.png"; path = "../../Interface/_specs/icons/menu-bar-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		4F4AED5A1872C0DB005127BE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FBE991B61876E9B7006D9D11 /* menu-bar-icon.png */,
 				4F73FB69187320640004B856 /* icon-add-default.png */,
 				4F73FB6A187320640004B856 /* icon-add-default@2x.png */,
 				4F73FB6B187320640004B856 /* icon-add-pressed.png */,
@@ -387,6 +390,7 @@
 				4F73FB86187320640004B856 /* icon-delete-passive@2x.png in Resources */,
 				4F73FB8B187320640004B856 /* icon-list-pressed.png in Resources */,
 				4F73FB92187320640004B856 /* icon-play-passive@2x.png in Resources */,
+				FBE991B71876E9B7006D9D11 /* menu-bar-icon.png in Resources */,
 				4F73FB84187320640004B856 /* icon-delete-active@2x.png in Resources */,
 				4F73FB91187320640004B856 /* icon-play-passive.png in Resources */,
 				4F73FB7F187320640004B856 /* icon-add-default.png in Resources */,

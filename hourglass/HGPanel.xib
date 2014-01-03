@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
@@ -40,7 +40,7 @@
                         </connections>
                     </button>
                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" id="WiW-Wd-Vg2">
-                        <rect key="frame" x="0.0" y="0.0" width="276" height="287"/>
+                        <rect key="frame" x="4" y="0.0" width="276" height="287"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="d3v-u7-FLb">
                             <rect key="frame" x="0.0" y="0.0" width="276" height="287"/>
@@ -50,7 +50,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="291" height="287"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="3"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.18703213334083557" green="0.1886722594499588" blue="0.1911473423242569" alpha="0.0" colorSpace="calibratedRGB"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn identifier="MainCell" width="288" minWidth="40" maxWidth="1000" id="5LO-vd-zWG">
@@ -109,7 +109,7 @@
                                     </connections>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" red="0.18823531270027161" green="0.20784315466880798" blue="0.21568629145622253" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.22500000000000001" green="0.23541666666666666" blue="0.25" alpha="1" colorSpace="deviceRGB"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="IAr-5I-qYJ">
                             <rect key="frame" x="-100" y="-100" width="223" height="15"/>
