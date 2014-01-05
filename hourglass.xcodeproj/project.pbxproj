@@ -52,6 +52,7 @@
 		4F93ED3E1872273000486056 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F93ED3D1872273000486056 /* QuartzCore.framework */; };
 		FBE991B71876E9B7006D9D11 /* menu-bar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE991B61876E9B7006D9D11 /* menu-bar-icon.png */; };
 		FBE991B918776EDB006D9D11 /* menu-bar-icon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE991B818776EDB006D9D11 /* menu-bar-icon-highlight.png */; };
+		FBF42DE71879BF750051A2D0 /* colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBF42DE61879BF750051A2D0 /* colors.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		4F93ED3D1872273000486056 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FBE991B61876E9B7006D9D11 /* menu-bar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bar-icon.png"; path = "../../Interface/_specs/icons/menu-bar-icon.png"; sourceTree = "<group>"; };
 		FBE991B818776EDB006D9D11 /* menu-bar-icon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bar-icon-highlight.png"; path = "../../Interface/_specs/icons/menu-bar-icon-highlight.png"; sourceTree = "<group>"; };
+		FBF42DE61879BF750051A2D0 /* colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = colors.plist; path = Resources/colors.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 				4F73FB7C187320640004B856 /* icon-play-passive@2x.png */,
 				4F73FB7D187320640004B856 /* icon-today-pressed.png */,
 				4F73FB7E187320640004B856 /* icon-today-pressed@2x.png */,
+				FBF42DE61879BF750051A2D0 /* colors.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				4F7E5F7C180AECC7003E54A8 /* Images.xcassets in Resources */,
 				4F73FB86187320640004B856 /* icon-delete-passive@2x.png in Resources */,
 				4F73FB8B187320640004B856 /* icon-list-pressed.png in Resources */,
+				FBF42DE71879BF750051A2D0 /* colors.plist in Resources */,
 				4F73FB92187320640004B856 /* icon-play-passive@2x.png in Resources */,
 				FBE991B71876E9B7006D9D11 /* menu-bar-icon.png in Resources */,
 				4F73FB84187320640004B856 /* icon-delete-active@2x.png in Resources */,
