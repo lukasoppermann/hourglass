@@ -55,7 +55,7 @@
 			<real>0.00</real>
 			<key>alpha</key>
 			<real>1</real>
-			 <key>changables</key>
+			 <key>changeables</key>
 				 <dict>
 				    <key>saturation</key>
 					 <real>0.03</real>
