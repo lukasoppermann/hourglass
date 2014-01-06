@@ -21,4 +21,4 @@ https://github.com/jnozzi/cocoadev.com/tree/master/markdown
 
 ## The app
 
-![hourglass redesign](https://f.cloud.github.com/assets/813754/1850273/010384b8-76cc-11e3-947e-9d65b7a504ab.png)
+![hourglass redesign](https://f.cloud.github.com/assets/813754/1851898/14735bd4-76f1-11e3-99f4-54b462460f9c.png)
