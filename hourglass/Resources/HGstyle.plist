@@ -86,9 +86,27 @@
 	<key>colors</key>
 	<dict>
 		<key>bgColor</key>
-		<real>8</real>
-		<key>big</key>
-		<real>20</real>
+		<dict>
+			<key>hue</key>
+			<real>0</real>
+			<key>saturation</key>
+			<real>0</real>
+			<key>brightness</key>
+			<real>100</real>
+			<key>alpha</key>
+			<real>1</real>
+		</dict>
+		<key>headerColor</key>
+		<dict>
+			<key>hue</key>
+			<real>0</real>
+			<key>saturation</key>
+			<real>0</real>
+			<key>brightness</key>
+			<real>100</real>
+			<key>alpha</key>
+			<real>0.85</real>
+		</dict>
 	</dict>
 	<key>radii</key>
 	<dict>
@@ -96,6 +114,39 @@
 		<real>8</real>
 		<key>big</key>
 		<real>20</real>
+	</dict>
+	<key>shadows</key>
+	<dict>
+		<key>headerShadow</key>
+		<dict>
+			<key>blur</key>
+			<real>1</real>
+			<key>angle</key>
+			<real>90</real>
+			<key>alpha</key>
+			<real>0.25</real>
+		</dict>
+	</dict>
+	<key>blurs</key>
+	<dict>
+		<key>backgroundBlur</key>
+		<dict>
+			<key>tintColor</key>
+			<dict>
+				<key>hue</key>
+				<real>0</real>
+				<key>saturation</key>
+				<real>0</real>
+				<key>brightness</key>
+				<real>100</real>
+				<key>alpha</key>
+				<real>0.70</real>
+			</dict>
+			<key>saturation</key>
+			<real>2.5</real>
+			<key>strength</key>
+			<real>20.0</real>
+		</dict>
 	</dict>
 </dict>
 </plist>

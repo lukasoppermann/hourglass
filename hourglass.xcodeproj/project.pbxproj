@@ -50,7 +50,7 @@
 		4F7E5F9D180AF0E8003E54A8 /* HGPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F9C180AF0E8003E54A8 /* HGPanel.m */; };
 		4F7E5FA0180AF3DD003E54A8 /* HGStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */; };
 		4F93ED3E1872273000486056 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F93ED3D1872273000486056 /* QuartzCore.framework */; };
-		FBF42DE71879BF750051A2D0 /* colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBF42DE61879BF750051A2D0 /* colors.plist */; };
+		FBE368DB187C457A002224C2 /* HGstyle.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBE368DA187C457A002224C2 /* HGstyle.plist */; };
 		FBF42DEA1879E29F0051A2D0 /* menu-bar-icon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF42DE81879E29F0051A2D0 /* menu-bar-icon-highlight.png */; };
 		FBF42DEB1879E29F0051A2D0 /* menu-bar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF42DE91879E29F0051A2D0 /* menu-bar-icon.png */; };
 /* End PBXBuildFile section */
@@ -124,7 +124,7 @@
 		4F7E5F9E180AF3DD003E54A8 /* HGStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGStatusItemView.h; sourceTree = "<group>"; };
 		4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStatusItemView.m; sourceTree = "<group>"; };
 		4F93ED3D1872273000486056 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		FBF42DE61879BF750051A2D0 /* colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = colors.plist; path = Resources/colors.plist; sourceTree = "<group>"; };
+		FBE368DA187C457A002224C2 /* HGstyle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = HGstyle.plist; path = Resources/HGstyle.plist; sourceTree = "<group>"; };
 		FBF42DE81879E29F0051A2D0 /* menu-bar-icon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bar-icon-highlight.png"; path = "Resources/menu-bar-icon-highlight.png"; sourceTree = "<group>"; };
 		FBF42DE91879E29F0051A2D0 /* menu-bar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bar-icon.png"; path = "Resources/menu-bar-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +154,7 @@
 		4F4AED5A1872C0DB005127BE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FBE368DA187C457A002224C2 /* HGstyle.plist */,
 				FBF42DE81879E29F0051A2D0 /* menu-bar-icon-highlight.png */,
 				FBF42DE91879E29F0051A2D0 /* menu-bar-icon.png */,
 				4F73FB69187320640004B856 /* icon-add-default.png */,
@@ -178,7 +179,6 @@
 				4F73FB7C187320640004B856 /* icon-play-passive@2x.png */,
 				4F73FB7D187320640004B856 /* icon-today-pressed.png */,
 				4F73FB7E187320640004B856 /* icon-today-pressed@2x.png */,
-				FBF42DE61879BF750051A2D0 /* colors.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -396,7 +396,6 @@
 				4F7E5F7C180AECC7003E54A8 /* Images.xcassets in Resources */,
 				4F73FB86187320640004B856 /* icon-delete-passive@2x.png in Resources */,
 				4F73FB8B187320640004B856 /* icon-list-pressed.png in Resources */,
-				FBF42DE71879BF750051A2D0 /* colors.plist in Resources */,
 				4F73FB92187320640004B856 /* icon-play-passive@2x.png in Resources */,
 				4F73FB84187320640004B856 /* icon-delete-active@2x.png in Resources */,
 				4F73FB91187320640004B856 /* icon-play-passive.png in Resources */,
@@ -409,6 +408,7 @@
 				4F73FB88187320640004B856 /* icon-list-default@2x.png in Resources */,
 				4F73FB87187320640004B856 /* icon-list-default.png in Resources */,
 				4F10BEE61817047A0000C3A6 /* HGPanel.xib in Resources */,
+				FBE368DB187C457A002224C2 /* HGstyle.plist in Resources */,
 				FBF42DEA1879E29F0051A2D0 /* menu-bar-icon-highlight.png in Resources */,
 				4F7E5F71180AECC7003E54A8 /* Credits.rtf in Resources */,
 				4F7E5F77180AECC7003E54A8 /* MainMenu.xib in Resources */,
