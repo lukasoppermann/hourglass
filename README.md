@@ -1,7 +1,7 @@
 hourglass
 =========
 
-The ultimate timing app.
+simple task management.
 
 ## Cocoa Tutorials
 
@@ -19,6 +19,6 @@ https://github.com/search?l=Objective-C&nwo=Cocoanetics%2FDDUtils&q=cocoa&ref=cm
 
 https://github.com/jnozzi/cocoadev.com/tree/master/markdown
 
-## Assets
+## The app
 
-![hourglass-specs](https://f.cloud.github.com/assets/813754/1844364/df516408-7521-11e3-86ea-bac8ceef7277.png)
+![hourglass redesign](https://f.cloud.github.com/assets/813754/1851898/14735bd4-76f1-11e3-99f4-54b462460f9c.png)
