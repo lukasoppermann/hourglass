@@ -2,89 +2,59 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>listColors</key>
+	<!-- general colors -->
+	<key>colors</key>
 	<dict>
 		<key>red</key>
 		<dict>
-			<key>hue</key>
-			<real>5</real>
-			<key>saturation</key>
-			<real>78</real>
-			<key>brightness</key>
-			<real>88</real>
-			<key>alpha</key>
-			<real>1</real>
-			<key>changables</key>
+			<key>default</key>
 			<dict>
 				<key>hue</key>
-				<real>0.03</real>
+				<real>5</real>
+				<key>saturation</key>
+				<real>78</real>
+				<key>brightness</key>
+				<real>88</real>
+				<key>alpha</key>
+				<real>1</real>
 			</dict>
-			<key>overviewColors</key>
-			<array>
-				<dict>
-					<key>hue</key>
-					<real>5</real>
-					<key>saturation</key>
-					<real>78</real>
-					<key>brightness</key>
-					<real>88</real>
-					<key>alpha</key>
-					<real>1</real>
-				</dict>
-				<dict>
-					<key>hue</key>
-					<real>8</real>
-					<key>saturation</key>
-					<real>78</real>
-					<key>brightness</key>
-					<real>88</real>
-					<key>alpha</key>
-					<real>1</real>
-				</dict>
-			</array>
-		</dict>
+			<key>light</key>
+			<dict>
+				<key>hue</key>
+				<real>5</real>
+				<key>saturation</key>
+				<real>78</real>
+				<key>brightness</key>
+				<real>88</real>
+				<key>alpha</key>
+				<real>1</real>
+			</dict>
+		</dict>	
 		<key>yellow</key>
 		<dict>
-			<key>hue</key>
-			<real>18</real>
-			<key>saturation</key>
-			<real>85</real>
-			<key>brightness</key>
-			<real>90</real>
-			<key>alpha</key>
-			<real>1</real>
-			<key>changeables</key>
+			<key>default</key>
 			<dict>
 				<key>hue</key>
-				<real>0.03</real>
+				<real>18</real>
+				<key>saturation</key>
+				<real>85</real>
+				<key>brightness</key>
+				<real>90</real>
+				<key>alpha</key>
+				<real>1</real>
 			</dict>
-			<key>overviewColors</key>
-			<array>
-				<dict>
-					<key>hue</key>
-					<real>45</real>
-					<key>saturation</key>
-					<real>85</real>
-					<key>brightness</key>
-					<real>90</real>
-					<key>alpha</key>
-					<real>1</real>
-				</dict>
-				<dict>
-					<key>hue</key>
-					<real>42</real>
-					<key>saturation</key>
-					<real>85</real>
-					<key>brightness</key>
-					<real>90</real>
-					<key>alpha</key>
-					<real>1</real>
-				</dict>
-			</array>
+			<key>light</key>
+			<dict>
+				<key>hue</key>
+				<real>18</real>
+				<key>saturation</key>
+				<real>85</real>
+				<key>brightness</key>
+				<real>90</real>
+				<key>alpha</key>
+				<real>1</real>
+			</dict>
 		</dict>
-	</dict>
-	<key>colors</key>
-	<dict>
 		<key>bgColor</key>
 		<dict>
 			<key>hue</key>
@@ -108,6 +78,7 @@
 			<real>0.85</real>
 		</dict>
 	</dict>
+	<!-- radii -->
 	<key>radii</key>
 	<dict>
 		<key>default</key>
@@ -115,6 +86,7 @@
 		<key>big</key>
 		<real>20</real>
 	</dict>
+	<!-- shadows -->
 	<key>shadows</key>
 	<dict>
 		<key>headerShadow</key>
@@ -127,6 +99,7 @@
 			<real>0.25</real>
 		</dict>
 	</dict>
+	<!-- blurs -->
 	<key>blurs</key>
 	<dict>
 		<key>backgroundBlur</key>
