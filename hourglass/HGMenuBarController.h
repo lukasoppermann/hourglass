@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 hourglass. All rights reserved.
 //
 
-#define STATUS_ITEM_VIEW_WIDTH 80.0
+#define STATUS_ITEM_VIEW_WIDTH 70.0
 
 #import <Foundation/Foundation.h>
 
