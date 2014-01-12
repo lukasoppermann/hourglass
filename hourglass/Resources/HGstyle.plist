@@ -7,53 +7,47 @@
 	<dict>
 		<key>red</key>
 		<dict>
-			<key>default</key>
-			<dict>
-				<key>hue</key>
-				<real>5</real>
-				<key>saturation</key>
-				<real>78</real>
-				<key>brightness</key>
-				<real>88</real>
-				<key>alpha</key>
-				<real>1</real>
-			</dict>
-			<key>light</key>
-			<dict>
-				<key>hue</key>
-				<real>5</real>
-				<key>saturation</key>
-				<real>78</real>
-				<key>brightness</key>
-				<real>88</real>
-				<key>alpha</key>
-				<real>1</real>
-			</dict>
-		</dict>	
+			<key>hue</key>
+			<real>5</real>
+			<key>saturation</key>
+			<real>78</real>
+			<key>brightness</key>
+			<real>88</real>
+			<key>alpha</key>
+			<real>1</real>
+		</dict>
+		<key>redLight</key>
+		<dict>
+			<key>hue</key>
+			<real>5</real>
+			<key>saturation</key>
+			<real>78</real>
+			<key>brightness</key>
+			<real>88</real>
+			<key>alpha</key>
+			<real>1</real>
+		</dict>
 		<key>yellow</key>
 		<dict>
-			<key>default</key>
-			<dict>
-				<key>hue</key>
-				<real>18</real>
-				<key>saturation</key>
-				<real>85</real>
-				<key>brightness</key>
-				<real>90</real>
-				<key>alpha</key>
-				<real>1</real>
-			</dict>
-			<key>light</key>
-			<dict>
-				<key>hue</key>
-				<real>18</real>
-				<key>saturation</key>
-				<real>85</real>
-				<key>brightness</key>
-				<real>90</real>
-				<key>alpha</key>
-				<real>1</real>
-			</dict>
+			<key>hue</key>
+			<real>18</real>
+			<key>saturation</key>
+			<real>85</real>
+			<key>brightness</key>
+			<real>90</real>
+			<key>alpha</key>
+			<real>1</real>
+		</dict>
+		<key>yellowLight</key>
+		<dict>
+			<key>hue</key>
+			<real>18</real>
+			<key>saturation</key>
+			<real>85</real>
+			<key>brightness</key>
+			<real>90</real>
+			<key>alpha</key>
+			<real>1</real>
 		</dict>
 		<key>bgColor</key>
 		<dict>
