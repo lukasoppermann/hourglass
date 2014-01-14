@@ -115,5 +115,13 @@
 			<real>20.0</real>
 		</dict>
 	</dict>
+	<!-- animation -->
+	<key>animation</key>
+	<dict>
+		<key>openApp</key>
+		<real>.4</real>
+		<key>addItemOpen</key>
+		<real>.4</real>
+	</dict>
 </dict>
 </plist>
