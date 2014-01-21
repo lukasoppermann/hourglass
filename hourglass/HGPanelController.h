@@ -53,7 +53,6 @@
 - (void)closePanel;
 
 - (IBAction)buttonAdd:(id)sender;
-- (IBAction)buttonDelete:(id)sender;
 
 - (IBAction)startStopTimer:(id)sender;
 

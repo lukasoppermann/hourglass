@@ -12,7 +12,7 @@
 
 -(id) init {
     if(self = [super init]) {
-        _tasklabel = @"tasklabel";
+        _tasklabel = @"hourglass Task";
         _totalTime = @"--:--";
         _TimingSessions = [[NSMutableArray alloc] init];
     }

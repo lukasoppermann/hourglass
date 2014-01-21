@@ -73,28 +73,17 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="PN3-na-b2k">
-                                                            <rect key="frame" x="73" y="14" width="132" height="17"/>
+                                                            <rect key="frame" x="76" y="14" width="126" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" title="New" id="tug-7x-Ff5">
+                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" title="New" drawsBackground="YES" id="tug-7x-Ff5">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                             </textFieldCell>
                                                             <connections>
                                                                 <binding destination="O3R-Gl-xJL" name="value" keyPath="objectValue.tasklabel" id="jia-BR-8uL"/>
                                                             </connections>
                                                         </textField>
-                                                        <button id="TW8-qT-0Xg">
-                                                            <rect key="frame" x="211" y="3" width="42" height="38"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <buttonCell key="cell" type="bevel" title="-" bezelStyle="regularSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="OWv-ET-aVg">
-                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" size="20" name="LucidaGrande"/>
-                                                            </buttonCell>
-                                                            <connections>
-                                                                <action selector="buttonDelete:" target="-2" id="BFu-PD-MS4"/>
-                                                            </connections>
-                                                        </button>
                                                         <button id="1R3-5g-LSn">
                                                             <rect key="frame" x="15" y="5" width="35" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>

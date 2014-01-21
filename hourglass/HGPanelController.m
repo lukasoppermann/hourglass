@@ -212,11 +212,37 @@
     [[_tasks objectAtIndex:0] addObserver:self forKeyPath:@"totalTime" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
-- (IBAction)buttonDelete:(id)sender {
-    NSInteger row = [HGTableView rowForView:sender];
+- (void)keyDown:(NSEvent *)event {
+    unichar key = [[event charactersIgnoringModifiers] characterAtIndex:0];
+    
+    if(key == NSDeleteCharacter)
+    {
+        if([HGTableView selectedRow] == -1)
+        {
+            NSBeep();
+        }
+        
+        BOOL isEditing = ([[self.window firstResponder] isKindOfClass:[NSText class]]);
+
+        if (!isEditing)
+        {
+            [self deleteItem];
+            return;
+        }
+        
+    }
+    
+    [super keyDown:event];
+}
+
+- (void)deleteItem {
+    NSInteger row = [HGTableView selectedRow];
     [HGTableView abortEditing];
-    if (row != -1)
+    if (row != -1) {
+        [[_tasks objectAtIndex:row] removeObserver:self forKeyPath:@"totalTime"];
         [_arrayController removeObjectAtArrangedObjectIndex:row];
+        [statusItemView setTiming:FALSE]; //set icon state
+    }
         [HGTableView reloadData];
 }
 
