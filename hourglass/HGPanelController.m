@@ -234,13 +234,13 @@
     
     if([[_tasks objectAtIndex:row] hasActiveTimer]) {
         [[_tasks objectAtIndex:row] stopTimer];
-//not working        [sender setImage:[NSImage imageNamed:@"icon-play-active.png"]];
+        [statusItemView setTiming:FALSE]; //set icon state
     } else {
         if (anyActive) {
-            [activeTimer stopTimer];            
+            [activeTimer stopTimer]; //stop other active timer
         }
         [[_tasks objectAtIndex:row] startTimer];
-//not working        [sender setImage:[NSImage imageNamed:@"icon-play-passive.png"]];
+        [statusItemView setTiming:TRUE]; //set icon state
     }
 }
 

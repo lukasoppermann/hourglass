@@ -43,12 +43,15 @@
     [paraStyle setParagraphStyle:[NSParagraphStyle defaultParagraphStyle]];
     [paraStyle setAlignment:NSLeftTextAlignment];
     [paraStyle setLineBreakMode:NSLineBreakByTruncatingTail];
-
     
     if (_isHighlighted) {
         textColor = [NSColor selectedMenuItemTextColor];
-        statusImage = [NSImage imageNamed:@"menu-bar-icon-highlight.png"];
-        
+        if (!_isTiming)
+            statusImage = [NSImage imageNamed:@"menu-bar-icon-highlight.png"];
+    }
+    
+    if (_isTiming) {
+        statusImage = [NSImage imageNamed:@"menu-bar-icon-active.png"];
     }
     
     NSMutableDictionary *msgAttrs = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -59,13 +62,15 @@
     
     NSSize statusSize = [content sizeWithAttributes:msgAttrs];
     NSRect statusRect = NSMakeRect(0, 0, statusSize.width, statusSize.height);
-    NSRect statusImgRect = NSMakeRect(0, 0, 18, 18);
     statusRect.origin.x = 24; //h margin
     statusRect.origin.y = ([self frame].size.height - statusSize.height) / 2.0; //v margin
+
+    [content drawInRect:statusRect withAttributes:msgAttrs];
+
+    NSRect statusImgRect = NSMakeRect(0, 0, 18, 18);
     statusImgRect.origin.x = 2;
     statusImgRect.origin.y = 2;
     
-    [content drawInRect:statusRect withAttributes:msgAttrs];
     [statusImage drawInRect:statusImgRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
 }
 
@@ -77,6 +82,13 @@
 {
     if (_isHighlighted == newFlag) return;
     _isHighlighted = newFlag;
+    [self setNeedsDisplay:YES];
+}
+
+- (void)setTiming:(BOOL)newFlag
+{
+    if (_isTiming == newFlag) return;
+    _isTiming = newFlag;
     [self setNeedsDisplay:YES];
 }
 

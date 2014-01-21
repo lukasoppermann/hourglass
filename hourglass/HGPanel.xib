@@ -29,7 +29,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="489" height="378"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button canDrawConcurrently="YES" id="j7V-Pw-r8h" customClass="HGButtonAdd">
+                    <button canDrawConcurrently="YES" id="j7V-Pw-r8h">
                         <rect key="frame" x="218" y="324" width="35" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon-add-default" imagePosition="only" alignment="center" alternateImage="icon-add-pressed" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="EKv-PH-j0T">
