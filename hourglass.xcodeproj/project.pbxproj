@@ -50,6 +50,7 @@
 		4F7E5FA0180AF3DD003E54A8 /* HGStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */; };
 		4F93ED3E1872273000486056 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F93ED3D1872273000486056 /* QuartzCore.framework */; };
 		4FBC756F188EB29A00417E13 /* menu-bar-icon-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC756E188EB29A00417E13 /* menu-bar-icon-active.png */; };
+		4FBC7571188EC62800417E13 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC7570188EC62800417E13 /* appicon.png */; };
 		FBE368DB187C457A002224C2 /* HGstyle.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBE368DA187C457A002224C2 /* HGstyle.plist */; };
 		FBF42DEA1879E29F0051A2D0 /* menu-bar-icon-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF42DE81879E29F0051A2D0 /* menu-bar-icon-highlight.png */; };
 		FBF42DEB1879E29F0051A2D0 /* menu-bar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF42DE91879E29F0051A2D0 /* menu-bar-icon.png */; };
@@ -123,6 +124,7 @@
 		4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStatusItemView.m; sourceTree = "<group>"; };
 		4F93ED3D1872273000486056 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4FBC756E188EB29A00417E13 /* menu-bar-icon-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bar-icon-active.png"; path = "Resources/menu-bar-icon-active.png"; sourceTree = "<group>"; };
+		4FBC7570188EC62800417E13 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon.png; path = Resources/appicon.png; sourceTree = "<group>"; };
 		FBE368DA187C457A002224C2 /* HGstyle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = HGstyle.plist; path = Resources/HGstyle.plist; sourceTree = "<group>"; };
 		FBF42DE81879E29F0051A2D0 /* menu-bar-icon-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bar-icon-highlight.png"; path = "Resources/menu-bar-icon-highlight.png"; sourceTree = "<group>"; };
 		FBF42DE91879E29F0051A2D0 /* menu-bar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bar-icon.png"; path = "Resources/menu-bar-icon.png"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		4F4AED5A1872C0DB005127BE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4FBC7570188EC62800417E13 /* appicon.png */,
 				4FBC756E188EB29A00417E13 /* menu-bar-icon-active.png */,
 				FBE368DA187C457A002224C2 /* HGstyle.plist */,
 				FBF42DE81879E29F0051A2D0 /* menu-bar-icon-highlight.png */,
@@ -389,6 +392,7 @@
 				4F73FB8C187320640004B856 /* icon-list-pressed@2x.png in Resources */,
 				4F73FB82187320640004B856 /* icon-add-pressed@2x.png in Resources */,
 				4F73FB85187320640004B856 /* icon-delete-passive.png in Resources */,
+				4FBC7571188EC62800417E13 /* appicon.png in Resources */,
 				4F73FB81187320640004B856 /* icon-add-pressed.png in Resources */,
 				4F73FB8F187320640004B856 /* icon-play-active.png in Resources */,
 				4F7E5F7C180AECC7003E54A8 /* Images.xcassets in Resources */,

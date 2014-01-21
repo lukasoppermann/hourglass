@@ -20,7 +20,6 @@
 }
 
 - (void)startTimer {
-        NSLog(@"Gestartet");
         if ([_totalTime  isEqual: @"--:--"])
         [self setTotalTime:@"00:00"];
     
@@ -41,8 +40,6 @@
 }
 
 -(void)stopTimer {
-    NSLog(@"Gestoppt");
-    
     [MinuteTimer invalidate];
     
     [self updateTotalTime];
@@ -61,8 +58,6 @@
     
     [self setTotalTime:[NSString stringWithFormat:@"%.2d:%.2d", hours,
                         minutes]];
-    NSLog(@"hours:%d, minutes:%d, seconds:%d, sum:%ld", hours, minutes, seconds, (long)sum);
-
 }
 
 -(BOOL) hasActiveTimer {
