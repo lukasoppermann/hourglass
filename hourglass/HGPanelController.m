@@ -9,7 +9,6 @@
 #import "HGPanelController.h"
 #import "HGStatusItemView.h"
 #import "HGMenuBarController.h"
-#import "HGTableViewController.h"
 #import "HGTask.h"
 #import "HGBackgroundView.h"
 
@@ -44,7 +43,7 @@
     NSRect screenRect = [[[NSScreen screens] objectAtIndex:0] frame];
     NSRect statusRect = NSZeroRect;
     
-    HGStatusItemView *statusItemView = nil;
+    statusItemView = nil;
     if ([[self delegate] respondsToSelector:@selector(statusItemViewForPanelController:)]) {
         statusItemView = [[self delegate] statusItemViewForPanelController:self];
     }
@@ -89,12 +88,6 @@
     }
 }
 
-- (void)setupCALayer {
-    CALayer *tableLayer = [CALayer layer];
-    
-    [tableLayer setNeedsDisplay];
-}
-
 - (void)windowDidResize:(NSNotification *)notification {
     NSWindow *panel = [self window];
     NSRect statusRect = [self statusRectForWindow:panel];
@@ -124,17 +117,6 @@
     tableRect.origin.y = maxY - POPUP_HEIGHT;
     
     [[self tableView] setFrame:tableRect];
-    
-    [[self buttonadd] setImage:[NSImage imageNamed:@"icon-add-default.png"]];
-    [[self buttonadd] setAlternateImage:[NSImage imageNamed:@"icon-add-pressed.png"]];
-    [[self buttonlist] setImage:[NSImage imageNamed:@"icon-list-default.png"]];
-    [[self buttonlist] setAlternateImage:[NSImage imageNamed:@"icon-list-pressed.png"]];
-    
-//    [[self tableView] setWantsLayer:YES];
-//    
-//    CALayer *tableLayer = [CALayer layer];
-//    [tableLayer setCornerRadius:CORNER_RADIUS];
-//    [[self tableView] setLayer:tableLayer];
 }
 
 - (void)cancelOperation:(id)sender {
@@ -195,37 +177,6 @@
     NSInteger itemCount = [_tasks count];
     float val = 0;
     
-//    NSDictionary *HGBlueColor 
-    // we need an array with all colors (values Hue, Stauration, Brightness and a key which object is changed (for some colors its hue))
-    // than we need to change  the object to change (Hue or Brightness) like it does it not in the if condition
-    // afterwards we add all the values to the NSColor
-    // to get the right hue form my specs take the clor (in demo 205) and devide by 360
-    // array e.g. (php syntax)
-    /* colors[blue] = array(
-                    hue = 0.57,
-                    saturation = 0.67,
-                    brightness = 0.63,
-                    change = 'brightness'
-    )
-    
-     val[hue] = colors[blue][hue];
-     val[saturation] = colors[blue][saturation];
-     val[brightness] = colors[blue][brightness];
-     // in the if condition we need
-    
-     if(...){
-        val[colors[blue][change]] = colors[blue][colors[blue][change]] + ((0.1/itemCount)*(index*(3)));
-     }
-     and in at the bottom we need
-     
-     return [NSColor     colorWithDeviceHue: val[hue]
-     saturation: val[saturation]
-     brightness: val[brightness]
-     alpha: 1
-     ];
-     
-    */
-    // blue
     float brightness = 0.63;
 
     if( itemCount < 11 )
@@ -236,17 +187,12 @@
     {
         val = brightness + ((0.1/itemCount)*(index*(3)));
     }
-    // NSLog(@"%f", val);
     
     return [NSColor     colorWithDeviceHue: 0.57
                                 saturation: 0.67
                                 brightness: val
                                      alpha: 1
            ];
-        
-        
-        //colorWithSRGBRed:1.0 green: val blue:0 alpha:1.0];
-
 }
 
 - (void)tableView:(NSTableView *)tableView
@@ -260,8 +206,10 @@
         _tasks = [NSMutableArray new];
     }
     [_arrayController insertObject:[[HGTask alloc] init] atArrangedObjectIndex:0];
-//    [_arrayController addObject:[[HGTask alloc] init]];
-    [HGTableView reloadData];
+
+    [HGTableView editColumn:0 row:0 withEvent:NULL select:YES];
+    
+    [[_tasks objectAtIndex:0] addObserver:self forKeyPath:@"totalTime" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (IBAction)buttonDelete:(id)sender {
@@ -270,6 +218,37 @@
     if (row != -1)
         [_arrayController removeObjectAtArrangedObjectIndex:row];
         [HGTableView reloadData];
+}
+
+- (IBAction)startStopTimer:(id)sender {
+    NSInteger row = [HGTableView rowForView:sender];
+    
+    BOOL anyActive = '\0';
+    int count = 0;
+    HGTask *activeTimer = [HGTask new];
+    while (anyActive == FALSE && count < [_tasks count]) {
+        activeTimer = [_tasks objectAtIndex:count];
+        anyActive = [activeTimer hasActiveTimer];
+        count++;
+    }
+    
+    if([[_tasks objectAtIndex:row] hasActiveTimer]) {
+        [[_tasks objectAtIndex:row] stopTimer];
+//not working        [sender setImage:[NSImage imageNamed:@"icon-play-active.png"]];
+    } else {
+        if (anyActive) {
+            [activeTimer stopTimer];
+        }
+        [[_tasks objectAtIndex:row] startTimer];
+//not working        [sender setImage:[NSImage imageNamed:@"icon-play-passive.png"]];
+    }
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath
+                       ofObject:(id)object
+                         change:(NSDictionary *)change
+                        context:(void *)context {
+    [statusItemView setStatusContent:[object valueForKeyPath:keyPath]];
 }
 
 @end

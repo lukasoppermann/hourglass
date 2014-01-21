@@ -12,7 +12,7 @@
 		4F10BEE51817047A0000C3A6 /* HGPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F10BEE31817047A0000C3A6 /* HGPanelController.m */; };
 		4F10BEE61817047A0000C3A6 /* HGPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F10BEE41817047A0000C3A6 /* HGPanel.xib */; };
 		4F3130FD18732B9200BD276F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7E5F60180AECC7003E54A8 /* Cocoa.framework */; };
-		4F68A84618265C20009E8FE7 /* HGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F68A84518265C20009E8FE7 /* HGTableViewController.m */; };
+		4F5F818F188CFC7800D207D6 /* HGButtonAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F818E188CFC7800D207D6 /* HGButtonAdd.m */; };
 		4F68A8491826A308009E8FE7 /* HGTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F68A8481826A308009E8FE7 /* HGTask.m */; };
 		4F73FB7F187320640004B856 /* icon-add-default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F73FB69187320640004B856 /* icon-add-default.png */; };
 		4F73FB80187320640004B856 /* icon-add-default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F73FB6A187320640004B856 /* icon-add-default@2x.png */; };
@@ -74,8 +74,8 @@
 		4F10BEE21817047A0000C3A6 /* HGPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGPanelController.h; sourceTree = "<group>"; };
 		4F10BEE31817047A0000C3A6 /* HGPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGPanelController.m; sourceTree = "<group>"; };
 		4F10BEE41817047A0000C3A6 /* HGPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HGPanel.xib; sourceTree = "<group>"; };
-		4F68A84418265C20009E8FE7 /* HGTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGTableViewController.h; sourceTree = "<group>"; };
-		4F68A84518265C20009E8FE7 /* HGTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGTableViewController.m; sourceTree = "<group>"; };
+		4F5F818D188CFC7800D207D6 /* HGButtonAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGButtonAdd.h; sourceTree = "<group>"; };
+		4F5F818E188CFC7800D207D6 /* HGButtonAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGButtonAdd.m; sourceTree = "<group>"; };
 		4F68A8471826A308009E8FE7 /* HGTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGTask.h; sourceTree = "<group>"; };
 		4F68A8481826A308009E8FE7 /* HGTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGTask.m; sourceTree = "<group>"; };
 		4F73FB69187320640004B856 /* icon-add-default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-add-default.png"; path = "Resources/icon-add-default.png"; sourceTree = "<group>"; };
@@ -287,6 +287,8 @@
 				4F10BEE01816EE090000C3A6 /* HGBackgroundView.m */,
 				4F7E5F9E180AF3DD003E54A8 /* HGStatusItemView.h */,
 				4F7E5F9F180AF3DD003E54A8 /* HGStatusItemView.m */,
+				4F5F818D188CFC7800D207D6 /* HGButtonAdd.h */,
+				4F5F818E188CFC7800D207D6 /* HGButtonAdd.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -300,8 +302,6 @@
 				4F10BEDB1816DA0B0000C3A6 /* HGMenuBarController.m */,
 				4F10BEE21817047A0000C3A6 /* HGPanelController.h */,
 				4F10BEE31817047A0000C3A6 /* HGPanelController.m */,
-				4F68A84418265C20009E8FE7 /* HGTableViewController.h */,
-				4F68A84518265C20009E8FE7 /* HGTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -437,8 +437,8 @@
 				4F10BEE11816EE090000C3A6 /* HGBackgroundView.m in Sources */,
 				4F7E5F74180AECC7003E54A8 /* HGAppDelegate.m in Sources */,
 				4F10BEE51817047A0000C3A6 /* HGPanelController.m in Sources */,
-				4F68A84618265C20009E8FE7 /* HGTableViewController.m in Sources */,
 				4F68A8491826A308009E8FE7 /* HGTask.m in Sources */,
+				4F5F818F188CFC7800D207D6 /* HGButtonAdd.m in Sources */,
 				4F7E5F7A180AECC7003E54A8 /* hourglass.xcdatamodeld in Sources */,
 				4F7E5F9D180AF0E8003E54A8 /* HGPanel.m in Sources */,
 			);

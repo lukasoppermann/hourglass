@@ -13,8 +13,59 @@
 -(id) init {
     if(self = [super init]) {
         _tasklabel = @"tasklabel";
+        _totalTime = @"--:--";
+        _TimingSessions = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (void)startTimer {
+        NSLog(@"Gestartet");
+        if ([_totalTime  isEqual: @"--:--"])
+        [self setTotalTime:@"00:00"];
+    
+        MinuteTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                          target:self
+                                                        selector:@selector(addMinute:)
+                                                        userInfo:nil
+                                                         repeats:YES];
+    
+}
+
+-(void) addMinute:(NSTimer *)timer {
+    NSNumber* SixtyWrapped = [NSNumber numberWithInt:60];
+    
+    [_TimingSessions addObject:SixtyWrapped];
+    [self updateTotalTime];
+
+}
+
+-(void)stopTimer {
+    NSLog(@"Gestoppt");
+    
+    [MinuteTimer invalidate];
+    
+    [self updateTotalTime];
+}
+
+-(void)updateTotalTime {
+    NSInteger sum = 0;
+    for (NSNumber *num in _TimingSessions)
+    {
+        sum += [num intValue];
+    }
+    
+    int seconds = (sum) % 60;
+    int minutes = ((sum - seconds) / 60) % 60;
+    int hours = (sum - seconds - 60 * minutes) % 3600;
+    
+    [self setTotalTime:[NSString stringWithFormat:@"%.2d:%.2d", hours,
+                        minutes]];
+
+}
+
+-(BOOL) hasActiveTimer {
+    return [MinuteTimer isValid];
 }
 
 @end

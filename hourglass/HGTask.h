@@ -8,8 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HGTask : NSObject
+@interface HGTask : NSObject {
+    NSTimer *MinuteTimer;
+}
 
 @property (nonatomic, strong, readwrite) NSString *tasklabel;
+@property (nonatomic, strong, readwrite) NSString *totalTime;
+@property (nonatomic, strong, readwrite) NSMutableArray *TimingSessions;
+
+-(void) startTimer;
+-(void) stopTimer;
+-(BOOL) hasActiveTimer;
 
 @end

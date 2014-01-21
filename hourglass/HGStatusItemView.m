@@ -21,7 +21,11 @@
     if (self != nil) {
         _statusItem = statusItem;
         _statusItem.view = self;
+        _statusContent = @"--:--";
     }
+    
+    [self addObserver:self forKeyPath:@"statusContent" options:NSKeyValueObservingOptionNew context:NULL];
+    
     return self;
 }
 
@@ -29,30 +33,23 @@
 - (void)drawRect:(NSRect)dirtyRect {
     [[self statusItem] drawStatusBarBackgroundInRect:dirtyRect withHighlight:[self isHighlighted]];
     
-    NSString *content = @"00:00";
-    NSBundle *bundle = [NSBundle mainBundle];
-        NSImage *statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"menu-bar-icon" ofType:@"png"]];
-   
+    NSImage *statusImage = [NSImage imageNamed:@"menu-bar-icon.png"];
     
-    if( _isHighlighted == TRUE )
-    {
-        statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"menu-bar-icon-highlight" ofType:@"png"]];
-    }
-    
-    
+    NSString *content = _statusContent;
     NSFont *msgFont = [NSFont menuBarFontOfSize:0]; //return default size
-    
     NSColor *textColor = [NSColor controlTextColor];
-    if (_isHighlighted) {
-        textColor = [NSColor selectedMenuItemTextColor];
-    }
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     [paraStyle setParagraphStyle:[NSParagraphStyle defaultParagraphStyle]];
-//    [paraStyle setParagraphSpacing: 0.0];
-//    [paraStyle setTailIndent: 0.0];
     [paraStyle setAlignment:NSLeftTextAlignment];
     [paraStyle setLineBreakMode:NSLineBreakByTruncatingTail];
+
+    
+    if (_isHighlighted) {
+        textColor = [NSColor selectedMenuItemTextColor];
+        statusImage = [NSImage imageNamed:@"menu-bar-icon-highlight.png"];
+        
+    }
     
     NSMutableDictionary *msgAttrs = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                      msgFont, NSFontAttributeName,
@@ -69,8 +66,7 @@
     statusImgRect.origin.y = 2;
     
     [content drawInRect:statusRect withAttributes:msgAttrs];
-    [statusImage drawInRect:statusImgRect];
-    
+    [statusImage drawInRect:statusImgRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
@@ -88,6 +84,13 @@
     NSRect frame = [self frame];
     frame.origin = [[self window] convertBaseToScreen:frame.origin];
     return frame;
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath
+                       ofObject:(id)object
+                         change:(NSDictionary *)change
+                        context:(void *)context {
+    [self setNeedsDisplay:YES];
 }
 
 @end

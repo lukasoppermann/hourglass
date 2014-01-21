@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import "HGBackgroundView.h"
 #import "HGStatusItemView.h"
-#import "HGTableViewController.h"
 
 #define POPUP_HEIGHT 600
 #define PANEL_WIDTH 400
@@ -33,16 +32,16 @@
 
 @interface HGPanelController : NSWindowController <NSWindowDelegate, NSTableViewDataSource, NSTableViewDelegate> {
     IBOutlet NSTableView *HGTableView;
+    HGStatusItemView *statusItemView;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet HGBackgroundView *backgroundView;
-@property (nonatomic, unsafe_unretained) IBOutlet NSButton *buttonadd;
-@property (nonatomic, unsafe_unretained) IBOutlet NSButton *buttonlist;
+@property (strong) IBOutlet NSButton *buttonadd;
+@property (strong) IBOutlet NSButton *buttonlist;
+@property (strong) IBOutlet NSButton *buttonstartstop;
 @property (nonatomic, unsafe_unretained) IBOutlet NSScrollView *tableView;
 @property NSMutableArray *tasks;
 @property (strong) IBOutlet NSArrayController *arrayController;
-
-
 
 @property (nonatomic) BOOL hasActivePanel;
 @property (nonatomic, unsafe_unretained, readonly) id<HGPanelControllerDelegate> delegate;
@@ -56,5 +55,6 @@
 - (IBAction)buttonAdd:(id)sender;
 - (IBAction)buttonDelete:(id)sender;
 
-//@property (strong) IBOutlet NSArrayController *ArrayController;
+- (IBAction)startStopTimer:(id)sender;
+
 @end
