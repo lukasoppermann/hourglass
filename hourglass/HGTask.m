@@ -24,7 +24,7 @@
         if ([_totalTime  isEqual: @"--:--"])
         [self setTotalTime:@"00:00"];
     
-        MinuteTimer = [NSTimer scheduledTimerWithTimeInterval:1
+        MinuteTimer = [NSTimer scheduledTimerWithTimeInterval:60
                                                           target:self
                                                         selector:@selector(addMinute:)
                                                         userInfo:nil
@@ -57,10 +57,11 @@
     
     int seconds = (sum) % 60;
     int minutes = ((sum - seconds) / 60) % 60;
-    int hours = (sum - seconds - 60 * minutes) % 3600;
+    int hours = (int)(sum - seconds - 60 * minutes) / 3600;
     
     [self setTotalTime:[NSString stringWithFormat:@"%.2d:%.2d", hours,
                         minutes]];
+    NSLog(@"hours:%d, minutes:%d, seconds:%d, sum:%ld", hours, minutes, seconds, (long)sum);
 
 }
 
