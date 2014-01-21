@@ -237,7 +237,7 @@
 //not working        [sender setImage:[NSImage imageNamed:@"icon-play-active.png"]];
     } else {
         if (anyActive) {
-            [activeTimer stopTimer];
+            [activeTimer stopTimer];            
         }
         [[_tasks objectAtIndex:row] startTimer];
 //not working        [sender setImage:[NSImage imageNamed:@"icon-play-passive.png"]];
