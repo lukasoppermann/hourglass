@@ -46,8 +46,11 @@
     
     if (_isHighlighted) {
         textColor = [NSColor selectedMenuItemTextColor];
-//        if (!_isTiming)
+        if (!_isTiming) {
             statusImage = [NSImage imageNamed:@"menu-bar-icon-highlight.png"];
+        } else {
+            statusImage = [NSImage imageNamed:@"menu-bar-icon-active-highlight.png"];
+        }
     }
     
     if (_isTiming) {
