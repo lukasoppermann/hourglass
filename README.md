@@ -1,7 +1,22 @@
 hourglass
 =========
+_simple task management._
 
-simple task management.
+### Why should people buy hourglass (benefit)
+
+- makes tracking todos deadly simple
+- makes tracking time spent on todos deadly simple
+
+
+
+
+
+
+## The app
+
+![hourglass redesign](https://f.cloud.github.com/assets/813754/1851898/14735bd4-76f1-11e3-99f4-54b462460f9c.png)
+
+
 
 ## Cocoa Tutorials
 
@@ -19,6 +34,3 @@ https://github.com/search?l=Objective-C&nwo=Cocoanetics%2FDDUtils&q=cocoa&ref=cm
 
 https://github.com/jnozzi/cocoadev.com/tree/master/markdown
 
-## The app
-
-![hourglass redesign](https://f.cloud.github.com/assets/813754/1851898/14735bd4-76f1-11e3-99f4-54b462460f9c.png)
