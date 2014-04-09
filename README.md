@@ -6,7 +6,7 @@ _simple task management._
 
 People buy hourglass because ...
 
-they can focus on what they do (actualy work) & not on managing their work.
+**they can focus on what they do (actualy work) & not on managing their work.**
   - makes tracking todos deadly simple
   - makes tracking time spent on todos deadly simple
 
