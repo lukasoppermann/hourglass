@@ -16,8 +16,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+
 }
+
+
+
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "hg.hourglass" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory
@@ -113,6 +116,7 @@
 
     return _managedObjectContext;
 }
+
 
 // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window
