@@ -81,7 +81,6 @@ if( $('#chrome').hasClass('title-passive') )
 	$('#projects_view').find('.view-content').sortable({
 		placeholder: "project-sort-placeholder",
 		forcePlaceholderSize: "forcePlaceholderSize",
-		containment: ".view-content",
 		distance: 5,
 		items: '.item',
 		sort: function(){
