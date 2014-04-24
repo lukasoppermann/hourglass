@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CA3B3081909BF0500DFCE33 /* UIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA3B3071909BF0500DFCE33 /* UIController.m */; };
 		8CC523E3190506F50031E367 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC523E2190506F50031E367 /* Cocoa.framework */; };
 		8CC523ED190506F50031E367 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CC523EB190506F50031E367 /* InfoPlist.strings */; };
 		8CC523EF190506F50031E367 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC523EE190506F50031E367 /* main.m */; };
@@ -51,7 +52,6 @@
 		8CC5245A19055E080031E367 /* TableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC5245919055E080031E367 /* TableCellView.m */; };
 		8CC5245D1905844D0031E367 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC5245C1905844D0031E367 /* Task.m */; };
 		8CC524601905844D0031E367 /* Subtask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC5245F1905844D0031E367 /* Subtask.m */; };
-		8CE78EAE19059103004DCB99 /* TableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE78EAC19059103004DCB99 /* TableDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8CA3B3061909BF0500DFCE33 /* UIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIController.h; sourceTree = "<group>"; };
+		8CA3B3071909BF0500DFCE33 /* UIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIController.m; sourceTree = "<group>"; };
 		8CC523DF190506F50031E367 /* hourglass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hourglass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC523E2190506F50031E367 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8CC523E5190506F50031E367 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -121,8 +123,6 @@
 		8CC5245C1905844D0031E367 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		8CC5245E1905844D0031E367 /* Subtask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subtask.h; sourceTree = "<group>"; };
 		8CC5245F1905844D0031E367 /* Subtask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subtask.m; sourceTree = "<group>"; };
-		8CE78EAB19059103004DCB99 /* TableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDelegate.h; sourceTree = "<group>"; };
-		8CE78EAC19059103004DCB99 /* TableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,8 +281,8 @@
 			children = (
 				8CC523F4190506F50031E367 /* AppDelegate.h */,
 				8CC523F5190506F50031E367 /* AppDelegate.m */,
-				8CE78EAB19059103004DCB99 /* TableDelegate.h */,
-				8CE78EAC19059103004DCB99 /* TableDelegate.m */,
+				8CA3B3061909BF0500DFCE33 /* UIController.h */,
+				8CA3B3071909BF0500DFCE33 /* UIController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -428,9 +428,9 @@
 				8CC523F6190506F50031E367 /* AppDelegate.m in Sources */,
 				8CC52455190514F70031E367 /* UI.m in Sources */,
 				8CC523EF190506F50031E367 /* main.m in Sources */,
+				8CA3B3081909BF0500DFCE33 /* UIController.m in Sources */,
 				8CC5245A19055E080031E367 /* TableCellView.m in Sources */,
 				8CC5245D1905844D0031E367 /* Task.m in Sources */,
-				8CE78EAE19059103004DCB99 /* TableDelegate.m in Sources */,
 				8CC523FC190506F50031E367 /* hourglass.xcdatamodeld in Sources */,
 				8CC524601905844D0031E367 /* Subtask.m in Sources */,
 			);

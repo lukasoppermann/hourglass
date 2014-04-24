@@ -19,9 +19,13 @@
 
 }
 
+#pragma WindowController Methods
+- (BOOL)isEditing {
+    return [[self.window firstResponder] isKindOfClass:[NSText class]];
+}
 
 
-
+#pragma Managed Object Context
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "hg.hourglass" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory
 {
@@ -138,6 +142,8 @@
     }
 }
 
+
+#pragma Terminate Action
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
     // Save changes in the application's managed object context before the application terminates.

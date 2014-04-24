@@ -18,4 +18,8 @@
 
 - (IBAction)saveAction:(id)sender;
 
+
+#pragma WindowController Methods
+- (BOOL)isEditing;
+
 @end
