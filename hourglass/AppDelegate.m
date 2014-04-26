@@ -13,17 +13,48 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize UIController = _UIController;
+
+
+void *kContextActivePanel = &kContextActivePanel;
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == kContextActivePanel) {
+        [[self menuBarController] setHasActiveIcon: [[self UIController] hasActivePanel]];
+    }
+    else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-
+    [self setMenuBarController:[[MenubarController alloc] init]];
 }
+
+- (IBAction)togglePanel:(id)sender {
+    [[self menuBarController] setHasActiveIcon: ![[self menuBarController] hasActiveIcon]];
+    [[self UIController] setHasActivePanel: [[self menuBarController] hasActiveIcon]];
+}
+
+- (UIController *)UIController {
+    if (_UIController == nil) {
+        _UIController = [[UIController alloc] initWithDelegate:self];
+        [_UIController addObserver:self forKeyPath:@"hasActivePanel" options:0 context:kContextActivePanel];
+    }
+    return _UIController;
+}
+
+- (StatusItemView *)statusItemViewForPanelController:(UIController *)controller {
+    return [[self menuBarController] statusItemView];
+}
+
 
 #pragma WindowController Methods
 - (BOOL)isEditing {
     return [[self.window firstResponder] isKindOfClass:[NSText class]];
 }
-
 
 #pragma Managed Object Context
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "hg.hourglass" in the user's Application Support directory.

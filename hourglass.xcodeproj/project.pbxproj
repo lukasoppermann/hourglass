@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8CA3B3081909BF0500DFCE33 /* UIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA3B3071909BF0500DFCE33 /* UIController.m */; };
+		8CA68954190B020E003918FA /* RFOverlayScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA68953190B020E003918FA /* RFOverlayScrollView.m */; };
+		8CA68957190B0218003918FA /* RFOverlayScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA68956190B0218003918FA /* RFOverlayScroller.m */; };
+		8CA6895A190B0353003918FA /* StatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA68959190B0353003918FA /* StatusItemView.m */; };
+		8CA6895E190B08A7003918FA /* MenubarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA6895D190B08A7003918FA /* MenubarController.m */; };
+		8CA68961190B1146003918FA /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA68960190B1146003918FA /* BackgroundView.m */; };
 		8CC523E3190506F50031E367 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC523E2190506F50031E367 /* Cocoa.framework */; };
 		8CC523ED190506F50031E367 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CC523EB190506F50031E367 /* InfoPlist.strings */; };
 		8CC523EF190506F50031E367 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC523EE190506F50031E367 /* main.m */; };
@@ -67,6 +72,17 @@
 /* Begin PBXFileReference section */
 		8CA3B3061909BF0500DFCE33 /* UIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIController.h; sourceTree = "<group>"; };
 		8CA3B3071909BF0500DFCE33 /* UIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIController.m; sourceTree = "<group>"; };
+		8CA68952190B020E003918FA /* RFOverlayScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFOverlayScrollView.h; sourceTree = "<group>"; };
+		8CA68953190B020E003918FA /* RFOverlayScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFOverlayScrollView.m; sourceTree = "<group>"; };
+		8CA68955190B0218003918FA /* RFOverlayScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFOverlayScroller.h; sourceTree = "<group>"; };
+		8CA68956190B0218003918FA /* RFOverlayScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFOverlayScroller.m; sourceTree = "<group>"; };
+		8CA68958190B0353003918FA /* StatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemView.h; sourceTree = "<group>"; };
+		8CA68959190B0353003918FA /* StatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemView.m; sourceTree = "<group>"; };
+		8CA6895B190B086A003918FA /* GlobalProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalProperties.h; sourceTree = "<group>"; };
+		8CA6895C190B08A7003918FA /* MenubarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenubarController.h; sourceTree = "<group>"; };
+		8CA6895D190B08A7003918FA /* MenubarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenubarController.m; sourceTree = "<group>"; };
+		8CA6895F190B1146003918FA /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
+		8CA68960190B1146003918FA /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
 		8CC523DF190506F50031E367 /* hourglass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hourglass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC523E2190506F50031E367 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8CC523E5190506F50031E367 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -231,11 +247,17 @@
 		8CC52452190514C90031E367 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8CA68952190B020E003918FA /* RFOverlayScrollView.h */,
+				8CA68953190B020E003918FA /* RFOverlayScrollView.m */,
 				8CC523F7190506F50031E367 /* UI.xib */,
 				8CC52453190514F70031E367 /* UI.h */,
 				8CC52454190514F70031E367 /* UI.m */,
 				8CC5245819055E080031E367 /* TableCellView.h */,
 				8CC5245919055E080031E367 /* TableCellView.m */,
+				8CA68958190B0353003918FA /* StatusItemView.h */,
+				8CA68959190B0353003918FA /* StatusItemView.m */,
+				8CA6895F190B1146003918FA /* BackgroundView.h */,
+				8CA68960190B1146003918FA /* BackgroundView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -243,10 +265,14 @@
 		8CC524561905165F0031E367 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8CA68955190B0218003918FA /* RFOverlayScroller.h */,
+				8CA68956190B0218003918FA /* RFOverlayScroller.m */,
 				8CC523F4190506F50031E367 /* AppDelegate.h */,
 				8CC523F5190506F50031E367 /* AppDelegate.m */,
 				8CA3B3061909BF0500DFCE33 /* UIController.h */,
 				8CA3B3071909BF0500DFCE33 /* UIController.m */,
+				8CA6895C190B08A7003918FA /* MenubarController.h */,
+				8CA6895D190B08A7003918FA /* MenubarController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -294,6 +320,7 @@
 				8CE6BE0A190A2C860017C7FC /* menu-bar-icon-active.png */,
 				8CE6BE0B190A2C860017C7FC /* menu-bar-icon-highlight.png */,
 				8CE6BE0C190A2C860017C7FC /* menu-bar-icon.png */,
+				8CA6895B190B086A003918FA /* GlobalProperties.h */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -424,11 +451,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CA6895A190B0353003918FA /* StatusItemView.m in Sources */,
 				8CC523F6190506F50031E367 /* AppDelegate.m in Sources */,
 				8CC52455190514F70031E367 /* UI.m in Sources */,
+				8CA68957190B0218003918FA /* RFOverlayScroller.m in Sources */,
 				8CC523EF190506F50031E367 /* main.m in Sources */,
+				8CA68954190B020E003918FA /* RFOverlayScrollView.m in Sources */,
 				8CA3B3081909BF0500DFCE33 /* UIController.m in Sources */,
 				8CC5245A19055E080031E367 /* TableCellView.m in Sources */,
+				8CA6895E190B08A7003918FA /* MenubarController.m in Sources */,
+				8CA68961190B1146003918FA /* BackgroundView.m in Sources */,
 				8CC5245D1905844D0031E367 /* Task.m in Sources */,
 				8CC523FC190506F50031E367 /* hourglass.xcdatamodeld in Sources */,
 				8CC524601905844D0031E367 /* Subtask.m in Sources */,

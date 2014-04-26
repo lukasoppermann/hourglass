@@ -16,6 +16,9 @@
             <connections>
                 <outlet property="TableView" destination="sb1-yR-dwg" id="KUh-jh-FRa"/>
                 <outlet property="Tasks" destination="3PY-bd-hxC" id="Mo1-9A-QGB"/>
+                <outlet property="backgroundView" destination="dZd-VX-hhw" id="7B3-HF-5Ac"/>
+                <outlet property="buttonadd" destination="Eup-rf-9P2" id="8iD-mz-4tS"/>
+                <outlet property="tableScrollView" destination="4dG-Q6-ycX" id="eZZ-oh-tNM"/>
                 <outlet property="window" destination="sAq-wj-ZiM" id="jZI-j8-O8L"/>
             </connections>
         </customObject>
@@ -36,7 +39,7 @@
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="120" y="65" width="275" height="387"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
-            <view key="contentView" wantsLayer="YES" id="dZd-VX-hhw">
+            <view key="contentView" wantsLayer="YES" id="dZd-VX-hhw" customClass="BackgroundView">
                 <rect key="frame" x="0.0" y="0.0" width="275" height="387"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -51,7 +54,7 @@
                             <action selector="add:" target="3PY-bd-hxC" id="LNU-GN-wBb"/>
                         </connections>
                     </button>
-                    <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="37" horizontalPageScroll="10" verticalLineScroll="37" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dG-Q6-ycX">
+                    <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="37" horizontalPageScroll="10" verticalLineScroll="37" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dG-Q6-ycX" customClass="RFOverlayScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="275" height="352"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" copiesOnScroll="NO" id="Gtp-1E-6gF">
@@ -139,25 +142,14 @@
                             <color key="backgroundColor" red="0.22352942824363708" green="0.23529413342475891" blue="0.25098040699958801" alpha="1" colorSpace="deviceRGB"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="T4G-dL-qhh">
-                            <rect key="frame" x="0.0" y="-16" width="0.0" height="16"/>
+                            <rect key="frame" x="-100" y="-100" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="N6Q-jw-lBJ">
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="N6Q-jw-lBJ" customClass="RFOverlayScroller">
                             <rect key="frame" x="-100" y="-100" width="16" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WzV-Nf-12t">
-                        <rect key="frame" x="218" y="360" width="19" height="19"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon-delete-passive" imagePosition="overlaps" alignment="center" alternateImage="icon-delete-active" state="on" imageScaling="proportionallyDown" inset="2" id="5fK-1m-js5">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="remove:" target="3PY-bd-hxC" id="UX6-MB-Ktc"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <connections>

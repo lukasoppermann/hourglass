@@ -7,8 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MenubarController.h"
+#import "UIController.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, UIControllerDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 
@@ -16,8 +18,11 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-- (IBAction)saveAction:(id)sender;
+@property (readwrite, strong, nonatomic) MenubarController *menuBarController;
+@property (nonatomic, strong, readonly) UIController *UIController;
 
+- (IBAction)saveAction:(id)sender;
+- (IBAction)togglePanel:(id)sender;
 
 #pragma WindowController Methods
 - (BOOL)isEditing;
