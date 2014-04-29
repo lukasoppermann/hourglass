@@ -14,10 +14,10 @@
     // because the window is borderless, we have to make it active
     return YES;
 }
-
-- (BOOL)canBecomeMainWindow {
-    // because the window is borderless, we have to make it active
-    return YES;
-}
+//
+//- (BOOL)canBecomeMainWindow {
+//    // because the window is borderless, we have to make it active
+//    return YES;
+//}
 
 @end

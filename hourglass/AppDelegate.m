@@ -35,7 +35,7 @@ void *kContextActivePanel = &kContextActivePanel;
 
 - (IBAction)togglePanel:(id)sender {
     [[self menuBarController] setHasActiveIcon: ![[self menuBarController] hasActiveIcon]];
-    [[self UIController] setHasActivePanel: [[self menuBarController] hasActiveIcon]];
+//    [[self UIController] setHasActivePanel: [[self menuBarController] hasActiveIcon]];
 }
 
 - (UIController *)UIController {
@@ -46,7 +46,7 @@ void *kContextActivePanel = &kContextActivePanel;
     return _UIController;
 }
 
-- (StatusItemView *)statusItemViewForPanelController:(UIController *)controller {
+- (StatusItemView *)statusItemViewForUIController:(UIController *)controller {
     return [[self menuBarController] statusItemView];
 }
 

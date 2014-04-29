@@ -26,7 +26,6 @@
 		8CC5240E190506F50031E367 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CC5240C190506F50031E367 /* InfoPlist.strings */; };
 		8CC52410190506F50031E367 /* hourglassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC5240F190506F50031E367 /* hourglassTests.m */; };
 		8CC52455190514F70031E367 /* UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC52454190514F70031E367 /* UI.m */; };
-		8CC5245A19055E080031E367 /* TableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC5245919055E080031E367 /* TableCellView.m */; };
 		8CC5245D1905844D0031E367 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC5245C1905844D0031E367 /* Task.m */; };
 		8CC524601905844D0031E367 /* Subtask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC5245F1905844D0031E367 /* Subtask.m */; };
 		8CE6BE0D190A2C860017C7FC /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CE6BDF1190A2C860017C7FC /* appicon.png */; };
@@ -105,8 +104,6 @@
 		8CC5240F190506F50031E367 /* hourglassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hourglassTests.m; sourceTree = "<group>"; };
 		8CC52453190514F70031E367 /* UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI.h; sourceTree = "<group>"; };
 		8CC52454190514F70031E367 /* UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UI.m; sourceTree = "<group>"; };
-		8CC5245819055E080031E367 /* TableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellView.h; sourceTree = "<group>"; };
-		8CC5245919055E080031E367 /* TableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCellView.m; sourceTree = "<group>"; };
 		8CC5245B1905844D0031E367 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		8CC5245C1905844D0031E367 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		8CC5245E1905844D0031E367 /* Subtask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subtask.h; sourceTree = "<group>"; };
@@ -252,8 +249,6 @@
 				8CC523F7190506F50031E367 /* UI.xib */,
 				8CC52453190514F70031E367 /* UI.h */,
 				8CC52454190514F70031E367 /* UI.m */,
-				8CC5245819055E080031E367 /* TableCellView.h */,
-				8CC5245919055E080031E367 /* TableCellView.m */,
 				8CA68958190B0353003918FA /* StatusItemView.h */,
 				8CA68959190B0353003918FA /* StatusItemView.m */,
 				8CA6895F190B1146003918FA /* BackgroundView.h */,
@@ -458,7 +453,6 @@
 				8CC523EF190506F50031E367 /* main.m in Sources */,
 				8CA68954190B020E003918FA /* RFOverlayScrollView.m in Sources */,
 				8CA3B3081909BF0500DFCE33 /* UIController.m in Sources */,
-				8CC5245A19055E080031E367 /* TableCellView.m in Sources */,
 				8CA6895E190B08A7003918FA /* MenubarController.m in Sources */,
 				8CA68961190B1146003918FA /* BackgroundView.m in Sources */,
 				8CC5245D1905844D0031E367 /* Task.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "StatusItemView.h"
+#import "AppDelegate.h"
 
 @implementation StatusItemView
 
@@ -77,6 +78,7 @@
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
+    NSLog(@"StatusItem clicked");
     [NSApp sendAction:self.action to:self.target from:self];
 }
 

@@ -252,5 +252,11 @@
     rowView.backgroundColor = [self colorForIndex:row];
 }
 
+- (void) observeValueForKeyPath:(NSString *)keyPath
+                       ofObject:(id)object
+                         change:(NSDictionary *)change
+                        context:(void *)context {
+    [statusItemView setStatusContent:[object valueForKeyPath:keyPath]];
+}
 
 @end
